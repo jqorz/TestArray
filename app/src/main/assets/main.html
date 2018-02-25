@@ -1,0 +1,43 @@
+<html>
+<script language="javascript">
+
+    function wave() {
+        <!-- 这里是一个javascript 自定义函数，这是由我们在android的程序里调用的，不在在HTML中调用-->
+        var img = document.getElementById("droid");
+
+        if(img.src.indexOf("pic2.jpg") != -1)
+        {
+            img.src = "pic.jpg"
+        }
+        else
+        {
+            img.src = "pic2.jpg"
+        }
+        document.getElementById("info").innerText=img.src;
+
+    }
+
+
+
+
+</script>
+<body>
+<!-- Calls into the javascript interface for the activity -->
+<!-- 从HTML文件中调用activity中的函数 -->
+<!-- 也就是从HTML到android程序 留意window.demo.clickOnAndroid()这句话 -->
+<div id="info"></div>
+<a onClick="wave()">
+    <div style="
+                        margin:0px auto;
+                        padding:10px;
+                        text-align:center;
+                        border:2px solid #202020;">
+        <!-- 图片默认的为 android_normal.png -->
+        <img id="droid"   src="pic.jpg"/><br>
+        Click me!
+    </div>
+
+</a>
+<br>
+</body>
+</html>
