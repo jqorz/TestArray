@@ -19,12 +19,12 @@ import android.view.View;
 public class WriteView1 extends View {
     private static final float TOUCH_TOLERANCE = 4;
     // 画笔，定义绘制属性
-    private Paint myPaint;
+    private Paint mPaint;
     // 绘制路径
-    private Path myPath;
+    private Path mPath;
     // 画布及其底层位图
-    private Bitmap myBitmap;
-    private Canvas myCanvas;
+    private Bitmap mBitmap;
+    private Canvas mCanvas;
     private float mX, mY;
 
 
@@ -40,25 +40,25 @@ public class WriteView1 extends View {
     private void initialize() {
 
         // 绘制自由曲线用的画笔
-        myPaint = new Paint();
-        myPaint.setAntiAlias(true);
-        myPaint.setDither(true);
-        myPaint.setColor(Color.BLACK);
-        myPaint.setStyle(Paint.Style.STROKE);
-        myPaint.setStrokeJoin(Paint.Join.ROUND);//设置圆弧连接
-        myPaint.setStrokeCap(Paint.Cap.ROUND);//设置圆线帽
-        myPaint.setStrokeWidth(12);
-        myPaint.setPathEffect(new CornerPathEffect(5));
+        mPaint = new Paint();
+        mPaint.setAntiAlias(true);
+        mPaint.setDither(true);
+        mPaint.setColor(Color.BLACK);
+        mPaint.setStyle(Paint.Style.STROKE);
+        mPaint.setStrokeJoin(Paint.Join.ROUND);//设置圆弧连接
+        mPaint.setStrokeCap(Paint.Cap.ROUND);//设置圆线帽
+        mPaint.setStrokeWidth(12);
+        mPaint.setPathEffect(new CornerPathEffect(5));
 
-        myPath = new Path();
+        mPath = new Path();
 
     }
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
-        myBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
-        myCanvas = new Canvas(myBitmap);//绘制Bitamp的画布对象
+        mBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
+        mCanvas = new Canvas(mBitmap);//绘制Bitamp的画布对象
     }
 
     @Override
@@ -88,34 +88,34 @@ public class WriteView1 extends View {
         super.onDraw(canvas);
 
         //如果不现在自己的Bitmap上绘制一层颜色，会出现锯齿
-        myCanvas.drawColor(Color.WHITE);
+        mCanvas.drawColor(Color.WHITE);
         //将路径绘制在自己的Bitmap上
-        myCanvas.drawPath(myPath, myPaint);
+        mCanvas.drawPath(mPath, mPaint);
         //将Bitmap绘制到界面上
-        canvas.drawBitmap(myBitmap, 0, 0, myPaint);
+        canvas.drawBitmap(mBitmap, 0, 0, mPaint);
 
         // 直接绘制路径
-//        canvas.drawPath(myPath, myPaint);
+//        canvas.drawPath(mPath, mPaint);
     }
 
 
     private void touch_start(float x, float y) {
-        myPath.moveTo(x, y);
+        mPath.moveTo(x, y);
         mX = x;
         mY = y;
     }
 
     private void touch_move(float x, float y) {
         if (getUsefulPoint(x, y, mX, mY)) {
-            myPath.quadTo(mX, mY, (x + mX) / 2, (y + mY) / 2);
-//            myPath.quadTo((x + 2 * mX) / 3f, (y + 2 * mY) / 3f, (x + mX) / 2, (y + mY) / 2);
+            mPath.quadTo(mX, mY, (x + mX) / 2, (y + mY) / 2);
+//            mPath.quadTo((x + 2 * mX) / 3f, (y + 2 * mY) / 3f, (x + mX) / 2, (y + mY) / 2);
             mX = x;
             mY = y;
         }
     }
 
     private void touch_up() {
-        myPath.lineTo(mX, mY);
+        mPath.lineTo(mX, mY);
     }
 
     /**
@@ -130,14 +130,15 @@ public class WriteView1 extends View {
      */
     public void clear() {
         // 清除方法1：重新生成位图
-        // myBitmap = Bitmap
+        // mBitmap = Bitmap
         // .createBitmap(mWidth, mHeight, Bitmap.Config.ARGB_8888);
-        // myCanvas = new Canvas(myBitmap);
+        // mCanvas = new Canvas(mBitmap);
         // 清除方法2：将位图清除为白色
-        myBitmap.eraseColor(Color.TRANSPARENT);
+        if (mBitmap != null)
+            mBitmap.eraseColor(Color.TRANSPARENT);
         // 两种清除方法都必须加上后面这两步：
         // 路径重置
-        myPath.reset();
+        mPath.reset();
         // 刷新绘制
         invalidate();
     }

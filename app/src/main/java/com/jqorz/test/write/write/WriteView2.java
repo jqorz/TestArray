@@ -214,7 +214,8 @@ public class WriteView2 extends View {
         // .createBitmap(mWidth, mHeight, Bitmap.Config.ARGB_8888);
         // mCanvas = new Canvas(mBitmap);
         // 清除方法2：将位图清除为白色
-        mBitmap.eraseColor(Color.WHITE);
+        if (mBitmap != null)
+            mBitmap.eraseColor(Color.WHITE);
         // 两种清除方法都必须加上后面这两步：
         // 路径重置
         mPath.reset();

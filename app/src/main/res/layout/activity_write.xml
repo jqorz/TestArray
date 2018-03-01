@@ -25,23 +25,30 @@
         <View
             android:layout_width="2dp"
             android:layout_height="match_parent"
-            android:background="#000000" />
+
+            android:background="#000000"
+            android:visibility="gone" />
 
         <com.jqorz.test.write.write.WriteView1
             android:id="@+id/mWriteView1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:visibility="gone" />
 
         <View
             android:layout_width="2dp"
             android:layout_height="match_parent"
-            android:background="#000000" />
+
+            android:background="#000000"
+            android:visibility="gone" />
 
         <com.jqorz.test.write.write.WriteView2
             android:id="@+id/mWriteView2"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1" />
+
+            android:layout_weight="1"
+            android:visibility="gone" />
     </LinearLayout>
 </RelativeLayout>

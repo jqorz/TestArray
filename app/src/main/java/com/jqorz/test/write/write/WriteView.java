@@ -4,22 +4,23 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.CornerPathEffect;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.PixelFormat;
 import android.graphics.PointF;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
 import android.view.VelocityTracker;
-import android.view.View;
 
 
 /**
  * 用于测试可变粗细的圆滑画笔
  */
-public class WriteView extends View {
-    private static final float TOUCH_TOLERANCE = 1;
+public class WriteView extends SurfaceView implements SurfaceHolder.Callback {
+    private static final float TOUCH_TOLERANCE = 5.5f;
     // 画笔，定义绘制属性
     private Paint mPaint;
     // 绘制路径
@@ -27,7 +28,10 @@ public class WriteView extends View {
     // 画布及其底层位图
     private Bitmap mBitmap;
     private Canvas mCanvas;
-    private float paintWidthPrevious = 12f;
+    private float paintWidthPrevious;//缓存上个path的画笔宽度
+    private boolean isNew = true;//标记，如果是新的一笔，则不需要画笔渐变
+
+    private SurfaceHolder surfaceHolder;
 
     private PointF point_last, point_middle;
 
@@ -35,14 +39,16 @@ public class WriteView extends View {
 
     public WriteView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        initialize();
+        this.setZOrderOnTop(true);
+        this.getHolder().setFormat(PixelFormat.TRANSLUCENT);//去掉SurfaceView默认黑色背景
+        init();
     }
 
 
     /**
      * 初始化工作
      */
-    private void initialize() {
+    private void init() {
 
         // 绘制自由曲线用的画笔
         mPaint = new Paint();
@@ -50,16 +56,18 @@ public class WriteView extends View {
         mPaint.setDither(true);
         mPaint.setColor(Color.BLACK);
         mPaint.setStyle(Paint.Style.STROKE);
-        mPaint.setStrokeJoin(Paint.Join.ROUND);//设置圆弧连接
+//        mPaint.setStrokeJoin(Paint.Join.ROUND);//设置圆弧连接
         mPaint.setStrokeCap(Paint.Cap.ROUND);//设置圆线帽
         mPaint.setStrokeWidth(12);
-        mPaint.setPathEffect(new CornerPathEffect(5));
+//        mPaint.setPathEffect(new CornerPathEffect(5));
 
         mPath = new Path();
 
         point_last = new PointF(0, 0);
         point_middle = new PointF(0, 0);
 
+        surfaceHolder = getHolder();
+        surfaceHolder.addCallback(this);
     }
 
     @Override
@@ -83,7 +91,7 @@ public class WriteView extends View {
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 touch_start(x, y);
-//                invalidate();
+                draw();
                 break;
             case MotionEvent.ACTION_MOVE:
                 mVelocityTracker.computeCurrentVelocity(10);
@@ -95,7 +103,9 @@ public class WriteView extends View {
                 break;
             case MotionEvent.ACTION_UP:
                 touch_up(x, y);
-                invalidate();
+                draw();
+                isNew = true;
+
                 break;
         }
         return true;
@@ -103,35 +113,37 @@ public class WriteView extends View {
 
     private float getPaintWidth(float speed) {
         Log.i("jq", "speed = " + speed);
-        float max_width = 25f;
-        float min_width = 8f;
+        float max_width = 15f;
+        float min_width = 3f;
 
-        float max_dif = 0.15f;
+        float max_dif = 0.35f;//0.35f较为合适
 
         float max_speed = 30f;
-        float min_speed = 0.5f;
+        float min_speed = 1.5f;
 
         float width;
 
         speed = Math.max(min_speed, speed);
         speed = Math.min(max_speed, speed);
 
-        //将 speed min_speed-max_speed 映射到 width min_width-max_width
-        width = (speed - min_speed) / (max_speed - min_speed) * (max_width - min_width) + min_width;
+        //将 speed (min_speed-max_speed) 映射到 (width min_width-max_width)
+//        width = (1 / (speed - min_speed) / (max_speed - min_speed)) * (max_width - min_width) + min_width;//反比例关系 速度越快 画笔越细
+        width = (speed - min_speed) / (max_speed - min_speed) * (max_width - min_width) + min_width;//正比例关系 速度越快 画笔越粗
 
         Log.i("jq", "width = " + width);
 
         width = Math.max(min_width, width);
         width = Math.min(max_width, width);
 
-        //宽度渐变
-        if (Math.abs(width - paintWidthPrevious) > max_dif) {
-            if (width > paintWidthPrevious)
-                width = paintWidthPrevious + max_dif;
-            else
-                width = paintWidthPrevious - max_dif;
+        if (!isNew) {//如果不是新的一笔，则进行宽度渐变
+            if (Math.abs(width - paintWidthPrevious) > max_dif) {
+                if (width > paintWidthPrevious)
+                    width = paintWidthPrevious + max_dif;
+                else
+                    width = paintWidthPrevious - max_dif;
+            }
         }
-        // printf("d:%.4f, time_diff:%lld, speed:%.4f, width:%.4f\n", d, e.t-b.t, s, w);
+        isNew = false;
         return width;
     }
 
@@ -139,10 +151,12 @@ public class WriteView extends View {
         return (float) Math.sqrt(Math.pow(xVelocity, 2) + (Math.pow(yVelocity, 2)));
     }
 
-    @Override
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
+    //    @Override
+//    protected void onDraw(Canvas canvas) {
+//        super.onDraw(canvas);
+    private void draw() {
 
+        Canvas canvas = surfaceHolder.lockCanvas();
         //将路径绘制在自己的Bitmap上
 
         mCanvas.drawPath(mPath, mPaint);
@@ -155,12 +169,11 @@ public class WriteView extends View {
 
         // 直接绘制路径
 //        canvas.drawPath(mPath, mPaint);
+        surfaceHolder.unlockCanvasAndPost(canvas);
     }
 
 
     private void touch_start(float x, float y) {
-//        mX = x;
-//        mY = y;
 
         mPath.moveTo(x, y);
 
@@ -183,7 +196,7 @@ public class WriteView extends View {
 
             point_middle.x = x;
             point_middle.y = y;
-            invalidate();
+            draw();
 
         }
 
@@ -217,4 +230,18 @@ public class WriteView extends View {
         invalidate();
     }
 
+    @Override
+    public void surfaceCreated(SurfaceHolder holder) {
+
+    }
+
+    @Override
+    public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
+
+    }
+
+    @Override
+    public void surfaceDestroyed(SurfaceHolder holder) {
+
+    }
 }
