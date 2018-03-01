@@ -13,7 +13,7 @@
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="match_parent">-->
         <!--</com.whosmyqueen.signdemo.view.SignView>-->
-        <com.jqorz.test.write.signpad.views.SignaturePad xmlns:android="http://schemas.android.com/apk/res/android"
+        <com.jqorz.test.sign.signpad.views.SignaturePad xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/signature_pad"
             android:layout_width="match_parent"

@@ -1,62 +1,43 @@
-package com.jqorz.test.write;
+package com.jqorz.test.write.write;
 
-import android.annotation.TargetApi;
 import android.content.Context;
-import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.CornerPathEffect;
 import android.graphics.Paint;
 import android.graphics.Path;
-import android.os.Build;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
 
-public class SignView extends View {
+/**
+ * 基本贝塞尔曲线实现原画笔迹
+ * 粗细固定
+ */
+public class WriteView1 extends View {
     private static final float TOUCH_TOLERANCE = 4;
-    private Resources myResources;
     // 画笔，定义绘制属性
     private Paint myPaint;
-    private Paint mBitmapPaint;
     // 绘制路径
     private Path myPath;
     // 画布及其底层位图
     private Bitmap myBitmap;
     private Canvas myCanvas;
     private float mX, mY;
-    // 记录宽度和高度
-    private int mWidth;
-    private int mHeight;
 
-    public SignView(Context context) {
-        super(context);
-        initialize();
-    }
 
-    public SignView(Context context, AttributeSet attrs) {
+    public WriteView1(Context context, AttributeSet attrs) {
         super(context, attrs);
         initialize();
     }
 
-    public SignView(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        initialize();
-    }
-
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public SignView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-        initialize();
-    }
 
     /**
      * 初始化工作
      */
     private void initialize() {
-        // 获取一个资源引用
-        myResources = getResources();
 
         // 绘制自由曲线用的画笔
         myPaint = new Paint();
@@ -64,23 +45,20 @@ public class SignView extends View {
         myPaint.setDither(true);
         myPaint.setColor(Color.BLACK);
         myPaint.setStyle(Paint.Style.STROKE);
-        myPaint.setStrokeJoin(Paint.Join.ROUND);
-        myPaint.setStrokeCap(Paint.Cap.ROUND);
+        myPaint.setStrokeJoin(Paint.Join.ROUND);//设置圆弧连接
+        myPaint.setStrokeCap(Paint.Cap.ROUND);//设置圆线帽
         myPaint.setStrokeWidth(12);
+        myPaint.setPathEffect(new CornerPathEffect(5));
 
         myPath = new Path();
-
-        mBitmapPaint = new Paint(Paint.DITHER_FLAG);
 
     }
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
-        mWidth = w;
-        mHeight = h;
         myBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
-        myCanvas = new Canvas(myBitmap);
+        myCanvas = new Canvas(myBitmap);//绘制Bitamp的画布对象
     }
 
     @Override
@@ -109,29 +87,28 @@ public class SignView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        // 背景颜色
-        // canvas.drawColor(getResources().getColor(R.color.blue_dark));
+        //如果不现在自己的Bitmap上绘制一层颜色，会出现锯齿
+        myCanvas.drawColor(Color.WHITE);
+        //将路径绘制在自己的Bitmap上
+        myCanvas.drawPath(myPath, myPaint);
+        //将Bitmap绘制到界面上
+        canvas.drawBitmap(myBitmap, 0, 0, myPaint);
 
-        // 如果不调用这个方法，绘制结束后画布将清空
-        canvas.drawBitmap(myBitmap, 0, 0, mBitmapPaint);
-
-        // 绘制路径
-        canvas.drawPath(myPath, myPaint);
-
+        // 直接绘制路径
+//        canvas.drawPath(myPath, myPaint);
     }
 
+
     private void touch_start(float x, float y) {
-        myPath.reset();
         myPath.moveTo(x, y);
         mX = x;
         mY = y;
     }
 
     private void touch_move(float x, float y) {
-        float dx = Math.abs(x - mX);
-        float dy = Math.abs(y - mY);
-        if (dx >= TOUCH_TOLERANCE || dy >= TOUCH_TOLERANCE) {
+        if (getUsefulPoint(x, y, mX, mY)) {
             myPath.quadTo(mX, mY, (x + mX) / 2, (y + mY) / 2);
+//            myPath.quadTo((x + 2 * mX) / 3f, (y + 2 * mY) / 3f, (x + mX) / 2, (y + mY) / 2);
             mX = x;
             mY = y;
         }
@@ -139,11 +116,13 @@ public class SignView extends View {
 
     private void touch_up() {
         myPath.lineTo(mX, mY);
-        // commit the path to our offscreen
-        // 如果少了这一句，笔触抬起时myPath重置，那么绘制的线将消失
-        myCanvas.drawPath(myPath, myPaint);
-        // kill this so we don't double draw
-        myPath.reset();
+    }
+
+    /**
+     * 过滤掉距离过小的点
+     */
+    private boolean getUsefulPoint(float x1, float y1, float x2, float y2) {
+        return (Math.abs(x1 - x2) >= TOUCH_TOLERANCE || Math.abs(y1 - y2) >= TOUCH_TOLERANCE);
     }
 
     /**
@@ -163,7 +142,4 @@ public class SignView extends View {
         invalidate();
     }
 
-    public Bitmap getImage() {
-        return myBitmap;
-    }
 }

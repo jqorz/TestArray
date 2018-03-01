@@ -1,4 +1,4 @@
-package com.jqorz.test.write.signpad.views;
+package com.jqorz.test.sign.signpad.views;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -15,12 +15,12 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 
 import com.jqorz.test.R;
-import com.jqorz.test.write.signpad.utils.Bezier;
-import com.jqorz.test.write.signpad.utils.ControlTimedPoints;
-import com.jqorz.test.write.signpad.utils.SvgBuilder;
-import com.jqorz.test.write.signpad.utils.TimedPoint;
-import com.jqorz.test.write.signpad.view.ViewCompat;
-import com.jqorz.test.write.signpad.view.ViewTreeObserverCompat;
+import com.jqorz.test.sign.signpad.utils.Bezier;
+import com.jqorz.test.sign.signpad.utils.ControlTimedPoints;
+import com.jqorz.test.sign.signpad.utils.SvgBuilder;
+import com.jqorz.test.sign.signpad.utils.TimedPoint;
+import com.jqorz.test.sign.signpad.view.ViewCompat;
+import com.jqorz.test.sign.signpad.view.ViewTreeObserverCompat;
 
 import java.util.ArrayList;
 import java.util.List;

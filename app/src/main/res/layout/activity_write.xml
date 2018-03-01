@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.jqorz.test.write.WriteActivity">
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:onClick="onClickClearBtn" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+
+        <com.jqorz.test.write.write.WriteView
+            android:id="@+id/mWriteView"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:background="#000000" />
+
+        <com.jqorz.test.write.write.WriteView1
+            android:id="@+id/mWriteView1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:background="#000000" />
+
+        <com.jqorz.test.write.write.WriteView2
+            android:id="@+id/mWriteView2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+    </LinearLayout>
+</RelativeLayout>

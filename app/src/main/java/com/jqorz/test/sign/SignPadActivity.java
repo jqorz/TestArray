@@ -1,16 +1,16 @@
-package com.jqorz.test.write;
+package com.jqorz.test.sign;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.jqorz.test.R;
-import com.jqorz.test.write.signpad.views.SignaturePad;
+import com.jqorz.test.sign.signpad.views.SignaturePad;
 
 /**
  * 测试手写轨迹的View
  */
-public class MainActivity extends AppCompatActivity {
+public class SignPadActivity extends AppCompatActivity {
 
     SignaturePad paintView;
 

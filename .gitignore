@@ -51,12 +51,6 @@ proguard/
 # Log Files
 
 *.log
-.idea/file.template.settings.xml
-.idea/inspectionProfiles/
-.idea/libraries/
-.idea/markdown-navigator.xml
-.idea/markdown-navigator/
-.idea/workspace.xml
-SZK_New.iml
-app/app.iml
+.idea/
+*.iml
 

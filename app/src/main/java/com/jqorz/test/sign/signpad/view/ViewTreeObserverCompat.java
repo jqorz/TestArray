@@ -1,4 +1,4 @@
-package com.jqorz.test.write.signpad.view;
+package com.jqorz.test.sign.signpad.view;
 
 import android.annotation.SuppressLint;
 import android.os.Build;

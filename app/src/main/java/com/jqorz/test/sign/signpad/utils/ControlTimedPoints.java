@@ -1,4 +1,4 @@
-package com.jqorz.test.write.signpad.utils;
+package com.jqorz.test.sign.signpad.utils;
 
 /**
  * Created by gcacace on 28/02/14.

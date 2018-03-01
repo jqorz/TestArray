@@ -1,4 +1,4 @@
-package com.jqorz.test.write.signpad.utils;
+package com.jqorz.test.sign.signpad.utils;
 
 public class TimedPoint {
     public float x;
