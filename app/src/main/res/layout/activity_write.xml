@@ -5,50 +5,30 @@
     android:layout_height="match_parent"
     tools:context="com.jqorz.test.write.WriteActivity">
 
-    <Button
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:onClick="onClickClearBtn" />
 
-    <LinearLayout
+    <com.jqorz.test.write.write.WriteView
+        android:id="@+id/mWriteView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:visibility="gone" />
 
 
-        <com.jqorz.test.write.write.WriteView
-            android:id="@+id/mWriteView"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
+    <com.jqorz.test.write.write.WriteView1
+        android:id="@+id/mWriteView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
 
-        <View
-            android:layout_width="2dp"
-            android:layout_height="match_parent"
 
-            android:background="#000000"
-            android:visibility="gone" />
+    <com.jqorz.test.write.write.WriteView2
+        android:id="@+id/mWriteView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
 
-        <com.jqorz.test.write.write.WriteView1
-            android:id="@+id/mWriteView1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:visibility="gone" />
 
-        <View
-            android:layout_width="2dp"
-            android:layout_height="match_parent"
-
-            android:background="#000000"
-            android:visibility="gone" />
-
-        <com.jqorz.test.write.write.WriteView2
-            android:id="@+id/mWriteView2"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-
-            android:layout_weight="1"
-            android:visibility="gone" />
-    </LinearLayout>
+    <com.jqorz.test.write.write.WriteView3
+        android:id="@+id/mWriteView3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </RelativeLayout>
