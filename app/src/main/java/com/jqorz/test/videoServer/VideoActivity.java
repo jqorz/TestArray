@@ -1,6 +1,7 @@
 package com.jqorz.test.videoServer;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
@@ -51,11 +52,18 @@ public class VideoActivity extends AppCompatActivity {
             public void run() {
                 try {
                     mVideoServer.start();
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            mTipsTextView.setTextColor(Color.BLUE);
+                        }
+                    });
                 } catch (final IOException e) {
                     e.printStackTrace();
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
+                            mTipsTextView.setTextColor(Color.RED);
                             mTipsTextView.setText(e.getMessage());
                         }
                     });
