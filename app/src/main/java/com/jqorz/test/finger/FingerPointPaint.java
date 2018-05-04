@@ -42,7 +42,7 @@ public class FingerPointPaint extends AppCompatActivity {
         mPaint.setColor(0xFFFF0000);
         mPaint.setAntiAlias(true);
         mPaint.setDither(true);
-        mPaint.setStyle(Paint.Style.STROKE);
+        mPaint.setStyle(Paint.Style.FILL);
         mPaint.setStrokeWidth(2);
 
 
@@ -67,7 +67,7 @@ public class FingerPointPaint extends AppCompatActivity {
 //        private void draw() {
 //            canvas.drawColor(Color.WHITE);
             for (PointF p : pointFS) {
-                canvas.drawCircle(p.x, p.y, 8, mPaint);
+                canvas.drawCircle(p.x, p.y, 3, mPaint);
             }
 
 //            canvas.drawPath(mPath, mPaint);
