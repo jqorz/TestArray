@@ -4,7 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-import com.jqorz.test.ToastUtil;
+import com.jqorz.test.util.ToastUtil;
 
 /**
  * 测试广播接收器用法

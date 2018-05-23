@@ -7,7 +7,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.jqorz.test.R;
-import com.jqorz.test.ToastUtil;
+import com.jqorz.test.util.ToastUtil;
 
 /**
  * copyright datedu
@@ -23,15 +23,21 @@ public class ClickActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_click);
         Log.i("jq", Build.MODEL);
+        findViewById(R.id.parent).setEnabled(false);
+        findViewById(R.id.parent).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i(TAG, "click parent");
+                ToastUtil.showToast(ClickActivity.this, "parent");
+            }
+        });
+        findViewById(R.id.child).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i(TAG, "click child");
+                ToastUtil.showToast(ClickActivity.this, "child");
+            }
+        });
     }
 
-    public void onClickParent(View v) {
-        Log.i(TAG, "click parent");
-        ToastUtil.showToast(this, "parent");
-    }
-
-    public void onClickChild(View v) {
-        Log.i(TAG, "click child");
-        ToastUtil.showToast(this, "child");
-    }
 }

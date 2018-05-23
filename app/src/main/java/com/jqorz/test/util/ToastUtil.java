@@ -1,4 +1,4 @@
-package com.jqorz.test;
+package com.jqorz.test.util;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
