@@ -17,7 +17,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void init() {
-        tv = (TextView) findViewById(R.id.tv);
+        tv = findViewById(R.id.tv);
         findViewById(R.id.btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
