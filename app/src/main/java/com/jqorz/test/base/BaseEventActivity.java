@@ -1,6 +1,6 @@
 package com.jqorz.test.base;
 
-import com.jqorz.test.MainEvent;
+import com.jqorz.test.util.MainEvent;
 
 import org.greenrobot.eventbus.EventBus;
 

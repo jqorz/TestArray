@@ -1,4 +1,4 @@
-package com.jqorz.test;
+package com.jqorz.test.util;
 
 
 public class MainEvent {
