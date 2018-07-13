@@ -1,6 +1,5 @@
 package com.jqorz.test.anim;
 
-import android.animation.Animator;
 import android.content.Context;
 import android.view.Gravity;
 import android.view.LayoutInflater;

@@ -142,6 +142,10 @@ public class OkUtil {
         getInstance()._postAsynWithUTF(url, callback, params);
     }
 
+    public static void postAsynWithUTF(String url, final ResultCallback callback, Map<String, String> params) {
+        getInstance()._postAsynWithUTF(url, callback, map2Params(params));
+    }
+
     public static Response post(String url, File[] files, String[] fileKeys, Param... params) throws IOException {
         return getInstance()._post(url, files, fileKeys, params);
     }

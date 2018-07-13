@@ -62,7 +62,7 @@
         <activity android:name=".click.ClickActivity">
 
         </activity>
-        <activity android:name=".servlet.MainActivity">
+        <activity android:name=".servlet.ServletActivity">
             <!--<intent-filter>-->
             <!--<action android:name="android.intent.action.MAIN" />-->
             <!--<category android:name="android.intent.category.LAUNCHER" />-->
