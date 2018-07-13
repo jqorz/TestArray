@@ -60,17 +60,13 @@
             <!-- </intent-filter> -->
         </activity>
         <activity android:name=".click.ClickActivity">
-            <!--<intent-filter>-->
-            <!--<action android:name="android.intent.action.MAIN" />-->
 
-            <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
         </activity>
         <activity android:name=".servlet.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!--<intent-filter>-->
+            <!--<action android:name="android.intent.action.MAIN" />-->
+            <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
         </activity>
 
         <activity android:name=".finger.FingerPointPaint">
@@ -85,6 +81,14 @@
 
         </activity>
         <activity android:name=".launcher.MainActivity2" />
+        <activity android:name=".xwalk.AppTemplateActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".xwalk.XWalkActivity" />
     </application>
 
 </manifest>
