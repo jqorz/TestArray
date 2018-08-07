@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
 
     <application
         android:allowBackup="true"
@@ -77,18 +78,17 @@
             <!-- </intent-filter> -->
         </activity>
         <activity android:name=".finger.FingerLinePaint" />
-        <activity android:name=".anim.AnimActivity">
-
-        </activity>
+        <activity android:name=".anim.AnimActivity"></activity>
         <activity android:name=".launcher.MainActivity2" />
-        <activity android:name=".xwalk.AppTemplateActivity">
+        <activity android:name=".xwalk.AppTemplateActivity"></activity>
+        <activity android:name=".xwalk.XWalkActivity" />
+        <activity android:name=".wifi.WifiInfoActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".xwalk.XWalkActivity" />
     </application>
 
 </manifest>
