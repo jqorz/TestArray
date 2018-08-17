@@ -19,3 +19,5 @@ jqorz
 8. xwalk共享模式的调用
 
 9. 提供视频播放服务器
+
+10. 测试原生WebView和videoView对不同视频的支持情况
