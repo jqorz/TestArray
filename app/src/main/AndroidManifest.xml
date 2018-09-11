@@ -79,7 +79,13 @@
             <!-- </intent-filter> -->
         </activity>
         <activity android:name=".finger.FingerLinePaint" />
-        <activity android:name=".anim.AnimActivity" />
+        <activity android:name=".anim.AnimActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".launcher.MainActivity2" />
         <activity android:name=".xwalk.AppTemplateActivity" />
         <activity android:name=".xwalk.XWalkActivity" />
@@ -88,11 +94,11 @@
         </activity>
         <activity android:name=".videoview.VideoViewActivity" />
         <activity android:name=".videoview.SelectActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
         </activity>
         <activity android:name=".videoview.WebViewActivity" />
     </application>
