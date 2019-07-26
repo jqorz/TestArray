@@ -18,9 +18,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);//禁止横屏
         setContentView(getLayoutResId());
 
-
-        getIntentData();
-
         initCommonEvent();
 
         init();
@@ -59,10 +56,6 @@ public abstract class BaseActivity extends AppCompatActivity {
             overridePendingTransition(0, 0);
         }
         startActivity(intent);
-    }
-
-
-    protected void getIntentData() {//如果有Intent,在这里进行接收数据
     }
 
 
