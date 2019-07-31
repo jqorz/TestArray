@@ -1,5 +1,6 @@
 package com.jqorz.test.base;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
@@ -11,11 +12,15 @@ import android.support.v7.app.AppCompatActivity;
 public abstract class BaseActivity extends AppCompatActivity {
 
     private static String IS_START_ANIM = "IS_START_ANIM";
+    protected Context mContext;
 
     @Override
     final public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);//禁止横屏
+
+        mContext = this;
+
         setContentView(getLayoutResId());
 
         initCommonEvent();

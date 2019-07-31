@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.jqorz.test">
 
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -13,99 +14,46 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".sign.SignPadActivity">
-
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
-        </activity>
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".sign.SignPadActivity" />
 
         <receiver
-            android:name=".receiver.MyReceiver"
+            android:name=".broadcast.MyReceiver"
             android:enabled="true"
             android:exported="true">
-            <intent-filter>
-                <action android:name="A" />
-            </intent-filter>
+            <!--            静态广播注册-->
+            <!--            <intent-filter>-->
+            <!--                <action android:name="A" />-->
+            <!--            </intent-filter>-->
         </receiver>
 
         <activity android:name=".js.WebViewActivity" />
-        <activity android:name=".multi_touch.MultiTouchActivity">
-
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
-        </activity>
-        <activity android:name=".write.WriteActivity">
-
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
-        </activity>
-        <activity android:name=".videoServer.VideoActivity">
-
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
-        </activity>
-        <activity android:name=".click.ClickActivity"></activity>
-        <activity android:name=".servlet.ServletActivity">
-
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
-        </activity>
-        <activity android:name=".finger.FingerPointPaint">
-
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
-        </activity>
+        <activity android:name=".multi_touch.MultiTouchActivity" />
+        <activity android:name=".write.WriteActivity" />
+        <activity android:name=".videoServer.VideoActivity" />
+        <activity android:name=".click.ClickActivity" />
+        <activity android:name=".servlet.ServletActivity" />
+        <activity android:name=".finger.FingerPointPaint" />
         <activity android:name=".finger.FingerLinePaint" />
-        <activity android:name=".anim.AnimActivity">
-            <!--<intent-filter>-->
-            <!--<action android:name="android.intent.action.MAIN" />-->
-
-            <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
-        </activity>
-        <activity android:name=".launcher.MainActivity2" />
+        <activity android:name=".anim.AnimActivity" />
         <activity android:name=".xwalk.AppTemplateActivity" />
         <activity android:name=".xwalk.XWalkActivity" />
         <activity android:name=".wifi.WifiInfoActivity" />
         <activity android:name=".videoview.VideoViewActivity" />
-        <activity android:name=".videoview.SelectActivity">
+        <activity android:name=".videoview.SelectActivity" />
+        <activity android:name=".videoview.WebViewPlayActivity" />
+        <activity android:name=".lottie.LottieActivity" />
+        <activity android:name=".webview.WebViewActivity" />
+        <activity android:name=".broadcast.SendBroadActivity" />
 
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
-        </activity>
-        <activity android:name=".videoview.WebViewActivity" />
-        <activity android:name=".lottie.LottieActivity">
+        <activity android:name=".main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".kotlin.KtWifiInfoActivity" />
     </application>
 
 </manifest>

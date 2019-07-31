@@ -1,5 +1,6 @@
 package com.jqorz.test.kotlin
 
+import java.util.*
 import kotlin.math.max
 
 /**
@@ -22,6 +23,13 @@ class KotlinTest(val user: User) {
         return max(a, b)
     }
 
+    fun getFor() {
+        //1-5 步进2
+        for (a in 1..5 step 2) {
+            print(a)
+        }
+    }
+
     fun getWhen(a: String) {
         var b = when (a) {
             "1", "2" -> {
@@ -40,7 +48,12 @@ class KotlinTest(val user: User) {
                 "in 1-15"
             }
             !in 10..15 -> {
+                //全闭区间
                 "not in 10-15"
+            }
+            in 15 until 250 -> {
+                //左闭右开区间
+                "in 15-250"
             }
             else -> {
                 "in else"
@@ -62,10 +75,43 @@ class KotlinTest(val user: User) {
             a < 5 -> print("0<a<5")
         }
     }
+
+    fun getList() {
+        val list = listOf(User(name = "1"), User(name = "12", age = 12));
+        for ((index, user) in list.withIndex()) {
+            print("index = $index name = (${user.name})")
+        }
+
+        val map = TreeMap<String, Int>()
+        map["1"] = 22
+        map["123"] = 12
+        print(map["1231"])
+    }
+
+    fun sum(a: Int, b: Int) = "${a + b}+a"
+
+    fun sum2(a: Int, b: Int): Int {
+        return a + b
+    }
+
+    fun testFun() {
+        var sum = { x: Int, y: Int -> x + y }
+        var sum2: (Int, Int) -> Int = { x, y -> x + y }
+    }
+
+    fun testException() {
+        try {
+            print("dd".toInt())
+
+        } catch (e: Exception) {
+
+        }
+
+    }
 }
 
-fun main(args: Array<String>) {
-    KotlinTest(User(age = 12, sexIsMale = false)).getWhen("1")
+fun main() {
+    KotlinTest(User(age = 12, sexIsMale = false)).testFun()
 }
 
 data class User(val name: String? = "", val age: Int = 0, val sexIsMale: Boolean = true) {

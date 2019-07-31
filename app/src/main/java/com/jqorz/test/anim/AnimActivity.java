@@ -11,6 +11,9 @@ import android.view.animation.DecelerateInterpolator;
 
 import com.jqorz.test.R;
 
+/**
+ * 属性动画
+ */
 public class AnimActivity extends AppCompatActivity {
     AnimatorSet rightAni, leftAni;
     private View mView;

@@ -1,4 +1,4 @@
-package com.jqorz.test.wifi
+package com.jqorz.test.kotlin
 
 import android.content.Context
 import android.net.ConnectivityManager
@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.View
 import android.widget.TextView
 import com.jqorz.test.R
+import com.jqorz.test.wifi.WifiInfoActivity
 
 
 /**
@@ -17,7 +18,7 @@ import com.jqorz.test.R
  */
 
 
-class WifiInfoActivity : AppCompatActivity(), View.OnClickListener {
+class KtWifiInfoActivity : AppCompatActivity(), View.OnClickListener {
     private var textView1: TextView? = null
     private var textView2: TextView? = null
     private var mWifiManager: WifiManager? = null
