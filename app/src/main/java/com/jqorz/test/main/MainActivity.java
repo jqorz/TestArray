@@ -10,6 +10,7 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.jqorz.test.R;
 import com.jqorz.test.base.BaseActivity;
 import com.jqorz.test.webview.WebViewActivity;
+import com.jqorz.test.wifi.WifiInfoActivity;
 
 public class MainActivity extends BaseActivity {
 
@@ -39,7 +40,18 @@ public class MainActivity extends BaseActivity {
                 WebViewActivity.start(mContext, "https://www.baidu.com");
             }
         }));
-
+        mAdapter.addData(new ItemBean("wifi信息查看", new Runnable() {
+            @Override
+            public void run() {
+                WifiInfoActivity.start(mContext);
+            }
+        }));
+        mAdapter.addData(new ItemBean("kotlin wifi信息查看", new Runnable() {
+            @Override
+            public void run() {
+                WifiInfoActivity.start(mContext);
+            }
+        }));
     }
 
     @Override

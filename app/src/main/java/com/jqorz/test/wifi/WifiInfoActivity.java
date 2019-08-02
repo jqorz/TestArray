@@ -1,6 +1,7 @@
 package com.jqorz.test.wifi;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiInfo;
@@ -27,6 +28,11 @@ public class WifiInfoActivity extends AppCompatActivity implements View.OnClickL
     private TextView textView1, textView2;
     private WifiManager mWifiManager;
     private ConnectivityManager mConnectivityManager;
+
+    public static void start(Context context) {
+        Intent starter = new Intent(context, WifiInfoActivity.class);
+        context.startActivity(starter);
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -62,17 +68,14 @@ public class WifiInfoActivity extends AppCompatActivity implements View.OnClickL
     public void showBtn1() {
         try {
             //WiFi是否连接
-            NetworkInfo wifiInfo = mConnectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
-            boolean isWifiConn = wifiInfo.isConnected();
+            NetworkInfo wifiInfo = mConnectivityManager.getActiveNetworkInfo();
             //手机网络是否连接
-            NetworkInfo networkInfo = mConnectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
-            boolean isMobileConn = networkInfo.isConnected();
-            if (isWifiConn) {
+            if (wifiInfo.getType() == ConnectivityManager.TYPE_WIFI) {
                 textView1.setText(String.format("WIFI连接信息：名称：%s 信息：%s", wifiInfo.getExtraInfo(), wifiInfo.toString()));
-            }
-            if (isMobileConn) {
+            } else if (wifiInfo.getType() == ConnectivityManager.TYPE_MOBILE) {
                 textView1.setText(String.format("移动网络信息：%s%s", textView1.getText(), wifiInfo.getExtraInfo()));
             }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
