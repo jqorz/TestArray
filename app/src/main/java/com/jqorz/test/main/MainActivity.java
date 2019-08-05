@@ -14,9 +14,12 @@ import com.jqorz.test.wifi.WifiInfoActivity;
 
 public class MainActivity extends BaseActivity {
 
-
     @Override
     protected void init() {
+        initRecyclerView();
+    }
+
+    private void initRecyclerView() {
         RecyclerView mRecyclerView = findViewById(R.id.mRecyclerView);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
         BaseQuickAdapter<ItemBean, BaseViewHolder> mAdapter = new BaseQuickAdapter<ItemBean, BaseViewHolder>(R.layout.item_main_select) {
@@ -58,6 +61,4 @@ public class MainActivity extends BaseActivity {
     protected int getLayoutResId() {
         return R.layout.activity_main;
     }
-
-
 }
