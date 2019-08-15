@@ -1,6 +1,7 @@
 package com.jqorz.test.util;
 
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -8,6 +9,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonParser;
 import com.google.gson.JsonPrimitive;
@@ -25,7 +27,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author datedu
+ * @author jqorz
  * @since 2017/12/26
  * <p>
  * GSON工具类，用以解析json字符串等
@@ -43,8 +45,7 @@ public class GsonUtil {
                 .registerTypeAdapter(long.class, new LongDefault0Adapter())
                 .registerTypeAdapter(boolean.class, new BooleanDefault0Adapter())
                 .registerTypeAdapter(Boolean.class, new BooleanDefault0Adapter())
-                .registerTypeAdapter(float.class, new FloatDefault0Adapter())
-                .registerTypeAdapter(Float.class, new FloatDefault0Adapter())
+                .registerTypeAdapter(JsonObject.class, new JsonObjectDefault0Adapter())
                 .create();
     }
 
@@ -66,35 +67,38 @@ public class GsonUtil {
         return getInstance()._jsonCreate(object);
     }
 
-    public static Map<String, Object> json2Map(String jsonString) {
+    public static <T> Map<String, T> json2Map(String jsonString) {
         try {
             return getInstance()._json2Map(jsonString);
-        } catch (Exception ignore) {
-            return null;
+        } catch (Exception e) {
+            Log.e("json2Map", e.toString());
+            return new HashMap<>();
         }
     }
 
-    public static <T> Map<String, T> json2Map2(String jsonString) {
+    public static Map<String, Object> json2Map2(String jsonString) {
         try {
             return getInstance()._json2Map2(jsonString);
-        } catch (Exception ignore) {
-            return null;
+        } catch (Exception e) {
+            Log.e("json2Map", e.toString());
+            return new HashMap<>();
         }
     }
 
     public static <T> List<T> json2List(String jsonString, Class<T> cls) {
         try {
             return getInstance()._json2List(jsonString, cls);
-        } catch (Exception ignore) {
-            return null;
+        } catch (Exception e) {
+            Log.e("json2List", e.toString());
+            return new ArrayList<>();
         }
-
     }
 
     public static <T> T json2Bean(String jsonString, Class<T> cls) {
         try {
             return getInstance()._json2Bean(jsonString, cls);
-        } catch (Exception ignore) {
+        } catch (Exception e) {
+            Log.e("json2Bean", e.toString());
             return null;
         }
     }
@@ -128,8 +132,6 @@ public class GsonUtil {
      * @return bean
      */
     private <T> T _json2Bean(String jsonString, Class<T> cls) {
-        if (TextUtils.isEmpty(jsonString))
-            return null;
         T t = null;
         if (gson != null) {
             JsonReader reader = new JsonReader(new StringReader(jsonString));
@@ -145,25 +147,21 @@ public class GsonUtil {
      * @param jsonString Json字符串
      * @return Map对象
      */
-    private Map<String, Object> _json2Map(String jsonString) {
-        if (TextUtils.isEmpty(jsonString))
-            return null;
-        Map<String, Object> map = new HashMap<>();
+    private <T> Map<String, T> _json2Map(String jsonString) {
+        Map<String, T> map = new HashMap<>();
         if (gson != null) {
             map = gson.fromJson(jsonString,
-                    new TypeToken<Map<String, Object>>() {
+                    new TypeToken<Map<String, T>>() {
                     }.getType());
         }
         return map;
     }
 
-    private <T> Map<String, T> _json2Map2(String jsonString) {
-        if (TextUtils.isEmpty(jsonString))
-            return null;
-        Map<String, T> map = new HashMap<>();
+    private Map<String, Object> _json2Map2(String jsonString) {
+        Map<String, Object> map = new HashMap<>();
         if (gson != null) {
             map = gson.fromJson(jsonString,
-                    new TypeToken<Map<String, T>>() {
+                    new TypeToken<Map<String, Object>>() {
                     }.getType());
         }
         return map;
@@ -276,25 +274,22 @@ public class GsonUtil {
         }
     }
 
-    class FloatDefault0Adapter implements JsonSerializer<Float>, JsonDeserializer<Float> {
+    class JsonObjectDefault0Adapter implements JsonDeserializer<JsonObject> {
         @Override
-        public Float deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
+        public JsonObject deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
+                throws JsonParseException {
             try {
-                if (json.getAsString().equals("") || json.getAsString().equals("null")) {//定义为double类型,如果后台返回""或者null,则返回0.00
-                    return 0.0f;
+                if (TextUtils.isEmpty(json.getAsString())) {
+                    return null;
                 }
             } catch (Exception ignore) {
             }
             try {
-                return json.getAsFloat();
+                return json.getAsJsonObject();
             } catch (NumberFormatException e) {
                 throw new JsonSyntaxException(e);
             }
         }
 
-        @Override
-        public JsonElement serialize(Float src, Type typeOfSrc, JsonSerializationContext context) {
-            return new JsonPrimitive(src);
-        }
     }
 }

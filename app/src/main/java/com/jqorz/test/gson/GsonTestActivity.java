@@ -2,7 +2,6 @@ package com.jqorz.test.gson;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.View;
 
 import com.jqorz.test.R;
@@ -27,79 +26,34 @@ public class GsonTestActivity extends BaseActivity {
         context.startActivity(starter);
     }
 
+
+    public void onClickBtn1(View view) {
+        //字符串2 用T
+        String s = "{\"code\":1,\"data\":\"{\\\"author\\\":\\\"\\\",\\\"c1\\\":\\\"\\\",\\\"id\\\":8,\\\"sentence\\\":\\\"自信是成功的第一秘诀。——爱默生\\\"}\",\"msg\":\"操作成功\",\"responsetime\":1565238517000}";
+        Map<String, Object> map = GsonUtil.json2Map(s);
+        if (map != null) {
+            System.out.println("jqjq 111"+map.get("code"));
+        }
+    }
+
+    public void onClickBtn2(View view) {
+        //字符串2 用Object
+        String s = "{\"code\":1,\"data\":\"{\\\"author\\\":\\\"\\\",\\\"c1\\\":\\\"\\\",\\\"id\\\":8,\\\"sentence\\\":\\\"自信是成功的第一秘诀。——爱默生\\\"}\",\"msg\":\"操作成功\",\"responsetime\":1565238517000}";
+        Map<String, Object> map = GsonUtil.json2Map2(s);
+        if (map != null) {
+            System.out.println("jqjq 222" + map.get("code"));
+        }
+    }
+
     @Override
     protected void init() {
 
     }
 
-    public void onClickBtn1(View view) {
-        //用T
-        String responseModel = "{\n" +
-                "    \"code\": 1,\n" +
-                "    \"data\": \"{\\\"author\\\":\\\"\\\",\\\"c1\\\":\\\"\\\",\\\"id\\\":15,\\\"sentence\\\":\\\"机会只对进取有为的人开放，庸人永远无法光顾。\\\"}\",\n" +
-                "    \"msg\": \"操作成功\",\n" +
-                "    \"responsetime\": 1565836727000\n" +
-                "}";
-        Map<String, Object> responsedata = GsonUtil.json2Map2(responseModel);
-        Number code = (Number) responsedata.get("code");
-        if (code.intValue() == 1 && responsedata.get("data") != null) {
-            Map<String, Object> data = GsonUtil.json2Map(responsedata.get("data").toString());
-            String sentence = data.get("sentence").toString();
-            if (sentence != null) {
-                Log.i("11", sentence);
-            }
-        }
-
-
-    }
-
-    public void onClickBtn2(View view) {
-        //用Object
-        String responseModel = "{\n" +
-                "    \"code\": 1,\n" +
-                "    \"data\": \"{\\\"author\\\":\\\"\\\",\\\"c1\\\":\\\"\\\",\\\"id\\\":15,\\\"sentence\\\":\\\"机会只对进取有为的人开放，庸人永远无法光顾。\\\"}\",\n" +
-                "    \"msg\": \"操作成功\",\n" +
-                "    \"responsetime\": 1565836727000\n" +
-                "}";
-        Map<String, Object> responsedata = GsonUtil.json2Map(responseModel);
-        Number code = (Number) responsedata.get("code");
-        if (code.intValue() == 1 && responsedata.get("data") != null) {
-            Map<String, Object> data = GsonUtil.json2Map(responsedata.get("data").toString());
-            String sentence = data.get("sentence").toString();
-            if (sentence != null) {
-                Log.i("22", sentence);
-            }
-        }
-    }
-
-    public void onClickBtn3(View view){
-        //字符串2 用T
-        String s = "{\"code\":1,\"data\":\"{\\\"author\\\":\\\"\\\",\\\"c1\\\":\\\"\\\",\\\"id\\\":8,\\\"sentence\\\":\\\"自信是成功的第一秘诀。——爱默生\\\"}\",\"msg\":\"操作成功\",\"responsetime\":1565238517000}";
-        Map<String, Object> map = GsonUtil.json2Map2(s);
-        if (map != null) {
-            System.out.println("3333 " + map.get("code"));
-        }
-    }
-    public void onClickBtn4(View view){
-        //字符串2 用Object
-        String s = "{\"code\":1,\"data\":\"{\\\"author\\\":\\\"\\\",\\\"c1\\\":\\\"\\\",\\\"id\\\":8,\\\"sentence\\\":\\\"自信是成功的第一秘诀。——爱默生\\\"}\",\"msg\":\"操作成功\",\"responsetime\":1565238517000}";
-        Map<String, Object> map = GsonUtil.json2Map(s);
-        if (map != null) {
-            System.out.println("444 " + map.get("code"));
-        }
-    }
     @Override
     protected int getLayoutResId() {
         return R.layout.activity_gson;
     }
 
-    private class Man {
-        private String name;
-        private String age;
 
-        public Man(String name, String age) {
-            this.name = name;
-            this.age = age;
-        }
-    }
 }
