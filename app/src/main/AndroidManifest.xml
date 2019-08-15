@@ -54,6 +54,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".kotlin.KtWifiInfoActivity" />
+        <activity android:name=".gson.GsonTestActivity" />
     </application>
 
 </manifest>

@@ -9,6 +9,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.jqorz.test.R;
 import com.jqorz.test.base.BaseActivity;
+import com.jqorz.test.gson.GsonTestActivity;
 import com.jqorz.test.webview.WebViewActivity;
 import com.jqorz.test.wifi.WifiInfoActivity;
 
@@ -53,6 +54,12 @@ public class MainActivity extends BaseActivity {
             @Override
             public void run() {
                 WifiInfoActivity.start(mContext);
+            }
+        }));
+        mAdapter.addData(new ItemBean("Gson测试", new Runnable() {
+            @Override
+            public void run() {
+                GsonTestActivity.start(mContext);
             }
         }));
     }
