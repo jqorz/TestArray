@@ -32,7 +32,7 @@ public class GsonTestActivity extends BaseActivity {
         String s = "{\"code\":1,\"data\":\"{\\\"author\\\":\\\"\\\",\\\"c1\\\":\\\"\\\",\\\"id\\\":8,\\\"sentence\\\":\\\"自信是成功的第一秘诀。——爱默生\\\"}\",\"msg\":\"操作成功\",\"responsetime\":1565238517000}";
         Map<String, Object> map = GsonUtil.json2Map(s);
         if (map != null) {
-            System.out.println("jqjq 111"+map.get("code"));
+            System.out.println("jqjq 111" + map.get("code"));
         }
     }
 
@@ -54,6 +54,5 @@ public class GsonTestActivity extends BaseActivity {
     protected int getLayoutResId() {
         return R.layout.activity_gson;
     }
-
 
 }

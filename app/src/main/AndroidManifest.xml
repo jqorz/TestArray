@@ -28,6 +28,13 @@
             <!--            </intent-filter>-->
         </receiver>
 
+        <activity android:name=".main.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <activity android:name=".js.WebViewActivity" />
         <activity android:name=".multi_touch.MultiTouchActivity" />
         <activity android:name=".write.WriteActivity" />
@@ -46,15 +53,9 @@
         <activity android:name=".lottie.LottieActivity" />
         <activity android:name=".webview.WebViewActivity" />
         <activity android:name=".broadcast.SendBroadActivity" />
-
-        <activity android:name=".main.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity android:name=".kotlin.KtWifiInfoActivity" />
         <activity android:name=".gson.GsonTestActivity" />
+        <activity android:name=".hfutwlan.HfutWlanMainActivity" />
     </application>
 
 </manifest>

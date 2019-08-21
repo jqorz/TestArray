@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Test</string>
+    <string name="h1">请输入您的WLAN账号</string>
+    <string name="h2">请输入密码</string>
 </resources>

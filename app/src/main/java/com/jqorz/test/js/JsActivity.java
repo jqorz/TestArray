@@ -42,7 +42,7 @@ public class JsActivity extends AppCompatActivity {
         // 我们再看他的DemoJavaScriptInterface这个类。还要这个类一定要在主线程中
         mWebView.addJavascriptInterface(new DemoJavaScriptInterface(), "asdasd");
 
-        mWebView.loadUrl("file:///android_asset/main.html");
+        mWebView.loadUrl("file:///android_asset/activity_htutwlan_main.html");
     }
 
 
