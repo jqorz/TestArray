@@ -9,6 +9,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.jqorz.test.R;
 import com.jqorz.test.base.BaseActivity;
+import com.jqorz.test.click.ClickActivity;
 import com.jqorz.test.dashboard.DashActivity;
 import com.jqorz.test.gson.GsonTestActivity;
 import com.jqorz.test.webview.WebViewActivity;
@@ -67,6 +68,12 @@ public class MainActivity extends BaseActivity {
             @Override
             public void run() {
                 DashActivity.start(mContext);
+            }
+        }));
+        mAdapter.addData(new ItemBean("view属性", new Runnable() {
+            @Override
+            public void run() {
+                ClickActivity.start(mContext);
             }
         }));
     }
