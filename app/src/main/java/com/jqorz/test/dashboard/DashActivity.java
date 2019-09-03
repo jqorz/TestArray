@@ -28,6 +28,7 @@ public class DashActivity extends BaseActivity {
         context.startActivity(starter);
     }
 
+
     @Override
     protected void init() {
         final DashboardView dashboardView1 = findViewById(R.id.dashboardView1);

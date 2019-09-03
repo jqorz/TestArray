@@ -32,8 +32,8 @@ import java.util.List;
 
 
 /**
- * DashboardView style 3 仿最新版芝麻信用分
- * Created by woxingxiao on 2016-11-28.
+ * DashboardView为仿支付宝仪表盘的自定义view；DashboardView2，DashboardView3为github上原作者的代码，存在一些bug。
+ * DashboardView根据2里面的属性动画，以3的样式增加了动画效果并修改了padding的bug
  */
 
 public class DashboardView extends View {
@@ -41,13 +41,13 @@ public class DashboardView extends View {
     private int mRadius; // 画布边缘半径（去除padding后的半径）
     private int mStartAngle = 150; // 起始角度
     private int mHalfSweepAngle = 120; // 绘制角度的一半
-    private int mMin = 0; // 最小值
-    private int mMax = 100; // 最大值
+    private int mMin = 0; // 仪表盘允许显示的最小值
+    private int mMax = 100; // 仪表盘允许显示的最大值
     private int mSection = 50; // 值域（mMax-mMin）等分份数
     private String mHeaderText = ""; // 表头
-    private int mCreditValue = 40; // 信用分
+    private int mCreditValue = 40; // 动画执行时的信用分
     private float mAngleWhenAnimation = 0; // 动画执行时的角度
-    private int mSolidCreditValue = mCreditValue; // 信用分(设定后不变)
+    private int mSolidCreditValue = mCreditValue; // 固定的信用分(设定后不变)
     private int mSparkleWidth; // 亮点宽度
     private int mProgressWidth; // 进度圆弧宽度
     private float mLength1; // 刻度顶部相对边缘的长度
@@ -55,7 +55,7 @@ public class DashboardView extends View {
     private int mPadding;
     private float mCenterX, mCenterY; // 圆心坐标
     private Paint mPaint;
-    private RectF mRectFProgressArc;
+    private RectF mRectFProgressArc;//整个圆的外接正方形所在的矩形区域
     private Rect mRectText;
     private Path mPath;
     private boolean isAnimFinish = true;
@@ -269,6 +269,9 @@ public class DashboardView extends View {
         );
     }
 
+    /**
+     * 根据半径和角度，换算点的（x,y）坐标
+     */
     private float[] getCoordinatePoint(float radius, float angle) {
         float[] point = new float[2];
 
