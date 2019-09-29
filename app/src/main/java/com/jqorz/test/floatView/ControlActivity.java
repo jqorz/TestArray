@@ -3,6 +3,7 @@ package com.jqorz.test.floatView;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.PixelFormat;
+import android.os.Handler;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.LinearLayout;
 import com.jqorz.test.R;
 import com.jqorz.test.base.BaseActivity;
 import com.jqorz.test.util.ToolUtil;
+
 
 /**
  * copyright datedu
@@ -28,6 +30,7 @@ public class ControlActivity extends BaseActivity implements View.OnClickListene
     private LinearLayout mFloatLayout;
     private boolean isShow;
     private boolean mHasShown;
+    private Handler mHandler = new Handler();
 
     public static void start(Context context) {
         Intent starter = new Intent(context, ControlActivity.class);
@@ -72,7 +75,7 @@ public class ControlActivity extends BaseActivity implements View.OnClickListene
         // 设置悬浮窗口长宽数据
         wmParams.width = WindowManager.LayoutParams.WRAP_CONTENT;
         wmParams.height = WindowManager.LayoutParams.WRAP_CONTENT;
-
+        wmParams.windowAnimations = R.anim.fade_in;
         LayoutInflater inflater = LayoutInflater.from(getApplication());
         // 获取浮动窗口视图所在布局
         mFloatLayout = (LinearLayout) inflater.inflate(R.layout.layout_float_view, null);
@@ -107,13 +110,23 @@ public class ControlActivity extends BaseActivity implements View.OnClickListene
     private void showMiniState() {
         wmParams.x = ToolUtil.getScreenWidth() - ToolUtil.dp2px(50f);
         mWindowManager.updateViewLayout(mFloatLayout, wmParams);
-        tv_left.setVisibility(View.GONE);
+        mHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                tv_left.setVisibility(View.GONE);
+            }
+        }, 200);
     }
 
     private void showNormalState() {
         wmParams.x = ToolUtil.getScreenWidth() - ToolUtil.dp2px(250f);
         mWindowManager.updateViewLayout(mFloatLayout, wmParams);
-        tv_left.setVisibility(View.VISIBLE);
+        mHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                tv_left.setVisibility(View.VISIBLE);
+            }
+        }, 20);
     }
 
     public void hide() {

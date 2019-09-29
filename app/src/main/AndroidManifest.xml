@@ -43,7 +43,9 @@
         <activity android:name=".gson.GsonTestActivity" />
         <activity android:name=".hfutwlan.HfutWlanMainActivity" />
         <activity android:name=".dashboard.DashActivity" />
-        <activity android:name=".floatView.ControlActivity" />
+        <activity
+            android:name=".floatView.ControlActivity"
+            android:theme="@style/NoAnim" />
 
         <receiver
             android:name=".broadcast.MyReceiver"
