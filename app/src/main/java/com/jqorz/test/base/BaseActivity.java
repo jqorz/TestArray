@@ -17,7 +17,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     final public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);//禁止横屏
 
         mContext = this;
 

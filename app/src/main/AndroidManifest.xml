@@ -57,6 +57,13 @@
         <activity android:name=".gson.GsonTestActivity" />
         <activity android:name=".hfutwlan.HfutWlanMainActivity" />
         <activity android:name=".dashboard.DashActivity" />
+        <activity
+            android:name=".rotate.RotateActivity1"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".rotate.RotateActivity2"
+            android:configChanges="orientation"
+            android:screenOrientation="landscape" />
     </application>
 
 </manifest>
