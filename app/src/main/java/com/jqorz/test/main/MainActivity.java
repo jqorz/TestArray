@@ -12,7 +12,6 @@ import com.jqorz.test.base.BaseActivity;
 import com.jqorz.test.click.ClickActivity;
 import com.jqorz.test.dashboard.DashActivity;
 import com.jqorz.test.gson.GsonTestActivity;
-import com.jqorz.test.rotate.RotateActivity1;
 import com.jqorz.test.webview.WebViewActivity;
 import com.jqorz.test.wifi.WifiInfoActivity;
 
@@ -81,6 +80,12 @@ public class MainActivity extends BaseActivity {
             @Override
             public void run() {
                 RotateActivity1.start(mContext);
+            }
+        }));
+        mAdapter.addData(new ItemBean("悬浮窗", new Runnable() {
+            @Override
+            public void run() {
+                ControlActivity.start(mContext);
             }
         }));
     }

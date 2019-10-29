@@ -10,7 +10,7 @@ import com.jqorz.test.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class RecyclerViewActivity extends AppCompatActivity {
     private static final int GRID_COLUMN_SIZE = 2;
     private RecyclerView mRecyclerView;
 

@@ -14,6 +14,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     private static String IS_START_ANIM = "IS_START_ANIM";
     protected Context mContext;
 
+
+
     @Override
     final public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +48,6 @@ public abstract class BaseActivity extends AppCompatActivity {
 
 
     }
-
 
     public void reload(boolean anim) {
         Intent intent = getIntent();
