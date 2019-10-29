@@ -11,7 +11,9 @@ import com.jqorz.test.R;
 import com.jqorz.test.base.BaseActivity;
 import com.jqorz.test.click.ClickActivity;
 import com.jqorz.test.dashboard.DashActivity;
+import com.jqorz.test.floatView.ControlActivity;
 import com.jqorz.test.gson.GsonTestActivity;
+import com.jqorz.test.rotate.RotateActivity1;
 import com.jqorz.test.webview.WebViewActivity;
 import com.jqorz.test.wifi.WifiInfoActivity;
 
