@@ -3,6 +3,7 @@ package com.jqorz.test.wifi;
 import android.content.Context;
 import android.content.Intent;
 import android.net.wifi.ScanResult;
+import android.net.wifi.WifiConfiguration;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -11,7 +12,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,7 @@ import android.widget.TextView;
 
 import com.jqorz.test.R;
 import com.jqorz.test.hfutwlan.WifiAdmin;
+import com.jqorz.test.util.ToastUtil;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -62,7 +64,27 @@ public class WifiConnectActivity extends AppCompatActivity {
         mAdapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-//                mWifiAdmin.connectConfiguration(position);
+                ScanResult scanResult = mData.get(position);
+                List<WifiConfiguration> configurationList = mWifiAdmin.getConfiguration();
+                WifiConfiguration used = null;
+                for (WifiConfiguration configuration : configurationList) {
+                    if (TextUtils.equals(configuration.SSID, "\"" + scanResult.SSID + "\"")) {
+                        used = configuration;
+                        break;
+                    }
+                }
+                if (used != null) {
+//                    for (WifiConfiguration configuration : configurationList) {
+//                        mWifiAdmin.disconnectWifi(configuration.networkId);
+//                    }
+                    if (used.SSID.startsWith("\"") && used.SSID.endsWith("\"")) {
+                        used.SSID = used.SSID.substring(1, used.SSID.length() - 1);
+                    }
+                    boolean result = mWifiAdmin.addNetwork(used);
+                    ToastUtil.showToast(WifiConnectActivity.this, "连接" + result);
+                } else {
+                    ToastUtil.showToast(WifiConnectActivity.this, "没有此wifi的密码");
+                }
             }
         });
 
@@ -77,7 +99,6 @@ public class WifiConnectActivity extends AppCompatActivity {
         mData.clear();
         mData.addAll(mWifiAdmin.getWifiList());
         mAdapter.notifyDataSetChanged();
-        Log.i("jqjq", "刷新" + mData.size());
     }
 
     @Override
