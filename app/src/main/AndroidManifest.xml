@@ -32,14 +32,14 @@
         <activity android:name=".anim.AnimActivity" />
         <activity android:name=".xwalk.AppTemplateActivity" />
         <activity android:name=".xwalk.XWalkActivity" />
-        <activity android:name=".wifi.WifiInfoActivity" />
+        <activity android:name=".wifi.WifiConnectActivity" />
         <activity android:name=".videoview.VideoViewActivity" />
         <activity android:name=".videoview.SelectActivity" />
         <activity android:name=".videoview.WebViewPlayActivity" />
         <activity android:name=".lottie.LottieActivity" />
         <activity android:name=".webview.WebViewActivity" />
         <activity android:name=".broadcast.SendBroadActivity" />
-        <activity android:name=".kotlin.KtWifiInfoActivity" />
+        <activity android:name=".wifi.KtWifiInfoActivity" />
         <activity android:name=".gson.GsonTestActivity" />
         <activity android:name=".hfutwlan.HfutWlanMainActivity" />
         <activity android:name=".dashboard.DashActivity" />
@@ -50,12 +50,7 @@
         <receiver
             android:name=".broadcast.MyReceiver"
             android:enabled="true"
-            android:exported="true">
-            <!--            静态广播注册-->
-            <!--            <intent-filter>-->
-            <!--                <action android:name="A" />-->
-            <!--            </intent-filter>-->
-        </receiver>
+            android:exported="true"/>
 
         <activity
             android:name=".rotate.RotateActivity1"
@@ -68,9 +63,11 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 </manifest>

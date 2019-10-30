@@ -10,16 +10,17 @@ import android.net.wifi.WifiManager.WifiLock;
 import java.util.List;
 
 public class WifiAdmin {
-    // 定义WifiManager对象
-    public WifiManager mWifiManager;
     // 定义一个WifiLock
     WifiLock mWifiLock;
+    // 定义WifiManager对象
+    private WifiManager mWifiManager;
     // 定义WifiInfo对象
     private WifiInfo mWifiInfo;
     // 扫描出的网络连接列表
     private List<ScanResult> mWifiList;
     // 网络连接列表
     private List<WifiConfiguration> mWifiConfiguration;
+
 
     // 构造器
     public WifiAdmin(Context context) {
@@ -110,7 +111,7 @@ public class WifiAdmin {
 
     // 得到MAC地址
     public String getMacAddress() {
-        return (mWifiInfo != null) ? mWifiInfo.getMacAddress() : "NULL";
+        return (mWifiInfo == null) ? "NULL" : mWifiInfo.getMacAddress();
     }
 
     // 得到接入点的BSSID
@@ -136,11 +137,10 @@ public class WifiAdmin {
     // 添加一个网络并连接
     public void addNetwork(WifiConfiguration wcg) {
         int wcgID = mWifiManager.addNetwork(wcg);
-        mWifiManager.enableNetwork(wcgID, true);
+        boolean b = mWifiManager.enableNetwork(wcgID, true);
+        System.out.println("a--" + wcgID);
+        System.out.println("b--" + b);
     }
-
-    //public void check() {
-    //mWifiManager.addNetwork(WifiManager.getWifiInfo("XXX", "XXX", 3)); }
 
     // 断开指定ID的网络
     public void disconnectWifi(int netId) {

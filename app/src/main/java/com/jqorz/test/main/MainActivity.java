@@ -13,9 +13,10 @@ import com.jqorz.test.click.ClickActivity;
 import com.jqorz.test.dashboard.DashActivity;
 import com.jqorz.test.floatView.ControlActivity;
 import com.jqorz.test.gson.GsonTestActivity;
+import com.jqorz.test.hfutwlan.HfutWlanMainActivity;
 import com.jqorz.test.rotate.RotateActivity1;
 import com.jqorz.test.webview.WebViewActivity;
-import com.jqorz.test.wifi.WifiInfoActivity;
+import com.jqorz.test.wifi.WifiConnectActivity;
 
 public class MainActivity extends BaseActivity {
 
@@ -48,16 +49,10 @@ public class MainActivity extends BaseActivity {
                 WebViewActivity.start(mContext, "https://www.baidu.com");
             }
         }));
-        mAdapter.addData(new ItemBean("wifi信息查看", new Runnable() {
+        mAdapter.addData(new ItemBean("wifi连接", new Runnable() {
             @Override
             public void run() {
-                WifiInfoActivity.start(mContext);
-            }
-        }));
-        mAdapter.addData(new ItemBean("kotlin wifi信息查看", new Runnable() {
-            @Override
-            public void run() {
-                WifiInfoActivity.start(mContext);
+                WifiConnectActivity.start(mContext);
             }
         }));
         mAdapter.addData(new ItemBean("Gson测试", new Runnable() {
@@ -88,6 +83,12 @@ public class MainActivity extends BaseActivity {
             @Override
             public void run() {
                 ControlActivity.start(mContext);
+            }
+        }));
+        mAdapter.addData(new ItemBean("畅游wlan", new Runnable() {
+            @Override
+            public void run() {
+                HfutWlanMainActivity.openWifi(mContext);
             }
         }));
     }

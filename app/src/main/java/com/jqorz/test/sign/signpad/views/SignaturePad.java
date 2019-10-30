@@ -34,7 +34,7 @@ public class SignaturePad extends View {
     private final int DEFAULT_ATTR_PEN_COLOR = Color.BLACK;
     private final float DEFAULT_ATTR_VELOCITY_FILTER_WEIGHT = 0.9f;
     private final boolean DEFAULT_ATTR_CLEAR_ON_DOUBLE_CLICK = false;
-    //View state
+    //View refreshState
     private List<TimedPoint> mPoints;
     private boolean mIsEmpty;
     private float mLastTouchX;
@@ -429,7 +429,7 @@ public class SignaturePad extends View {
             // The Bezier's width starts out as last curve's final width, and
             // gradually changes to the stroke width just calculated. The new
             // width calculation is based on the velocity between the Bezier's
-            // start and end mPoints.
+            // openWifi and closeWifi mPoints.
             addBezier(curve, mLastWidth, newWidth);
 
             mLastVelocity = velocity;

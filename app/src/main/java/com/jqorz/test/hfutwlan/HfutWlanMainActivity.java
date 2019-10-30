@@ -1,9 +1,11 @@
 package com.jqorz.test.hfutwlan;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.net.wifi.WifiManager;
 import android.os.Handler;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
@@ -36,9 +38,14 @@ public class HfutWlanMainActivity extends BaseActivity implements OnClickListene
     //退出提示
     private int mBackKeyPressedTimes = 0;
 
+    public static void openWifi(Context context) {
+        Intent starter = new Intent(context, HfutWlanMainActivity.class);
+        context.startActivity(starter);
+    }
+
     @Override
     protected void init() {
-        mWifiAdmin = new WifiAdmin(HfutWlanMainActivity.this);
+        mWifiAdmin = new WifiAdmin(this);
 
         initView();
         initEvent();
@@ -98,13 +105,13 @@ public class HfutWlanMainActivity extends BaseActivity implements OnClickListene
     }
 
     //wifi状态更新
-    public void state() {
+    public void refreshState() {
         int wifiState = mWifiAdmin.checkState();
-        if (wifiState == 3) {
+        if (wifiState == WifiManager.WIFI_STATE_DISABLED) {
             wifiTip.setText("wifi已关闭");
             togglebut.setText("点击开启wifi");
             wifiimage.setBackgroundResource(R.mipmap.ic_wifi_off);
-        } else if (wifiState == 1) {
+        } else if (wifiState == WifiManager.WIFI_STATE_ENABLED) {
             wifiTip.setText("wifi已开启");
             togglebut.setText("点击关闭wifi");
             wifiimage.setBackgroundResource(R.mipmap.ic_wifi_on);
@@ -112,11 +119,11 @@ public class HfutWlanMainActivity extends BaseActivity implements OnClickListene
     }
 
     //wifi方法声明
-    public void start() {
+    public void openWifi() {
         mWifiAdmin.openWifi();
     }
 
-    public void end() {
+    public void closeWifi() {
         mWifiAdmin.closeWifi();
     }
 
@@ -129,19 +136,17 @@ public class HfutWlanMainActivity extends BaseActivity implements OnClickListene
         switch (v.getId()) {
             case R.id.togglebut://通过点击togglebutton更改wifi开关和更换文字与wifi状态图标
                 int wifiState = mWifiAdmin.checkState();
-
-                if (wifiState == 3) {
-                    end();
-                    this.state();
+                if (wifiState == WifiManager.WIFI_STATE_ENABLED) {
+                    closeWifi();
+                    refreshState();
                     Toast.makeText(HfutWlanMainActivity.this, "关闭中", Toast.LENGTH_SHORT).show();
-                } else if (wifiState == 1) {
-                    start();
-                    this.state();
+                } else if (wifiState == WifiManager.WIFI_STATE_DISABLED) {
+                    openWifi();
+                    refreshState();
                     Toast.makeText(HfutWlanMainActivity.this, "打开中", Toast.LENGTH_SHORT).show();
                     startScan();
                 }
-                return;
-
+                break;
             case R.id.mybut1://记录用户名于xml文件中
                 final ProgressDialog prodialog = new ProgressDialog(this);
                 prodialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
@@ -179,9 +184,9 @@ public class HfutWlanMainActivity extends BaseActivity implements OnClickListene
                     String getpassword = password_box.getText().toString().trim();
                     editor.putString("account", getaccount);
                     editor.putString("password", getpassword);
-                    editor.commit();
+                    editor.apply();
                 }
-                return;
+                break;
 
             case R.id.mybut2:
                 Intent intent = new Intent(this, Surfing.class);
@@ -189,6 +194,7 @@ public class HfutWlanMainActivity extends BaseActivity implements OnClickListene
                 pass = true;
 
                 //	setIpWithTfiStaticIp();
+                break;
         }
     }
 

@@ -1,4 +1,4 @@
-package com.jqorz.test.kotlin
+package com.jqorz.test.wifi
 
 import android.content.Context
 import android.content.Intent
@@ -10,7 +10,6 @@ import android.util.Log
 import android.view.View
 import android.widget.TextView
 import com.jqorz.test.R
-import com.jqorz.test.wifi.WifiInfoActivity
 
 
 /**
@@ -24,11 +23,13 @@ class KtWifiInfoActivity : AppCompatActivity(), View.OnClickListener {
     private var textView2: TextView? = null
     private var mWifiManager: WifiManager? = null
     private var mConnectivityManager: ConnectivityManager? = null
-    private val TAG = WifiInfoActivity::class.java.name
+    private val TAG = WifiConnectActivity::class.java.name
 
-    fun starter(context: Context){
-        val intent=Intent(context,KtWifiInfoActivity::class.java)
-        context.startActivity(intent)
+    companion object {
+        fun starter(context: Context) {
+            val intent = Intent(context, KtWifiInfoActivity::class.java)
+            context.startActivity(intent)
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
