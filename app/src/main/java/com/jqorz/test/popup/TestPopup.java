@@ -17,6 +17,7 @@ public class TestPopup extends BasePopupWindow {
 
     public TestPopup(Context context) {
         super(context);
+        setResize(true);
     }
 
     @Override
