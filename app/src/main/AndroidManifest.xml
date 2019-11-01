@@ -59,6 +59,7 @@
             android:name=".rotate.RotateActivity2"
             android:configChanges="orientation"
             android:screenOrientation="landscape" />
+        <activity android:name=".popup.PopupActivity" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
