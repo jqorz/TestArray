@@ -8,8 +8,8 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
-import android.widget.TextView
 import com.jqorz.test.R
+import kotlinx.android.synthetic.main.activity_wifi.*
 
 
 /**
@@ -19,8 +19,6 @@ import com.jqorz.test.R
 
 
 class KtWifiInfoActivity : AppCompatActivity(), View.OnClickListener {
-    private var textView1: TextView? = null
-    private var textView2: TextView? = null
     private var mWifiManager: WifiManager? = null
     private var mConnectivityManager: ConnectivityManager? = null
     private val TAG = WifiConnectActivity::class.java.name
@@ -40,8 +38,6 @@ class KtWifiInfoActivity : AppCompatActivity(), View.OnClickListener {
 
 
     private fun initView() {
-        textView1 = findViewById(R.id.textView1)
-        textView2 = findViewById(R.id.textView2)
         findViewById<View>(R.id.btn1).setOnClickListener(this)
         findViewById<View>(R.id.btn2).setOnClickListener(this)
         mWifiManager = this.applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
