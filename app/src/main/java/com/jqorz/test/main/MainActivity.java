@@ -1,5 +1,6 @@
 package com.jqorz.test.main;
 
+import android.os.SystemClock;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -18,7 +19,11 @@ import com.jqorz.test.rotate.RotateActivity1;
 import com.jqorz.test.webview.WebViewActivity;
 import com.jqorz.test.wifi.WifiConnectActivity;
 
+import java.util.ArrayList;
+
 public class MainActivity extends BaseActivity {
+
+    private ArrayList<Long> mHits = new ArrayList<>();
 
     @Override
     protected void init() {
@@ -91,10 +96,30 @@ public class MainActivity extends BaseActivity {
                 PopupActivity.start(mContext);
             }
         }));
+        mAdapter.addData(new ItemBean("点击测试", new Runnable() {
+            @Override
+            public void run() {
+                onDisplaySettingButton();
+            }
+        }));
     }
 
     @Override
     protected int getLayoutResId() {
         return R.layout.activity_main;
+    }
+
+    private void onDisplaySettingButton() {
+        long current = SystemClock.uptimeMillis();
+        if (mHits.size() > 1 && current - mHits.get(mHits.size() - 1) > 1000) {
+            mHits.clear();
+        }
+        mHits.add(current);
+        System.out.println("current" + current + " last" + (current - mHits.get(mHits.size() - 1)));
+        if (mHits.size() > 5) {
+            System.out.println("点了" + mHits.size());
+            mHits.clear();
+        }
+
     }
 }
