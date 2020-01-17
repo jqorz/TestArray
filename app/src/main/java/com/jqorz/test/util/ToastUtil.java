@@ -30,6 +30,10 @@ public class ToastUtil {
         mToast.show();
     }
 
+    public static void showToast(String text) {
+        showToast(AppConfig.getApp(), text);
+    }
+
     public static void showToast(Context context) {
         String text = "点击";
         showToast(context, text);

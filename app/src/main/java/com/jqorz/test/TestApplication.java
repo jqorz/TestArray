@@ -1,7 +1,9 @@
 package com.jqorz.test;
 
 import android.app.Application;
+import android.util.Log;
 
+import com.jqorz.test.mac.DeviceUtils;
 import com.jqorz.test.util.AppConfig;
 import com.jqorz.test.util.ToolUtil;
 
@@ -17,5 +19,8 @@ public class TestApplication extends Application {
         super.onCreate();
         AppConfig.init(this);
         ToolUtil.init(this);
+
+        String mac = DeviceUtils.getMacAddress();
+        Log.e("mac1 ", mac);
     }
 }
