@@ -14,6 +14,7 @@ import com.jqorz.test.click.ClickActivity;
 import com.jqorz.test.dashboard.DashActivity;
 import com.jqorz.test.floatView.ControlActivity;
 import com.jqorz.test.gson.GsonTestActivity;
+import com.jqorz.test.mac.MacActivity;
 import com.jqorz.test.popup.PopupActivity;
 import com.jqorz.test.rotate.RotateActivity1;
 import com.jqorz.test.webview.WebViewActivity;
@@ -100,6 +101,12 @@ public class MainActivity extends BaseActivity {
             @Override
             public void run() {
                 onDisplaySettingButton();
+            }
+        }));
+        mAdapter.addData(new ItemBean("获取mac", new Runnable() {
+            @Override
+            public void run() {
+                MacActivity.start(mContext);
             }
         }));
     }

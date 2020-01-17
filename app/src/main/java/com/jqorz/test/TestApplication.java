@@ -2,6 +2,7 @@ package com.jqorz.test;
 
 import android.app.Application;
 
+import com.jqorz.test.util.AppConfig;
 import com.jqorz.test.util.ToolUtil;
 
 /**
@@ -14,6 +15,7 @@ public class TestApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        AppConfig.init(this);
         ToolUtil.init(this);
     }
 }
