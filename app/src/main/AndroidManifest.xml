@@ -61,6 +61,7 @@
             android:screenOrientation="landscape" />
         <activity android:name=".popup.PopupActivity" />
         <activity android:name=".mac.MacActivity" />
+        <activity android:name=".themeAttr.ThemeActivity" />
     </application>
 
 <!--    <uses-permission android:name="android.permission.INTERNET" />-->

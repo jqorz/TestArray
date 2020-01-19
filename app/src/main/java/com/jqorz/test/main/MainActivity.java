@@ -17,6 +17,7 @@ import com.jqorz.test.gson.GsonTestActivity;
 import com.jqorz.test.mac.MacActivity;
 import com.jqorz.test.popup.PopupActivity;
 import com.jqorz.test.rotate.RotateActivity1;
+import com.jqorz.test.themeAttr.ThemeActivity;
 import com.jqorz.test.webview.WebViewActivity;
 import com.jqorz.test.wifi.WifiConnectActivity;
 
@@ -107,6 +108,12 @@ public class MainActivity extends BaseActivity {
             @Override
             public void run() {
                 MacActivity.start(mContext);
+            }
+        }));
+        mAdapter.addData(new ItemBean("测试主题", new Runnable() {
+            @Override
+            public void run() {
+                ThemeActivity.start(mContext);
             }
         }));
     }

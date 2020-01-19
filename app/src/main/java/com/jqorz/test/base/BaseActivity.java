@@ -2,9 +2,10 @@ package com.jqorz.test.base;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+
+import com.jqorz.test.R;
 
 /**
  * 基类Activity
@@ -15,9 +16,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected Context mContext;
 
 
-
     @Override
-    final public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         mContext = this;
