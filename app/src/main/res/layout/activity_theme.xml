@@ -11,6 +11,7 @@
         android:layout_width="?ViewHeight"
         android:layout_height="?ViewHeight"
         android:background="@color/color_blue"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,4 +35,12 @@
         app:layout_constraintStart_toEndOf="@+id/btn_1"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.jqorz.test.themeAttr.DiyView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </FrameLayout>
 </android.support.constraint.ConstraintLayout>
