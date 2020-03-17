@@ -4,30 +4,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="43dp"
-        android:background="@color/green"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:layout_width="43dp"
-            android:layout_height="43dp"
-            android:padding="5dp"
-            android:src="@mipmap/ic_launcher" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="43dp"
-            android:gravity="center_vertical"
-            android:paddingStart="@dimen/dp_10"
-            android:paddingEnd="@dimen/dp_10"
-            android:text="畅游工大WLAN～"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp" />
-
-    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/LinerLayout1"
@@ -97,8 +73,8 @@
             android:id="@+id/account_box"
             android:layout_width="fill_parent"
             android:layout_height="40dp"
-            android:hint="账号"
             android:layout_marginTop="15dp"
+            android:hint="账号"
             android:inputType="number"
             android:maxLength="10"
             android:paddingLeft="3sp" />
@@ -115,9 +91,9 @@
             android:id="@+id/password_box"
             android:layout_width="fill_parent"
             android:layout_height="40dp"
+            android:layout_marginTop="15dp"
             android:hint="密码(最多16个字符)"
             android:inputType="textPassword"
-            android:layout_marginTop="15dp"
             android:maxLength="16"
             android:paddingLeft="3dp" />
 
