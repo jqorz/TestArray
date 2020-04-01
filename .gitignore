@@ -55,3 +55,4 @@ proguard/
 *.iml
 
 /app/release/output.json
+/captures/
