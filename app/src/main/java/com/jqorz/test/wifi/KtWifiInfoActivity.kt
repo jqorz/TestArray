@@ -5,9 +5,9 @@ import android.content.Intent
 import android.net.ConnectivityManager
 import android.net.wifi.WifiManager
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import com.jqorz.test.R
 import kotlinx.android.synthetic.main.activity_wifi.*
 

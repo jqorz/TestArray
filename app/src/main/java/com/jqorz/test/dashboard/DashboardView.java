@@ -18,12 +18,13 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Shader;
 import android.graphics.SweepGradient;
-import android.support.annotation.ColorRes;
-import android.support.annotation.Keep;
-import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
+
+import androidx.annotation.ColorRes;
+import androidx.annotation.Keep;
+import androidx.core.content.ContextCompat;
 
 import com.jqorz.test.R;
 

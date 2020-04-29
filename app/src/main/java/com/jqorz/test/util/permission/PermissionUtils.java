@@ -5,7 +5,8 @@ import android.content.Context;
 
 import com.jqorz.test.util.ToastUtil;
 import com.yanzhenjie.permission.AndPermission;
-import com.yanzhenjie.permission.Permission;
+import com.yanzhenjie.permission.runtime.Permission;
+import com.yanzhenjie.permission.runtime.PermissionDef;
 
 import java.util.List;
 
@@ -23,7 +24,7 @@ public class PermissionUtils {
      */
 
 
-    public static void readyPermission(final Activity activity, final IPermissionListener listener, String... permissions) {
+    public static void readyPermission(final Activity activity, final IPermissionListener listener, @PermissionDef String... permissions) {
         AndPermission.with(activity)
                 .runtime()
                 .permission(permissions)
@@ -41,19 +42,6 @@ public class PermissionUtils {
                 .start();
     }
 
-
-    /**
-     * Set permissions.
-     */
-    private static void setPermission(Activity activity) {
-        AndPermission.with(activity)
-                .runtime()
-                .setting()
-                .onComeback(() -> {
-
-                })
-                .start();
-    }
 
     public static String getPermissionText(Context context, List<String> permissions) {
         List<String> permissionNames = Permission.transformText(context, permissions);

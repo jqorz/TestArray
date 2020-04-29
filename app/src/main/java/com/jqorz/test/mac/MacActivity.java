@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.jqorz.test.R;
 import com.jqorz.test.base.BaseActivity;
 import com.jqorz.test.util.permission.PermissionUtils;
-import com.yanzhenjie.permission.Permission;
+import com.yanzhenjie.permission.runtime.Permission;
 
 /**
  * copyright datedu
