@@ -5,7 +5,7 @@
     <application>
         <service
             android:name=".AIDLServer"
-            android:process=":server">
+            android:process="com.jqorz.test.server">
             <intent-filter>
                 <action android:name="com.jqorz.test2.start" />
             </intent-filter>

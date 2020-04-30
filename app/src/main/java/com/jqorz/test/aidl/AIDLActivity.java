@@ -131,6 +131,7 @@ public class AIDLActivity extends BaseActivity implements View.OnClickListener {
             return;
         }
         context.unbindService(mServiceConnection);
+        mIMyAidlInterface = null;
     }
 
     private String request(String data) {
