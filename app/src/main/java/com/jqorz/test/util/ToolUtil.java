@@ -6,6 +6,8 @@ import android.os.Build;
 import android.util.TypedValue;
 import android.view.WindowManager;
 
+import java.lang.reflect.Method;
+
 /**
  * copyright datedu
  *

@@ -1,14 +1,16 @@
 package com.jqorz.test.main;
 
 import android.os.SystemClock;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.jqorz.test.R;
+import com.jqorz.test.aidl.AIDLActivity;
 import com.jqorz.test.base.BaseActivity;
 import com.jqorz.test.click.ClickActivity;
 import com.jqorz.test.dashboard.DashActivity;
@@ -114,6 +116,12 @@ public class MainActivity extends BaseActivity {
             @Override
             public void run() {
                 ThemeActivity.start(mContext);
+            }
+        }));
+        mAdapter.addData(new ItemBean("测试AIDL", new Runnable() {
+            @Override
+            public void run() {
+                AIDLActivity.start(mContext);
             }
         }));
     }

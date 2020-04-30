@@ -1,2 +1,3 @@
 include ':app'
 include ':lib_xwalk'
+include ':aidl_server'

@@ -60,6 +60,9 @@
         <activity android:name=".popup.PopupActivity" />
         <activity android:name=".mac.MacActivity" />
         <activity android:name=".themeAttr.ThemeActivity" />
+        <activity android:name=".aidl.AIDLActivity" />
+
+        <service android:name=".aidl.service.AIDLReceiver" />
     </application>
 
     <!--    <uses-permission android:name="android.permission.INTERNET" />-->

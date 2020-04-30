@@ -6,8 +6,6 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.jqorz.test.R;
-
 /**
  * 基类Activity
  */
@@ -25,30 +23,12 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         setContentView(getLayoutResId());
 
-        initCommonEvent();
 
         init();
 
 
     }
 
-    /**
-     * 处理一些通用的时间，比如返回按钮退出
-     */
-    private void initCommonEvent() {
-        //统一左上角返回键的处理
-//        View iv_Back = findViewById(R.id.iv_);
-//        if (iv_Back != null) {
-//            iv_Back.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    finish();
-//                }
-//            });
-//        }
-
-
-    }
 
     public void reload(boolean anim) {
         Intent intent = getIntent();
