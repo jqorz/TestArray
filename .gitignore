@@ -56,3 +56,5 @@ proguard/
 
 /app/release/output.json
 /captures/
+/app/.cxx/
+/lib_jni/.cxx/

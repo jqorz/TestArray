@@ -61,6 +61,7 @@
         <activity android:name=".mac.MacActivity" />
         <activity android:name=".themeAttr.ThemeActivity" />
         <activity android:name=".aidl.AIDLActivity" />
+        <activity android:name=".jni.JniActivity" />
 
     </application>
 

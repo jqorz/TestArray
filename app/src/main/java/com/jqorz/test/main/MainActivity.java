@@ -1,7 +1,6 @@
 package com.jqorz.test.main;
 
 import android.os.SystemClock;
-import android.view.View;
 import android.widget.Button;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -16,6 +15,7 @@ import com.jqorz.test.click.ClickActivity;
 import com.jqorz.test.dashboard.DashActivity;
 import com.jqorz.test.floatView.ControlActivity;
 import com.jqorz.test.gson.GsonTestActivity;
+import com.jqorz.test.jni.JniActivity;
 import com.jqorz.test.mac.MacActivity;
 import com.jqorz.test.popup.PopupActivity;
 import com.jqorz.test.rotate.RotateActivity1;
@@ -43,87 +43,23 @@ public class MainActivity extends BaseActivity {
             protected void convert(BaseViewHolder helper, final ItemBean item) {
                 Button btn = helper.getView(R.id.btn);
                 btn.setText(item.getText());
-                btn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        item.getRunnable().run();
-                    }
-                });
+                btn.setOnClickListener(v -> item.getRunnable().run());
             }
         };
         mRecyclerView.setAdapter(mAdapter);
-        mAdapter.addData(new ItemBean("WebView拦截", new Runnable() {
-            @Override
-            public void run() {
-                WebViewActivity.start(mContext, "https://www.baidu.com");
-            }
-        }));
-        mAdapter.addData(new ItemBean("wifi连接", new Runnable() {
-            @Override
-            public void run() {
-                WifiConnectActivity.start(mContext);
-            }
-        }));
-        mAdapter.addData(new ItemBean("Gson测试", new Runnable() {
-            @Override
-            public void run() {
-                GsonTestActivity.start(mContext);
-            }
-        }));
-        mAdapter.addData(new ItemBean("仪表盘动画", new Runnable() {
-            @Override
-            public void run() {
-                DashActivity.start(mContext);
-            }
-        }));
-        mAdapter.addData(new ItemBean("view属性", new Runnable() {
-            @Override
-            public void run() {
-                ClickActivity.start(mContext);
-            }
-        }));
-        mAdapter.addData(new ItemBean("屏幕旋转", new Runnable() {
-            @Override
-            public void run() {
-                RotateActivity1.start(mContext);
-            }
-        }));
-        mAdapter.addData(new ItemBean("悬浮窗", new Runnable() {
-            @Override
-            public void run() {
-                ControlActivity.start(mContext);
-            }
-        }));
-        mAdapter.addData(new ItemBean("popup", new Runnable() {
-            @Override
-            public void run() {
-                PopupActivity.start(mContext);
-            }
-        }));
-        mAdapter.addData(new ItemBean("点击测试", new Runnable() {
-            @Override
-            public void run() {
-                onDisplaySettingButton();
-            }
-        }));
-        mAdapter.addData(new ItemBean("获取mac", new Runnable() {
-            @Override
-            public void run() {
-                MacActivity.start(mContext);
-            }
-        }));
-        mAdapter.addData(new ItemBean("测试主题", new Runnable() {
-            @Override
-            public void run() {
-                ThemeActivity.start(mContext);
-            }
-        }));
-        mAdapter.addData(new ItemBean("测试AIDL", new Runnable() {
-            @Override
-            public void run() {
-                AIDLActivity.start(mContext);
-            }
-        }));
+        mAdapter.addData(new ItemBean("Jni测试", () -> JniActivity.start(mContext)));
+        mAdapter.addData(new ItemBean("WebView拦截", () -> WebViewActivity.start(mContext, "https://www.baidu.com")));
+        mAdapter.addData(new ItemBean("wifi连接", () -> WifiConnectActivity.start(mContext)));
+        mAdapter.addData(new ItemBean("Gson测试", () -> GsonTestActivity.start(mContext)));
+        mAdapter.addData(new ItemBean("仪表盘动画", () -> DashActivity.start(mContext)));
+        mAdapter.addData(new ItemBean("view属性", () -> ClickActivity.start(mContext)));
+        mAdapter.addData(new ItemBean("屏幕旋转", () -> RotateActivity1.start(mContext)));
+        mAdapter.addData(new ItemBean("悬浮窗", () -> ControlActivity.start(mContext)));
+        mAdapter.addData(new ItemBean("popup", () -> PopupActivity.start(mContext)));
+        mAdapter.addData(new ItemBean("点击测试", () -> onDisplaySettingButton()));
+        mAdapter.addData(new ItemBean("获取mac", () -> MacActivity.start(mContext)));
+        mAdapter.addData(new ItemBean("测试主题", () -> ThemeActivity.start(mContext)));
+        mAdapter.addData(new ItemBean("测试AIDL", () -> AIDLActivity.start(mContext)));
     }
 
     @Override

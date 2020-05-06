@@ -10,6 +10,9 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
+        ndk {
+            abiFilters 'armeabi-v7a','x86','arm64-v8a' //, 'x86','armeabi', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+        }
     }
     buildTypes {
         release {
@@ -35,6 +38,7 @@ dependencies {
 
     implementation project(':lib_xwalk')
     implementation project(':aidl_server')
+    implementation project(':lib_jni')
 
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.47-androidx'
     implementation 'com.jakewharton:butterknife:10.2.1'
