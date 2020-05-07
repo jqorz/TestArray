@@ -37,7 +37,6 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 
     implementation project(':lib_xwalk')
-    implementation project(':aidl_server')
     implementation project(':lib_jni')
 
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.47-androidx'

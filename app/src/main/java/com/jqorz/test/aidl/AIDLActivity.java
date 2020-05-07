@@ -122,7 +122,7 @@ public class AIDLActivity extends BaseActivity implements View.OnClickListener {
     private void bindService(Context context) {
         Intent intent = new Intent();
         intent.setAction("com.jqorz.test2.start");
-        intent.setPackage("com.jqorz.test");
+        intent.setPackage("com.jqorz.test2");
         context.bindService(intent, mServiceConnection, Context.BIND_AUTO_CREATE);
     }
 
