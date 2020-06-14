@@ -33,6 +33,6 @@ android {
 ```
 7.在module的build.gradle同级目录下新建CMakeLists.txt
 
-8.build项目，so文件会生成在`Test\lib_jni\build\intermediates`下面
+8.build项目，so文件会生成在`Test\lib_jni\build\intermediates`下面，默认是`build\intermediates\stripped_native_libs\debug\out\lib`下面
 
 9.如果想使用so，拷贝生成的`libjni_test.so`到`main\jniLibs`目录下面，然后把`build.gradle`中修改的注释掉
