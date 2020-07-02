@@ -47,7 +47,7 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:4.4.1'
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation files('libs/xwalk_app_runtime_java.jar')
-    implementation 'com.airbnb.android:lottie:2.7.0'
+    implementation 'com.airbnb.android:lottie:3.4.1'
 
     implementation 'com.github.razerdp:BasePopup:2.2.2.2'
 

@@ -20,6 +20,7 @@ import com.jqorz.test.mac.MacActivity;
 import com.jqorz.test.popup.PopupActivity;
 import com.jqorz.test.rotate.RotateActivity1;
 import com.jqorz.test.themeAttr.ThemeActivity;
+import com.jqorz.test.webview.WebView2Activity;
 import com.jqorz.test.webview.WebViewActivity;
 import com.jqorz.test.wifi.WifiConnectActivity;
 
@@ -48,7 +49,7 @@ public class MainActivity extends BaseActivity {
         };
         mRecyclerView.setAdapter(mAdapter);
         mAdapter.addData(new ItemBean("Jni测试", () -> JniActivity.start(mContext)));
-        mAdapter.addData(new ItemBean("WebView拦截", () -> WebViewActivity.start(mContext, "https://www.baidu.com")));
+        mAdapter.addData(new ItemBean("WebView拦截", () -> WebView2Activity.start(mContext, "https://datedu.oss-cn-hangzhou.aliyuncs.com/Android/test/test_jq.html")));
         mAdapter.addData(new ItemBean("wifi连接", () -> WifiConnectActivity.start(mContext)));
         mAdapter.addData(new ItemBean("Gson测试", () -> GsonTestActivity.start(mContext)));
         mAdapter.addData(new ItemBean("仪表盘动画", () -> DashActivity.start(mContext)));
