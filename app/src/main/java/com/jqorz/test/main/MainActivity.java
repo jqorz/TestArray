@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.BaseViewHolder;
+import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.jqorz.test.R;
 import com.jqorz.test.aidl.AIDLActivity;
 import com.jqorz.test.base.BaseActivity;
@@ -21,7 +21,6 @@ import com.jqorz.test.popup.PopupActivity;
 import com.jqorz.test.rotate.RotateActivity1;
 import com.jqorz.test.themeAttr.ThemeActivity;
 import com.jqorz.test.webview.WebView2Activity;
-import com.jqorz.test.webview.WebViewActivity;
 import com.jqorz.test.wifi.WifiConnectActivity;
 
 import java.util.ArrayList;

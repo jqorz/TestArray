@@ -27,12 +27,8 @@ public class PopupActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_popup);
-        findViewById(R.id.btn_1).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new TestPopup(PopupActivity.this).showPopupWindow(R.id.btn_1);
-            }
-        });
+        View view = findViewById(R.id.btn_1);
+        view.setOnClickListener(v -> new TestPopup(PopupActivity.this).showPopupWindow(view));
     }
 
 

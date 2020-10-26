@@ -3,7 +3,6 @@ package com.jqorz.test.floatView;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.PixelFormat;
-import android.os.Handler;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,9 +27,7 @@ public class ControlActivity extends BaseActivity implements View.OnClickListene
     private View tv_left;
     private View tv_switcher;
     private LinearLayout mFloatLayout;
-    private boolean isShow;
     private boolean mHasShown;
-    private Handler mHandler = new Handler();
 
     public static void start(Context context) {
         Intent starter = new Intent(context, ControlActivity.class);
@@ -41,7 +38,6 @@ public class ControlActivity extends BaseActivity implements View.OnClickListene
     protected void init() {
         createFloatView();
         show();
-        showNormalState();
     }
 
     @Override
@@ -68,8 +64,8 @@ public class ControlActivity extends BaseActivity implements View.OnClickListene
         wmParams.gravity = Gravity.TOP | Gravity.START;
 
         // 以屏幕左上角为原点，设置x、y初始值
-        wmParams.x = ToolUtil.getScreenWidth() - ToolUtil.dp2px(250);
-        wmParams.y = (ToolUtil.getScreenWidth() - ToolUtil.dp2px(50)) / 2;
+        wmParams.x = ToolUtil.getScreenWidth() / 2;
+        wmParams.y = (ToolUtil.getScreenHeight()) / 2;
 
 
         // 设置悬浮窗口长宽数据
@@ -83,13 +79,10 @@ public class ControlActivity extends BaseActivity implements View.OnClickListene
         // 浮动窗口按钮
 
         tv_switcher = mFloatLayout.findViewById(R.id.tv_switcher);
-        tv_left = mFloatLayout.findViewById(R.id.tv_left);
 
         mFloatLayout.measure(View.MeasureSpec.makeMeasureSpec(0,
                 View.MeasureSpec.UNSPECIFIED), View.MeasureSpec
                 .makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
-
-        // 设置监听浮动窗口的触摸移动
 
 
         tv_switcher.setOnClickListener(this);
@@ -98,43 +91,17 @@ public class ControlActivity extends BaseActivity implements View.OnClickListene
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.tv_switcher) {
-            if (isShow) {
-                showMiniState();
-            } else {
-                showNormalState();
-            }
-            isShow = !isShow;
+//            View root = LayoutInflater.from(mContext).inflate(R.layout.layout_popup, null);
+//            PopupWindow popupWindow = new PopupWindow(root, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+//            popupWindow.setOutsideTouchable(true);
+//            popupWindow.setBackgroundDrawable(ContextCompat.getDrawable(mContext, R.drawable.popup_bg));
+//            popupWindow.showAsDropDown(view);
+//            new TestPopup(this).showPopupWindow(tv_switcher);
+
+            new TestDialog().show(getSupportFragmentManager(), "123");
         }
     }
 
-    private void showMiniState() {
-        wmParams.x = ToolUtil.getScreenWidth() - ToolUtil.dp2px(50f);
-        mWindowManager.updateViewLayout(mFloatLayout, wmParams);
-        mHandler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                tv_left.setVisibility(View.GONE);
-            }
-        }, 200);
-    }
-
-    private void showNormalState() {
-        wmParams.x = ToolUtil.getScreenWidth() - ToolUtil.dp2px(250f);
-        mWindowManager.updateViewLayout(mFloatLayout, wmParams);
-        mHandler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                tv_left.setVisibility(View.VISIBLE);
-            }
-        }, 20);
-    }
-
-    public void hide() {
-        if (mHasShown && mWindowManager != null && mFloatLayout != null && mFloatLayout.isAttachedToWindow()) {
-            mWindowManager.removeViewImmediate(mFloatLayout);
-        }
-        mHasShown = false;
-    }
 
     public void show() {
         if (!mHasShown && mFloatLayout != null && mWindowManager != null) {
