@@ -1,5 +1,12 @@
 package com.jqorz.test.kotlin
 
+import android.util.Log
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withTimeoutOrNull
 import java.util.*
 import kotlin.math.max
 
@@ -108,7 +115,28 @@ class KotlinTest(val user: User) {
         }
 
     }
+
+    fun testCancel() {
+        GlobalScope.launch {
+            val f = flow {
+                for (i in 1..3) {
+                    delay(500)
+                    Log.e(TAG, "emit $i")
+                    emit(i)
+                }
+            }
+            withTimeoutOrNull(1600) {
+                f.collect {
+                    delay(500)
+                    Log.e(TAG, "consume $it")
+                }
+            }
+            Log.e(TAG, "cancel")
+        }
+    }
 }
+
+private const val TAG = "KotlinTest"
 
 fun main() {
     KotlinTest(User(age = 12, sexIsMale = false)).testFun()
