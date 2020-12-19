@@ -9,7 +9,7 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.jqorz.test.R
-import kotlinx.android.synthetic.main.activity_wifi.*
+import com.jqorz.test.databinding.ActivityWifiBinding
 
 
 /**
@@ -22,6 +22,7 @@ class KtWifiInfoActivity : AppCompatActivity(), View.OnClickListener {
     private var mWifiManager: WifiManager? = null
     private var mConnectivityManager: ConnectivityManager? = null
     private val TAG = WifiConnectActivity::class.java.name
+    private lateinit var binding: ActivityWifiBinding
 
     companion object {
         fun starter(context: Context) {
@@ -32,6 +33,7 @@ class KtWifiInfoActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivityWifiBinding.inflate(layoutInflater)
         setContentView(R.layout.activity_wifi)
         initView()
     }
@@ -60,12 +62,16 @@ class KtWifiInfoActivity : AppCompatActivity(), View.OnClickListener {
             for (netWork in netWorks) {
                 val netWorkInfo = mConnectivityManager!!.getNetworkInfo(netWork)
                 if (netWorkInfo.isConnected) {
-                    if (netWorkInfo.type == ConnectivityManager.TYPE_WIFI) {
-                        textView1!!.text = String.format("WIFI连接信息：名称：%s 信息：%s", netWorkInfo.extraInfo, netWorkInfo.toString())
-                    } else if (netWorkInfo.type == ConnectivityManager.TYPE_MOBILE) {
-                        textView1!!.text = (String.format("移动网络信息：%s%s", textView1!!.text, netWorkInfo.extraInfo))
-                    } else {
-                        textView1!!.text = String.format("未知网络：%s", netWorkInfo)
+                    when (netWorkInfo.type) {
+                        ConnectivityManager.TYPE_WIFI -> {
+                            binding.textView1.text = String.format("WIFI连接信息：名称：%s 信息：%s", netWorkInfo.extraInfo, netWorkInfo.toString())
+                        }
+                        ConnectivityManager.TYPE_MOBILE -> {
+                            binding.textView1.text = (String.format("移动网络信息：%s%s", binding.textView1.text, netWorkInfo.extraInfo))
+                        }
+                        else -> {
+                            binding.textView1.text = String.format("未知网络：%s", netWorkInfo)
+                        }
                     }
                 }
             }
@@ -95,7 +101,7 @@ class KtWifiInfoActivity : AppCompatActivity(), View.OnClickListener {
         Log.i(TAG, mWifiInfo.linkSpeed.toString() + "S")  //65S
         Log.i(TAG, mWifiInfo.ipAddress.toString() + "ADD")
         Log.i(TAG, mWifiInfo.rssi.toString() + "802.11n网络的信号")
-        textView2!!.setText(String.format("WIFI信息：%s", mWifiInfo.toString()))
+        binding.textView2.setText(String.format("WIFI信息：%s", mWifiInfo.toString()))
     }
 
 
