@@ -1,10 +1,12 @@
-package com.jqorz.test2;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.jqorz.test2.aidl;
 
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.jqorz.test2.R;
+
+public class AIDLServerActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

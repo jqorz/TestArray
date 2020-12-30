@@ -1,4 +1,4 @@
-package com.jqorz.test2;
+package com.jqorz.test2.aidl;
 
 import android.app.Service;
 import android.content.Intent;

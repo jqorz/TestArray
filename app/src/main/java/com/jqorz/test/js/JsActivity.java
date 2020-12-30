@@ -3,14 +3,14 @@ package com.jqorz.test.js;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
-import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.webkit.JavascriptInterface;
 import android.webkit.JsResult;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.jqorz.test.R;
 
@@ -24,7 +24,7 @@ public class JsActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
-        setContentView(R.layout.activity_web_view);
+        setContentView(R.layout.activity_webview);
 
         mWebView = findViewById(R.id.mWebView);
 
@@ -46,9 +46,8 @@ public class JsActivity extends AppCompatActivity {
     }
 
 
-
     // 这是他定义由 addJavascriptInterface 提供的一个Object
-     class DemoJavaScriptInterface {
+    class DemoJavaScriptInterface {
 
         @JavascriptInterface
         public void clickOnAndroid() {

@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
  */
 abstract class BaseActivity : AppCompatActivity() {
 
+    @JvmField
     protected var mContext: Context? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -21,7 +21,7 @@ public class SendBroadActivity extends BaseActivity {
         myReceiver.setOnReceiveBroadcastListener(new MyReceiver.OnReceiveBroadcastListener() {
             @Override
             public void onChanged(String data) {
-                ToastUtil.showToast(mContext, data);
+                ToastUtil.showToast(data);
             }
         });
     }

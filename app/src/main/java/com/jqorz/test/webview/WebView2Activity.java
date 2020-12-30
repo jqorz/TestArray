@@ -35,7 +35,7 @@ public class WebView2Activity extends BaseActivity {
 
     @Override
     protected void init() {
-        WebView mWebView = findViewById(R.id.webView);
+        WebView mWebView = findViewById(R.id.mWebView);
         mWebView.setWebViewClient(new WebViewClient());
         mWebView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);//滚动条风格，为0指滚动条不占用空间，直接覆盖在网页上
         //得到webview设置

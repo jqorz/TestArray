@@ -4,6 +4,25 @@
     package="com.jqorz.test">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <permission
+        android:name="com.datedu.launcher.provider.READ"
+        android:protectionLevel="normal" />
+    <permission
+        android:name="com.datedu.launcher.provider.WRITE"
+        android:protectionLevel="normal" />
+
     <application
         android:name=".TestApplication"
         android:icon="@mipmap/star"
@@ -64,17 +83,15 @@
         <activity android:name=".aidl.AIDLActivity" />
         <activity android:name=".jni.JniActivity" />
         <activity android:name=".webview.WebView2Activity" />
+        <activity android:name=".webview.WebView3Activity" />
 
+        <provider
+            android:name=".content_provider.UserInfoProvider"
+            android:authorities="com.datedu.launcher.provider"
+            android:exported="true"
+            android:readPermission="com.datedu.launcher.READ"
+            android:writePermission="com.datedu.launcher.WRITE" />
     </application>
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 </manifest>

@@ -3,7 +3,6 @@ package com.jqorz.test.webview;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
-import androidx.annotation.Nullable;
 import android.text.TextUtils;
 import android.view.View;
 import android.webkit.WebResourceRequest;
@@ -11,6 +10,8 @@ import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
+import androidx.annotation.Nullable;
 
 import com.jqorz.test.R;
 import com.jqorz.test.base.BaseActivity;
@@ -42,7 +43,7 @@ public class WebViewActivity extends BaseActivity {
 
     @Override
     protected void init() {
-        WebView mWebView = findViewById(R.id.webView);
+        WebView mWebView = findViewById(R.id.mWebView);
         mWebView.setWebViewClient(new WebViewClient());
         mWebView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);//滚动条风格，为0指滚动条不占用空间，直接覆盖在网页上
         //得到webview设置

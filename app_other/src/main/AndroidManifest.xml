@@ -2,11 +2,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.jqorz.test2">
 
+    <permission
+        android:name="com.datedu.launcher.provider.READ"
+        android:protectionLevel="normal" />
+    <permission
+        android:name="com.datedu.launcher.provider.WRITE"
+        android:protectionLevel="normal" />
+
     <application
         android:icon="@mipmap/ic_launcher_round"
         android:label="@string/app_name"
         android:theme="@style/Theme.AppCompat.Light">
-        <activity android:name=".MainActivity">
+        <activity android:name=".aidl.AIDLServerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -15,7 +22,7 @@
         </activity>
 
         <service
-            android:name=".AIDLServer"
+            android:name=".aidl.AIDLServer"
             android:process="com.jqorz.test2.server.xxx">
             <intent-filter>
                 <action android:name="com.jqorz.test2.start" />

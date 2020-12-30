@@ -1,4 +1,4 @@
 include ':app'
 include ':lib_xwalk'
 include ':lib_jni'
-include ':app_aidl_server'
+include ':app_other'
