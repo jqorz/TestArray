@@ -2,6 +2,8 @@ package com.jqorz.test2.contentprovider
 
 import android.content.ContentResolver
 import android.content.ContentValues
+import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -17,7 +19,6 @@ import com.jqorz.test2.R
 class ContentProviderActivity : AppCompatActivity(), View.OnClickListener {
 
     private val TAG = "ContentProviderActivity"
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -89,5 +90,11 @@ class ContentProviderActivity : AppCompatActivity(), View.OnClickListener {
         cursor?.close()
     }
 
-
+    companion object {
+        @JvmStatic
+        fun start(context: Context) {
+            val starter = Intent(context, ContentProviderActivity::class.java)
+            context.startActivity(starter)
+        }
+    }
 }
