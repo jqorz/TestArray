@@ -11,8 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.jqorz.test2.R;
-import com.jqorz.test2.aidl.AIDLServerActivity;
-import com.jqorz.test2.contentprovider.ContentProviderActivity;
+import com.jqorz.test2.contentprovider.ContentProviderClientActivity;
 
 import java.util.ArrayList;
 
@@ -41,8 +40,7 @@ public class MainActivity extends AppCompatActivity {
             }
         };
         mRecyclerView.setAdapter(mAdapter);
-        mAdapter.addData(new ItemBean("AIDL服务端", () -> AIDLServerActivity.start(this)));
-        mAdapter.addData(new ItemBean("ContentProvider客户端", () -> ContentProviderActivity.start(this)));
+        mAdapter.addData(new ItemBean("ContentProvider客户端", () -> ContentProviderClientActivity.start(this)));
     }
 
 

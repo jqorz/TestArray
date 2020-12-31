@@ -2,12 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.jqorz.test2">
 
-    <permission
-        android:name="com.datedu.launcher.provider.READ"
-        android:protectionLevel="normal" />
-    <permission
-        android:name="com.datedu.launcher.provider.WRITE"
-        android:protectionLevel="normal" />
+    <uses-permission android:name="com.datedu.launcher.provider.READ" />
+    <uses-permission android:name="com.datedu.launcher.provider.WRITE" />
 
     <application
         android:icon="@mipmap/ic_launcher_round"
@@ -20,8 +16,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".aidl.AIDLServerActivity" />
-        <activity android:name=".contentprovider.ContentProviderActivity" />
+        <activity android:name=".contentprovider.ContentProviderClientActivity" />
 
         <service
             android:name=".aidl.AIDLServer"

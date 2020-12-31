@@ -89,8 +89,8 @@
             android:name=".content_provider.UserInfoProvider"
             android:authorities="com.datedu.launcher.provider"
             android:exported="true"
-            android:readPermission="com.datedu.launcher.READ"
-            android:writePermission="com.datedu.launcher.WRITE" />
+            android:readPermission="com.datedu.launcher.provider.READ"
+            android:writePermission="com.datedu.launcher.provider.WRITE" />
     </application>
 
 

@@ -16,12 +16,12 @@ import com.jqorz.test2.R
  * @author  jqorz
  * @since  2020/12/29
  */
-class ContentProviderActivity : AppCompatActivity(), View.OnClickListener {
+class ContentProviderClientActivity : AppCompatActivity(), View.OnClickListener {
 
     private val TAG = "ContentProviderActivity"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_content_provider)
 
         findViewById<View>(R.id.btn_query).setOnClickListener(this)
         findViewById<View>(R.id.btn_update).setOnClickListener(this)
@@ -46,7 +46,6 @@ class ContentProviderActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    @Throws(Throwable::class)
     fun testInsert() {
         val contentResolver: ContentResolver = contentResolver
         val insertUri: Uri = ProviderConstant.CONTENT_URI
@@ -58,7 +57,6 @@ class ContentProviderActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     //更新内容提供者中的数据   
-    @Throws(Throwable::class)
     fun testUpdate() {
         val contentResolver: ContentResolver = contentResolver
         val updateUri: Uri = ProviderConstant.CONTENT_URI
@@ -69,7 +67,6 @@ class ContentProviderActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     //从内容提供者中删除数据   
-    @Throws(Throwable::class)
     fun testDelete() {
         val contentResolver: ContentResolver = contentResolver
         val deleteUri: Uri = ProviderConstant.CONTENT_URI
@@ -77,7 +74,6 @@ class ContentProviderActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     //获取内容提供者中的数据   
-    @Throws(Throwable::class)
     fun testFind() {
         val contentResolver: ContentResolver = contentResolver
         val selectUri: Uri = ProviderConstant.CONTENT_URI
@@ -93,7 +89,7 @@ class ContentProviderActivity : AppCompatActivity(), View.OnClickListener {
     companion object {
         @JvmStatic
         fun start(context: Context) {
-            val starter = Intent(context, ContentProviderActivity::class.java)
+            val starter = Intent(context, ContentProviderClientActivity::class.java)
             context.startActivity(starter)
         }
     }
