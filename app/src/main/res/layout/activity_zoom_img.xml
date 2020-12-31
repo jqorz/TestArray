@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.jqorz.test.scale_view.ZoomImageView
+    <com.jqorz.common.scale_view.ZoomImageView
         android:id="@+id/mZoomImageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

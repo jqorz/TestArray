@@ -1,14 +1,11 @@
 package com.jqorz.test2.contentprovider
 
-import android.content.ContentResolver
-import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.jqorz.common.contentprovider.ProviderManger
 import com.jqorz.test2.R
 
 
@@ -32,59 +29,20 @@ class ContentProviderClientActivity : AppCompatActivity(), View.OnClickListener 
     override fun onClick(v: View) {
         when (v.id) {
             R.id.btn_query -> {
-                testFind()
+                ProviderManger(contentResolver).testFind()
             }
             R.id.btn_update -> {
-                testUpdate()
+                ProviderManger(contentResolver).testUpdate()
             }
             R.id.btn_insert -> {
-                testInsert()
+                ProviderManger(contentResolver).testInsert()
             }
             R.id.btn_delete -> {
-                testDelete()
+                ProviderManger(contentResolver).testDelete()
             }
         }
     }
 
-    fun testInsert() {
-        val contentResolver: ContentResolver = contentResolver
-        val insertUri: Uri = ProviderConstant.CONTENT_URI
-        val values = ContentValues()
-        values.put(ProviderConstant.COLUMN_USER_ID, "白萝卜")
-        values.put(ProviderConstant.COLUMN_USER_INFO, "age=12")
-        val uri = contentResolver.insert(insertUri, values)
-        Log.i(TAG, "testInsert = " + uri?.toString())
-    }
-
-    //更新内容提供者中的数据   
-    fun testUpdate() {
-        val contentResolver: ContentResolver = contentResolver
-        val updateUri: Uri = ProviderConstant.CONTENT_URI
-        val values = ContentValues()
-        values.put(ProviderConstant.COLUMN_USER_ID, "白萝卜")
-        values.put(ProviderConstant.COLUMN_USER_INFO, "age=13")
-        contentResolver.update(updateUri, values, null, null)
-    }
-
-    //从内容提供者中删除数据   
-    fun testDelete() {
-        val contentResolver: ContentResolver = contentResolver
-        val deleteUri: Uri = ProviderConstant.CONTENT_URI
-        contentResolver.delete(deleteUri, null, null)
-    }
-
-    //获取内容提供者中的数据   
-    fun testFind() {
-        val contentResolver: ContentResolver = contentResolver
-        val selectUri: Uri = ProviderConstant.CONTENT_URI
-        val cursor = contentResolver.query(selectUri, null, null, null, null)
-        while (cursor?.moveToNext() == true) {
-            val id: Int = cursor.getInt(cursor.getColumnIndex(ProviderConstant.COLUMN_USER_ID))
-            val info: String = cursor.getString(cursor.getColumnIndex(ProviderConstant.COLUMN_USER_INFO))
-            Log.i(TAG, "id=$id , info=$info ")
-        }
-        cursor?.close()
-    }
 
     companion object {
         @JvmStatic
