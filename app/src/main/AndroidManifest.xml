@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.jqorz.common">
+    package="com.jqorz.test">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
@@ -24,69 +24,69 @@
         android:protectionLevel="normal" />
 
     <application
-        android:name="com.jqorz.common.TestApplication"
+        android:name=".TestApplication"
         android:icon="@mipmap/star"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name="com.jqorz.common.sign.SignPadActivity" />
+        <activity android:name=".sign.SignPadActivity" />
 
-        <activity android:name="com.jqorz.common.main.MainActivity">
+        <activity android:name=".main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name="com.jqorz.common.js.WebViewActivity" />
+        <activity android:name=".js.WebViewActivity" />
 
-        <activity android:name="com.jqorz.common.multi_touch.MultiTouchActivity" />
-        <activity android:name="com.jqorz.common.write.WriteActivity" />
-        <activity android:name="com.jqorz.common.videoServer.VideoActivity" />
-        <activity android:name="com.jqorz.common.click.ClickActivity" />
-        <activity android:name="com.jqorz.common.servlet.ServletActivity" />
-        <activity android:name="com.jqorz.common.finger.FingerPointPaint" />
-        <activity android:name="com.jqorz.common.finger.FingerLinePaint" />
-        <activity android:name="com.jqorz.common.anim.AnimActivity" />
-        <activity android:name="com.jqorz.common.xwalk.AppTemplateActivity" />
-        <activity android:name="com.jqorz.common.xwalk.XWalkActivity" />
-        <activity android:name="com.jqorz.common.wifi.WifiConnectActivity" />
-        <activity android:name="com.jqorz.common.videoview.VideoViewActivity" />
-        <activity android:name="com.jqorz.common.videoview.SelectActivity" />
-        <activity android:name="com.jqorz.common.videoview.WebViewPlayActivity" />
-        <activity android:name="com.jqorz.common.webview.WebViewActivity" />
-        <activity android:name="com.jqorz.common.broadcast.SendBroadActivity" />
-        <activity android:name="com.jqorz.common.wifi.KtWifiInfoActivity" />
-        <activity android:name="com.jqorz.common.gson.GsonTestActivity" />
-        <activity android:name="com.jqorz.common.hfutwlan.HfutWlanMainActivity" />
-        <activity android:name="com.jqorz.common.dashboard.DashActivity" />
+        <activity android:name=".multi_touch.MultiTouchActivity" />
+        <activity android:name=".write.WriteActivity" />
+        <activity android:name=".videoServer.VideoActivity" />
+        <activity android:name=".click.ClickActivity" />
+        <activity android:name=".servlet.ServletActivity" />
+        <activity android:name=".finger.FingerPointPaint" />
+        <activity android:name=".finger.FingerLinePaint" />
+        <activity android:name=".anim.AnimActivity" />
+        <activity android:name=".xwalk.AppTemplateActivity" />
+        <activity android:name=".xwalk.XWalkActivity" />
+        <activity android:name=".wifi.WifiConnectActivity" />
+        <activity android:name=".videoview.VideoViewActivity" />
+        <activity android:name=".videoview.SelectActivity" />
+        <activity android:name=".videoview.WebViewPlayActivity" />
+        <activity android:name=".webview.WebViewActivity" />
+        <activity android:name=".broadcast.SendBroadActivity" />
+        <activity android:name=".wifi.KtWifiInfoActivity" />
+        <activity android:name=".gson.GsonTestActivity" />
+        <activity android:name=".hfutwlan.HfutWlanMainActivity" />
+        <activity android:name=".dashboard.DashActivity" />
         <activity
-            android:name="com.jqorz.common.floatView.ControlActivity"
+            android:name=".floatView.ControlActivity"
             android:theme="@style/NoAnim" />
 
         <receiver
-            android:name="com.jqorz.common.broadcast.MyReceiver"
+            android:name=".broadcast.MyReceiver"
             android:enabled="true"
             android:exported="true" />
 
         <activity
-            android:name="com.jqorz.common.rotate.RotateActivity1"
+            android:name=".rotate.RotateActivity1"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.jqorz.common.rotate.RotateActivity2"
+            android:name=".rotate.RotateActivity2"
             android:configChanges="orientation"
             android:screenOrientation="landscape" />
-        <activity android:name="com.jqorz.common.popup.PopupActivity" />
-        <activity android:name="com.jqorz.common.mac.MacActivity" />
-        <activity android:name="com.jqorz.common.themeAttr.ThemeActivity" />
-        <activity android:name="com.jqorz.common.aidl.AIDLActivity" />
-        <activity android:name="com.jqorz.common.jni.JniActivity" />
-        <activity android:name="com.jqorz.common.webview.WebView2Activity" />
-        <activity android:name="com.jqorz.common.webview.WebView3Activity" />
+        <activity android:name=".popup.PopupActivity" />
+        <activity android:name=".mac.MacActivity" />
+        <activity android:name=".themeAttr.ThemeActivity" />
+        <activity android:name=".aidl.AIDLActivity" />
+        <activity android:name=".jni.JniActivity" />
+        <activity android:name=".webview.WebView2Activity" />
+        <activity android:name=".webview.WebView3Activity" />
 
         <provider
-            android:name="com.jqorz.common.content_provider.UserInfoProvider"
+            android:name=".content_provider.UserInfoProvider"
             android:authorities="com.datedu.launcher.provider"
             android:exported="true"
             android:readPermission="com.datedu.launcher.provider.READ"

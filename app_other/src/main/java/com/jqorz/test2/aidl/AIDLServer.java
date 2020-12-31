@@ -8,7 +8,7 @@ import android.os.RemoteException;
 import androidx.annotation.Nullable;
 
 
-import com.jqorz.common.aidl.IMyAidlInterface;
+import com.jqorz.test.aidl.IMyAidlInterface;
 
 import java.io.FileInputStream;
 import java.io.IOException;

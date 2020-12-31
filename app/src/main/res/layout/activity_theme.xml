@@ -39,7 +39,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.jqorz.common.themeAttr.DiyView
+        <com.jqorz.test.themeAttr.DiyView
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </FrameLayout>

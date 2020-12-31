@@ -3,31 +3,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.jqorz.common.write.WriteActivity">
+    tools:context="com.jqorz.test.write.WriteActivity">
 
 
-    <com.jqorz.common.write.write.WriteView
+    <com.jqorz.test.write.write.WriteView
         android:id="@+id/mWriteView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone" />
 
 
-    <com.jqorz.common.write.write.WriteView1
+    <com.jqorz.test.write.write.WriteView1
         android:id="@+id/mWriteView1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone" />
 
 
-    <com.jqorz.common.write.write.WriteView2
+    <com.jqorz.test.write.write.WriteView2
         android:id="@+id/mWriteView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone" />
 
 
-    <com.jqorz.common.write.write.WriteView3
+    <com.jqorz.test.write.write.WriteView3
         android:id="@+id/mWriteView3"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
