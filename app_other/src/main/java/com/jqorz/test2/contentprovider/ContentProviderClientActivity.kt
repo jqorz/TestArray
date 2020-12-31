@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.jqorz.common.contentprovider.ProviderManger
 import com.jqorz.test2.R
@@ -15,10 +16,14 @@ import com.jqorz.test2.R
  */
 class ContentProviderClientActivity : AppCompatActivity(), View.OnClickListener {
 
+    private lateinit var providerManger: ProviderManger
+
     private val TAG = "ContentProviderActivity"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_content_provider)
+
+        providerManger = ProviderManger(contentResolver)
 
         findViewById<View>(R.id.btn_query).setOnClickListener(this)
         findViewById<View>(R.id.btn_update).setOnClickListener(this)
@@ -29,16 +34,18 @@ class ContentProviderClientActivity : AppCompatActivity(), View.OnClickListener 
     override fun onClick(v: View) {
         when (v.id) {
             R.id.btn_query -> {
-                ProviderManger(contentResolver).testFind()
+                val result = providerManger.testFind()
+                findViewById<TextView>(R.id.tv_result).append(result + "\n")
             }
             R.id.btn_update -> {
-                ProviderManger(contentResolver).testUpdate()
+                providerManger.testUpdate()
             }
             R.id.btn_insert -> {
-                ProviderManger(contentResolver).testInsert()
+                val result = providerManger.testInsert()
+                findViewById<TextView>(R.id.tv_result).append(result + "\n")
             }
             R.id.btn_delete -> {
-                ProviderManger(contentResolver).testDelete()
+                providerManger.testDelete()
             }
         }
     }
