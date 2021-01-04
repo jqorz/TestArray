@@ -1,7 +1,6 @@
 package com.jqorz.common.contentprovider
 
 import android.content.ContentResolver
-import android.content.ContentUris
 import android.content.ContentValues
 import android.net.Uri
 import android.util.Log
@@ -32,9 +31,8 @@ class ProviderManger(private val contentResolver: ContentResolver) {
         val contentResolver: ContentResolver = contentResolver
         var updateUri: Uri = ProviderConstant.CONTENT_URI
         val values = ContentValues()
-        values.put(ProviderConstant.COLUMN_USER_ID, 2)
+        values.put(ProviderConstant.COLUMN_USER_ID, "白萝卜2")
         values.put(ProviderConstant.COLUMN_USER_INFO, "age=13")
-        updateUri = ContentUris.appendId(updateUri.buildUpon(), 1).build()
         Log.i(TAG, "testUpdate1 = $updateUri")
         val i = contentResolver.update(updateUri, values, "${ProviderConstant.COLUMN_USER_ID} = ? ", arrayOf("白萝卜2"))
         Log.i(TAG, "testUpdate2 = $i")
