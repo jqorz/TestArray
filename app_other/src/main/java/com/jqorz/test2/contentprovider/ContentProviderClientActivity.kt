@@ -29,6 +29,7 @@ class ContentProviderClientActivity : AppCompatActivity(), View.OnClickListener 
         findViewById<View>(R.id.btn_update).setOnClickListener(this)
         findViewById<View>(R.id.btn_insert).setOnClickListener(this)
         findViewById<View>(R.id.btn_delete).setOnClickListener(this)
+        findViewById<View>(R.id.btn_clear).setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -46,6 +47,9 @@ class ContentProviderClientActivity : AppCompatActivity(), View.OnClickListener 
             }
             R.id.btn_delete -> {
                 providerManger.testDelete()
+            }
+            R.id.btn_clear -> {
+                findViewById<TextView>(R.id.tv_result).text = ""
             }
         }
     }

@@ -13,10 +13,14 @@ class UserInfoProvider : ContentProvider() {
     companion object {
         //常量UriMatcher.NO_MATCH表示不匹配任何路径的返回码
         private val MATCHER = UriMatcher(UriMatcher.NO_MATCH)
-        private const val USER_INFO_CODE = 101
+
+        private const val CODE_USER_INFO_DIR = 101
+        private const val CODE_USER_INFO_ITEM = 102
 
         init {
-            MATCHER.addURI(ProviderConstant.AUTHORITIES, ProviderConstant.PATH_USER_INFO, USER_INFO_CODE)
+            MATCHER.addURI(ProviderConstant.AUTHORITIES, ProviderConstant.PATH_USER_INFO, CODE_USER_INFO_DIR)
+            //#号为通配符
+            MATCHER.addURI(ProviderConstant.AUTHORITIES, ProviderConstant.PATH_USER_INFO + "/#", CODE_USER_INFO_ITEM)
         }
     }
 
@@ -27,23 +31,39 @@ class UserInfoProvider : ContentProvider() {
         return false
     }
 
+    private fun appendIdParams(uri: Uri, selection: String?): String {
+        val id = ContentUris.parseId(uri)
+        var where = "${ProviderConstant.COLUMN_USER_ID} = $id"
+        if (selection?.isNotEmpty() == true) {
+            where = "$selection and $where"
+        }
+        return where
+    }
+
     override fun delete(uri: Uri, selection: String?, selectionArgs: Array<String>?): Int {
         val db = dbOpenHelper.writableDatabase
         return when (MATCHER.match(uri)) {
-            USER_INFO_CODE -> {
+            CODE_USER_INFO_DIR -> {
                 db.delete(ProviderConstant.TABLE_NAME, selection, selectionArgs)
+            }
+            CODE_USER_INFO_ITEM -> {
+                db.delete(ProviderConstant.TABLE_NAME, appendIdParams(uri, selection), selectionArgs)
             }
             else -> throw IllegalArgumentException("Unknown Uri:$uri")
         }
     }
 
 
-    override fun insert(uri: Uri, values: ContentValues?): Uri {
+    override fun insert(uri: Uri, values: ContentValues?): Uri? {
         val db = dbOpenHelper.writableDatabase
-        return when (MATCHER.match(uri)) {
-            USER_INFO_CODE -> {
-                val rowid = db.insert(ProviderConstant.TABLE_NAME, null, values)
-                ContentUris.withAppendedId(uri, rowid) //得到代表新增记录的Uri
+        when (MATCHER.match(uri)) {
+            CODE_USER_INFO_DIR -> {
+                val rowId = db.insert(ProviderConstant.TABLE_NAME, null, values)
+                context?.contentResolver?.notifyChange(uri, null)
+                return ContentUris.withAppendedId(uri, rowId)
+            }
+            CODE_USER_INFO_ITEM -> {
+                throw IllegalArgumentException("Invalid URI, cannot insert with ID: $uri")
             }
             else -> throw IllegalArgumentException("Unknown Uri:$uri")
         }
@@ -51,11 +71,14 @@ class UserInfoProvider : ContentProvider() {
 
 
     override fun query(uri: Uri, projection: Array<String>?, selection: String?, selectionArgs: Array<String>?,
-                       sortOrder: String?): Cursor {
+                       sortOrder: String?): Cursor? {
         val db = dbOpenHelper.readableDatabase
         return when (MATCHER.match(uri)) {
-            USER_INFO_CODE -> {
+            CODE_USER_INFO_DIR -> {
                 db.query(ProviderConstant.TABLE_NAME, projection, selection, selectionArgs, null, null, sortOrder)
+            }
+            CODE_USER_INFO_ITEM -> {
+                db.query(ProviderConstant.TABLE_NAME, projection, appendIdParams(uri, selection), selectionArgs, null, null, sortOrder)
             }
             else -> throw IllegalArgumentException("Unknown Uri:$uri")
         }
@@ -65,8 +88,11 @@ class UserInfoProvider : ContentProvider() {
     override fun update(uri: Uri, values: ContentValues?, selection: String?, selectionArgs: Array<String>?): Int {
         val db = dbOpenHelper.writableDatabase
         return when (MATCHER.match(uri)) {
-            USER_INFO_CODE -> {
+            CODE_USER_INFO_DIR -> {
                 db.update(ProviderConstant.TABLE_NAME, values, selection, selectionArgs)
+            }
+            CODE_USER_INFO_ITEM -> {
+                db.update(ProviderConstant.TABLE_NAME, values, appendIdParams(uri, selection), selectionArgs)
             }
             else -> throw IllegalArgumentException("Unknown Uri:$uri")
         }
@@ -74,8 +100,9 @@ class UserInfoProvider : ContentProvider() {
 
     override fun getType(uri: Uri): String {
         return when (MATCHER.match(uri)) {
-            USER_INFO_CODE -> "vnd.android.cursor.dir/user"
-            else -> throw java.lang.IllegalArgumentException("Unknown Uri:$uri")
+            CODE_USER_INFO_DIR -> "vnd.android.cursor.dir/${ProviderConstant.TABLE_NAME}"
+            CODE_USER_INFO_ITEM -> "vnd.android.cursor.item/${ProviderConstant.TABLE_NAME}"
+            else -> throw  IllegalArgumentException("Unknown Uri:$uri")
         }
     }
 }

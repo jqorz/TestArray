@@ -17,6 +17,7 @@ object ProviderConstant {
     const val COLUMN_USER_INFO = "userinfo"
 
     val BASE_CONTENT_URI: Uri = Uri.parse("content://$AUTHORITIES")
+
     val CONTENT_URI = BASE_CONTENT_URI.buildUpon().appendPath(PATH_USER_INFO).build()
 
 
