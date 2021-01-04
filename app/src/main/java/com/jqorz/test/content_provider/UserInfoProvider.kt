@@ -33,9 +33,6 @@ class UserInfoProvider : ContentProvider() {
 
     private fun appendIdParamsIfNeed(uri: Uri, selection: String?): String? {
         val id = ContentUris.parseId(uri)
-        if (id == -1L) {
-            return selection
-        }
         var where = "${ProviderConstant.COLUMN_ID} = $id"
         if (selection?.isNotEmpty() == true) {
             where = "$selection and $where"
@@ -46,7 +43,12 @@ class UserInfoProvider : ContentProvider() {
     override fun delete(uri: Uri, selection: String?, selectionArgs: Array<String>?): Int {
         val db = dbOpenHelper.writableDatabase
         return when (MATCHER.match(uri)) {
-            CODE_USER_INFO_DIR, CODE_USER_INFO_ITEM -> {
+            CODE_USER_INFO_DIR -> {
+                val count = db.delete(ProviderConstant.TABLE_NAME, selection, selectionArgs)
+                context?.contentResolver?.notifyChange(uri, null)
+                count
+            }
+            CODE_USER_INFO_ITEM -> {
                 val count = db.delete(ProviderConstant.TABLE_NAME, appendIdParamsIfNeed(uri, selection), selectionArgs)
                 context?.contentResolver?.notifyChange(uri, null)
                 count
@@ -76,7 +78,10 @@ class UserInfoProvider : ContentProvider() {
                        sortOrder: String?): Cursor? {
         val db = dbOpenHelper.readableDatabase
         return when (MATCHER.match(uri)) {
-            CODE_USER_INFO_DIR,CODE_USER_INFO_ITEM -> {
+            CODE_USER_INFO_DIR -> {
+                db.query(ProviderConstant.TABLE_NAME, projection, selection, selectionArgs, null, null, sortOrder)
+            }
+            CODE_USER_INFO_ITEM -> {
                 db.query(ProviderConstant.TABLE_NAME, projection, appendIdParamsIfNeed(uri, selection), selectionArgs, null, null, sortOrder)
             }
             else -> throw IllegalArgumentException("Unknown Uri:$uri")
@@ -86,11 +91,16 @@ class UserInfoProvider : ContentProvider() {
 
     override fun update(uri: Uri, values: ContentValues?, selection: String?, selectionArgs: Array<String>?): Int {
         val db = dbOpenHelper.writableDatabase
-        when (MATCHER.match(uri)) {
-            CODE_USER_INFO_DIR, CODE_USER_INFO_ITEM -> {
+        return when (MATCHER.match(uri)) {
+            CODE_USER_INFO_DIR -> {
+                val count = db.update(ProviderConstant.TABLE_NAME, values, selection, selectionArgs)
+                context?.contentResolver?.notifyChange(uri, null)
+                count
+            }
+            CODE_USER_INFO_ITEM -> {
                 val count = db.update(ProviderConstant.TABLE_NAME, values, appendIdParamsIfNeed(uri, selection), selectionArgs)
                 context?.contentResolver?.notifyChange(uri, null)
-                return count
+                count
             }
             else -> throw IllegalArgumentException("Unknown Uri:$uri")
         }
@@ -98,8 +108,8 @@ class UserInfoProvider : ContentProvider() {
 
     override fun getType(uri: Uri): String {
         return when (MATCHER.match(uri)) {
-            CODE_USER_INFO_DIR -> "vnd.android.cursor.dir/${ProviderConstant.TABLE_NAME}"
-            CODE_USER_INFO_ITEM -> "vnd.android.cursor.item/${ProviderConstant.TABLE_NAME}"
+            CODE_USER_INFO_DIR -> "vnd.android.cursor.dir/${ProviderConstant.PATH_USER_INFO}"
+            CODE_USER_INFO_ITEM -> "vnd.android.cursor.item/${ProviderConstant.PATH_USER_INFO}"
             else -> throw  IllegalArgumentException("Unknown Uri:$uri")
         }
     }

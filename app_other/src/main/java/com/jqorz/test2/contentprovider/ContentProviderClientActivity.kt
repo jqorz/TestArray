@@ -14,7 +14,7 @@ import com.jqorz.test2.R
  * @author  jqorz
  * @since  2020/12/29
  */
-class ContentProviderClientActivity : AppCompatActivity(), View.OnClickListener {
+class ContentProviderClientActivity : AppCompatActivity(), View.OnClickListener, View.OnLongClickListener {
 
     private lateinit var providerManger: ProviderManger
 
@@ -30,6 +30,9 @@ class ContentProviderClientActivity : AppCompatActivity(), View.OnClickListener 
         findViewById<View>(R.id.btn_insert).setOnClickListener(this)
         findViewById<View>(R.id.btn_delete).setOnClickListener(this)
         findViewById<View>(R.id.btn_clear).setOnClickListener(this)
+
+        findViewById<View>(R.id.btn_delete).setOnLongClickListener(this)
+
     }
 
     override fun onClick(v: View) {
@@ -61,5 +64,14 @@ class ContentProviderClientActivity : AppCompatActivity(), View.OnClickListener 
             val starter = Intent(context, ContentProviderClientActivity::class.java)
             context.startActivity(starter)
         }
+    }
+
+    override fun onLongClick(v: View): Boolean {
+        when (v.id) {
+            R.id.btn_delete -> {
+                providerManger.testDeleteAll()
+            }
+        }
+        return true
     }
 }

@@ -19,7 +19,7 @@ class ProviderManger(private val contentResolver: ContentResolver) {
         val contentResolver: ContentResolver = contentResolver
         val insertUri: Uri = ProviderConstant.CONTENT_URI
         val values = ContentValues()
-        values.put(ProviderConstant.COLUMN_USER_ID, "${INT_ID++}")
+        values.put(ProviderConstant.COLUMN_USER_ID, "白萝卜${INT_ID++}")
         values.put(ProviderConstant.COLUMN_USER_INFO, "age=12")
         Log.i(TAG, "testInsert1 = $insertUri")
         val uri = contentResolver.insert(insertUri, values)
@@ -36,17 +36,23 @@ class ProviderManger(private val contentResolver: ContentResolver) {
         values.put(ProviderConstant.COLUMN_USER_INFO, "age=13")
         updateUri = ContentUris.appendId(updateUri.buildUpon(), 1).build()
         Log.i(TAG, "testUpdate1 = $updateUri")
-        val i = contentResolver.update(updateUri, values, null, null)
+        val i = contentResolver.update(updateUri, values, "${ProviderConstant.COLUMN_USER_ID} = ? ", arrayOf("白萝卜2"))
         Log.i(TAG, "testUpdate2 = $i")
 
-//"${ProviderConstant.COLUMN_USER_ID} = ? ", arrayOf("2")
     }
 
     //从内容提供者中删除数据
     fun testDelete() {
         val contentResolver: ContentResolver = contentResolver
         val deleteUri: Uri = ProviderConstant.CONTENT_URI
-//        contentResolver.delete(deleteUri, "${ProviderConstant.COLUMN_USER_ID} = ? ", arrayOf("白萝卜3"))
+        Log.i(TAG, "testDelete1 = $deleteUri")
+        val i = contentResolver.delete(deleteUri, "${ProviderConstant.COLUMN_USER_ID} = ? ", arrayOf("白萝卜2"))
+        Log.i(TAG, "testDelete2 = $i")
+    }
+
+    fun testDeleteAll() {
+        val contentResolver: ContentResolver = contentResolver
+        val deleteUri: Uri = ProviderConstant.CONTENT_URI
         Log.i(TAG, "testDelete1 = $deleteUri")
         val i = contentResolver.delete(deleteUri, null, null)
         Log.i(TAG, "testDelete2 = $i")
