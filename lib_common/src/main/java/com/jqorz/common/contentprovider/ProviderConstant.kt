@@ -1,6 +1,7 @@
-package com.jqorz.test2.contentprovider
+package com.jqorz.common.contentprovider
 
 import android.net.Uri
+import android.provider.BaseColumns
 
 
 /**
@@ -13,6 +14,7 @@ object ProviderConstant {
 
 
     const val TABLE_NAME = "user"
+    const val COLUMN_ID = BaseColumns._ID
     const val COLUMN_USER_ID = "userid"
     const val COLUMN_USER_INFO = "userinfo"
 

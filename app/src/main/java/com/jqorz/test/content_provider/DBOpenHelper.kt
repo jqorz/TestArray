@@ -3,7 +3,7 @@ package com.jqorz.test.content_provider
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import com.jqorz.test2.contentprovider.ProviderConstant
+import com.jqorz.common.contentprovider.ProviderConstant
 
 /**
  * copyright datedu
@@ -15,7 +15,7 @@ class DBOpenHelper(context: Context?) : SQLiteOpenHelper(context, DBNAME, null, 
 
 
     override fun onCreate(db: SQLiteDatabase) {
-        val sql = "CREATE TABLE ${ProviderConstant.TABLE_NAME} (${ProviderConstant.COLUMN_USER_ID} INTEGER primary key autoincrement, ${ProviderConstant.COLUMN_USER_INFO} TEXT)"
+        val sql = "CREATE TABLE ${ProviderConstant.TABLE_NAME} (${ProviderConstant.COLUMN_ID} INTEGER primary key autoincrement,${ProviderConstant.COLUMN_USER_ID} TEXT, ${ProviderConstant.COLUMN_USER_INFO} TEXT)"
         db.execSQL(sql)
     }
 

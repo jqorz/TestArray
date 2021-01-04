@@ -5,7 +5,6 @@ import android.content.ContentUris
 import android.content.ContentValues
 import android.net.Uri
 import android.util.Log
-import com.jqorz.test2.contentprovider.ProviderConstant
 
 /**
  * @author  jqorz
