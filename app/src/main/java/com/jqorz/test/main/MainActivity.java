@@ -12,6 +12,7 @@ import com.jqorz.test.R;
 import com.jqorz.test.aidl.AIDLActivity;
 import com.jqorz.test.base.BaseActivity;
 import com.jqorz.test.click.ClickActivity;
+import com.jqorz.test.content_provider.ContentProviderActivity;
 import com.jqorz.test.dashboard.DashActivity;
 import com.jqorz.test.floatView.ControlActivity;
 import com.jqorz.test.gson.GsonTestActivity;
@@ -56,10 +57,11 @@ public class MainActivity extends BaseActivity {
         mAdapter.addData(new ItemBean("屏幕旋转", () -> RotateActivity1.start(mContext)));
         mAdapter.addData(new ItemBean("悬浮窗", () -> ControlActivity.start(mContext)));
         mAdapter.addData(new ItemBean("popup", () -> PopupActivity.start(mContext)));
-        mAdapter.addData(new ItemBean("点击测试", () -> onDisplaySettingButton()));
+        mAdapter.addData(new ItemBean("点击测试", this::onDisplaySettingButton));
         mAdapter.addData(new ItemBean("获取mac", () -> MacActivity.start(mContext)));
         mAdapter.addData(new ItemBean("测试主题", () -> ThemeActivity.start(mContext)));
         mAdapter.addData(new ItemBean("测试AIDL", () -> AIDLActivity.start(mContext)));
+        mAdapter.addData(new ItemBean("测试CP", () -> ContentProviderActivity.start(mContext)));
     }
 
     @Override

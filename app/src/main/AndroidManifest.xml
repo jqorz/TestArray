@@ -84,6 +84,7 @@
         <activity android:name=".jni.JniActivity" />
         <activity android:name=".webview.WebView2Activity" />
         <activity android:name=".webview.WebView3Activity" />
+        <activity android:name=".content_provider.ContentProviderActivity" />
 
         <provider
             android:name=".content_provider.UserInfoProvider"
