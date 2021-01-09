@@ -14,6 +14,7 @@ import com.jqorz.test.base.BaseActivity;
 import com.jqorz.test.click.ClickActivity;
 import com.jqorz.test.content_provider.ContentProviderActivity;
 import com.jqorz.test.dashboard.DashActivity;
+import com.jqorz.test.file_concat.FileConcatActivity;
 import com.jqorz.test.floatView.ControlActivity;
 import com.jqorz.test.gson.GsonTestActivity;
 import com.jqorz.test.jni.JniActivity;
@@ -62,6 +63,7 @@ public class MainActivity extends BaseActivity {
         mAdapter.addData(new ItemBean("测试主题", () -> ThemeActivity.start(mContext)));
         mAdapter.addData(new ItemBean("测试AIDL", () -> AIDLActivity.start(mContext)));
         mAdapter.addData(new ItemBean("测试CP", () -> ContentProviderActivity.start(mContext)));
+        mAdapter.addData(new ItemBean("文件合并", () -> FileConcatActivity.start(mContext)));
     }
 
     @Override

@@ -51,6 +51,8 @@ public class HfutWlanMainActivity extends BaseActivity implements OnClickListene
         initEvent();
         initial_show();
         getLocalData();
+
+
     }
 
     @Override
