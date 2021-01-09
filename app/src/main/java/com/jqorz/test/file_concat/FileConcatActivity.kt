@@ -24,7 +24,7 @@ class FileConcatActivity : BaseActivity() {
             PermissionUtils.readyPermission(this, {
                 Coroutine.async {
                     val sourceDir = "/sdcard/Download/test"
-                    val srcFilePath = "/sdcard/Download/test.ts"
+                    val srcFilePath = "/sdcard/Download/test.0"
                     merge(sourceDir, srcFilePath)
                 }
             }, Permission.WRITE_EXTERNAL_STORAGE, Permission.READ_EXTERNAL_STORAGE)
@@ -36,7 +36,7 @@ class FileConcatActivity : BaseActivity() {
 
     suspend fun merge(sourceDir: String, srcFilePath: String): Boolean {
         return withContext(Dispatchers.IO) {
-            val sourceFileList = File(sourceDir).listFiles().sortedBy { it.name }
+            val sourceFileList = File(sourceDir).listFiles().filter { it.name.toIntOrNull() != null }.sortedBy { it.name.toInt() }
 
             var raf: RandomAccessFile? = null
             try {
@@ -49,10 +49,12 @@ class FileConcatActivity : BaseActivity() {
                     while (reader.read(b).also { n = it } != -1) { //读
                         raf.write(b, 0, n) //写
                     }
-                    Log.i(TAG, "合并第${index}/${sourceFileList.size}个文件")
+                    Log.i(TAG, "合并第${index + 1}/${sourceFileList.size}个文件 ${file.name}")
                 }
+                Log.i(TAG, "完成")
                 return@withContext true
             } catch (e: Exception) {
+                Log.e(TAG, "异常 ${e.localizedMessage}")
             } finally {
                 raf?.close()
             }
