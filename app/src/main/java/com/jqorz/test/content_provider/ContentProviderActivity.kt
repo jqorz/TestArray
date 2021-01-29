@@ -17,7 +17,7 @@ class ContentProviderActivity : BaseActivity() {
 
     override fun init() {
         observer = DataObserver(Handler())
-        observer.let {
+        observer?.let {
             contentResolver.registerContentObserver(ProviderConstant.CONTENT_URI, true, it)
         }
     }

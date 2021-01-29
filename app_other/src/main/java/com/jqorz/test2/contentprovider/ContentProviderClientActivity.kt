@@ -14,7 +14,7 @@ import com.jqorz.test2.R
  * @author  jqorz
  * @since  2020/12/29
  */
-class ContentProviderClientActivity : AppCompatActivity(), View.OnClickListener, View.OnLongClickListener {
+class ContentProviderClientActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var providerManger: ProviderManger
 
@@ -29,9 +29,9 @@ class ContentProviderClientActivity : AppCompatActivity(), View.OnClickListener,
         findViewById<View>(R.id.btn_update).setOnClickListener(this)
         findViewById<View>(R.id.btn_insert).setOnClickListener(this)
         findViewById<View>(R.id.btn_delete).setOnClickListener(this)
-        findViewById<View>(R.id.btn_clear).setOnClickListener(this)
-
-        findViewById<View>(R.id.btn_delete).setOnLongClickListener(this)
+        findViewById<View>(R.id.btn_delete_all).setOnClickListener(this)
+        findViewById<View>(R.id.btn_clear_log).setOnClickListener(this)
+        findViewById<View>(R.id.btn_clear_create).setOnClickListener(this)
 
     }
 
@@ -51,8 +51,14 @@ class ContentProviderClientActivity : AppCompatActivity(), View.OnClickListener,
             R.id.btn_delete -> {
                 providerManger.testDelete()
             }
-            R.id.btn_clear -> {
+            R.id.btn_clear_log -> {
                 findViewById<TextView>(R.id.tv_result).text = ""
+            }
+            R.id.btn_delete_all -> {
+                providerManger.testDeleteAll()
+            }
+            R.id.btn_clear_create -> {
+                providerManger.testDeleteAllAndCreate()
             }
         }
     }
@@ -66,12 +72,5 @@ class ContentProviderClientActivity : AppCompatActivity(), View.OnClickListener,
         }
     }
 
-    override fun onLongClick(v: View): Boolean {
-        when (v.id) {
-            R.id.btn_delete -> {
-                providerManger.testDeleteAll()
-            }
-        }
-        return true
-    }
+
 }

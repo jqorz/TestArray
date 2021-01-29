@@ -56,6 +56,18 @@ class ProviderManger(private val contentResolver: ContentResolver) {
         Log.i(TAG, "testDelete2 = $i")
     }
 
+    fun testDeleteAllAndCreate() {
+        val contentResolver: ContentResolver = contentResolver
+        val selectUri: Uri = ProviderConstant.CONTENT_URI
+        val i = contentResolver.delete(selectUri, null, null) //先删除再添加
+        Log.i(TAG, "testDeleteAllAndCreate1 = $i")
+        val values = ContentValues()
+        values.put(ProviderConstant.COLUMN_USER_ID, "白萝卜aaaaa")
+        values.put(ProviderConstant.COLUMN_USER_INFO, "age=13333")
+        contentResolver.insert(selectUri, values)
+        Log.i(TAG, "testDeleteAllAndCreate2 = $i")
+    }
+
     //获取内容提供者中的数据
     fun testFind(): String {
         val contentResolver: ContentResolver = contentResolver
@@ -65,7 +77,7 @@ class ProviderManger(private val contentResolver: ContentResolver) {
         while (cursor?.moveToNext() == true) {
             val id: String = cursor.getString(cursor.getColumnIndex(ProviderConstant.COLUMN_USER_ID))
             val info: String = cursor.getString(cursor.getColumnIndex(ProviderConstant.COLUMN_USER_INFO))
-            Log.i(TAG, "id=$id , info=$info ")
+            Log.i(TAG, "查找数据 id=$id , info=$info ")
             builder.append("id=$id , info=$info \n")
         }
         cursor?.close()

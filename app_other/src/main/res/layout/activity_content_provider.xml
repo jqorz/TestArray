@@ -28,10 +28,22 @@
         android:layout_height="wrap_content"
         android:text="删除" />
     <Button
-        android:id="@+id/btn_clear"
+        android:id="@+id/btn_delete_all"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="清空"/>
+        android:text="删除全部" />
+
+    <Button
+        android:id="@+id/btn_clear_log"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="清空日志" />
+
+    <Button
+        android:id="@+id/btn_clear_create"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="清空并添加" />
 
     <ScrollView
         android:layout_width="match_parent"
