@@ -14,7 +14,7 @@ import android.webkit.WebViewClient;
 import androidx.annotation.Nullable;
 
 import com.jqorz.test.R;
-import com.jqorz.test.base.BaseActivity;
+import com.jqorz.common.base.BaseActivity;
 
 import java.io.InputStream;
 import java.net.HttpURLConnection;

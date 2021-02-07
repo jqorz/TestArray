@@ -21,7 +21,7 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.jqorz.test.R;
-import com.jqorz.test.base.BaseActivity;
+import com.jqorz.common.base.BaseActivity;
 
 public class HfutWlanMainActivity extends BaseActivity implements OnClickListener, CompoundButton.OnCheckedChangeListener {
     private EditText password_box, account_box;

@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 import com.jqorz.jni.JniGet;
 import com.jqorz.test.R;
-import com.jqorz.test.base.BaseActivity;
+import com.jqorz.common.base.BaseActivity;
 
 /**
  * copyright datedu

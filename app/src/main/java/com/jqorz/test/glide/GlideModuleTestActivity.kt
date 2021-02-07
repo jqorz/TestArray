@@ -3,7 +3,7 @@ package com.jqorz.test.glide
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.jqorz.test.R
-import com.jqorz.test.base.BaseActivity
+import com.jqorz.common.base.BaseActivity
 
 /**
  * @author  jqorz

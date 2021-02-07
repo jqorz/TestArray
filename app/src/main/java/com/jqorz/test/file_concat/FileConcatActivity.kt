@@ -5,7 +5,7 @@ import android.content.Intent
 import android.util.Log
 import android.view.View
 import com.jqorz.test.R
-import com.jqorz.test.base.BaseActivity
+import com.jqorz.common.base.BaseActivity
 import com.jqorz.test.util.coroutine.Coroutine
 import com.jqorz.test.util.permission.PermissionUtils
 import com.yanzhenjie.permission.runtime.Permission

@@ -5,7 +5,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.jqorz.test.R;
-import com.jqorz.test.base.BaseActivity;
+import com.jqorz.common.base.BaseActivity;
 import com.jqorz.test.util.OkUtil;
 
 import java.util.HashMap;

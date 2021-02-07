@@ -1,4 +1,4 @@
-package com.jqorz.test.base
+package com.jqorz.common.base
 
 import android.content.Context
 import android.os.Bundle
@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import androidx.annotation.IdRes
 import androidx.annotation.StyleRes
 import androidx.fragment.app.DialogFragment
-import com.jqorz.test.R
+import com.jqorz.common.R
 
 abstract class BaseDialogFragment(val layout: Int = 0,
                                   @StyleRes val style: Int = R.style.DialogMircoTheme,

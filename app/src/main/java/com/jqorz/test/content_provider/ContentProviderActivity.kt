@@ -5,7 +5,7 @@ import android.content.Intent
 import android.os.Handler
 import com.jqorz.common.contentprovider.ProviderConstant
 import com.jqorz.test.R
-import com.jqorz.test.base.BaseActivity
+import com.jqorz.common.base.BaseActivity
 
 /**
  * @author  jqorz

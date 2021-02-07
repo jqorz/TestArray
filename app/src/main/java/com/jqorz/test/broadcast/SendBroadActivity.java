@@ -5,7 +5,7 @@ import android.content.IntentFilter;
 import android.view.View;
 
 import com.jqorz.test.R;
-import com.jqorz.test.base.BaseActivity;
+import com.jqorz.common.base.BaseActivity;
 import com.jqorz.test.util.ToastUtil;
 
 public class SendBroadActivity extends BaseActivity {

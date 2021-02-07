@@ -3,7 +3,7 @@ package com.jqorz.test.videoview;
 import android.view.View;
 
 import com.jqorz.test.R;
-import com.jqorz.test.base.BaseActivity;
+import com.jqorz.common.base.BaseActivity;
 
 /**
  * @author jqorz

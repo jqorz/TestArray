@@ -1,4 +1,4 @@
-package com.jqorz.test.base
+package com.jqorz.common.base
 
 import android.content.Context
 import android.content.Intent

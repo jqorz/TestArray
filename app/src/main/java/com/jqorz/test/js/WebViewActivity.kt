@@ -8,7 +8,7 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import butterknife.BindView
 import com.jqorz.test.R
-import com.jqorz.test.base.BaseActivity
+import com.jqorz.common.base.BaseActivity
 import java.io.ByteArrayOutputStream
 import java.io.IOException
 

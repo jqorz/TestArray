@@ -1,7 +1,7 @@
 package com.jqorz.test.floatView
 
 import com.jqorz.test.R
-import com.jqorz.test.base.BaseDialogFragment
+import com.jqorz.common.base.BaseDialogFragment
 
 /**
  * copyright datedu

@@ -8,7 +8,7 @@ import android.widget.MediaController;
 import android.widget.VideoView;
 
 import com.jqorz.test.R;
-import com.jqorz.test.base.BaseActivity;
+import com.jqorz.common.base.BaseActivity;
 import com.jqorz.test.webview.WebViewActivity;
 
 /**

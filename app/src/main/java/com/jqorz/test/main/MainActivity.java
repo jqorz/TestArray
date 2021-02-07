@@ -3,14 +3,14 @@ package com.jqorz.test.main;
 import android.os.SystemClock;
 import android.widget.Button;
 
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.jqorz.test.R;
 import com.jqorz.test.aidl.AIDLActivity;
-import com.jqorz.test.base.BaseActivity;
+import com.jqorz.common.base.BaseActivity;
 import com.jqorz.test.click.ClickActivity;
 import com.jqorz.test.content_provider.ContentProviderActivity;
 import com.jqorz.test.dashboard.DashActivity;
@@ -38,7 +38,7 @@ public class MainActivity extends BaseActivity {
 
     private void initRecyclerView() {
         RecyclerView mRecyclerView = findViewById(R.id.mRecyclerView);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
+        mRecyclerView.setLayoutManager(new GridLayoutManager(mContext, 3));
         BaseQuickAdapter<ItemBean, BaseViewHolder> mAdapter = new BaseQuickAdapter<ItemBean, BaseViewHolder>(R.layout.item_main_select) {
 
             @Override

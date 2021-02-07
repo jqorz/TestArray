@@ -30,11 +30,6 @@
     <style name="AppTheme.Height_500">
         <item name="ViewHeight">500dp</item>
     </style>
-    <style name="DialogMircoTheme" parent="@android:style/Theme.Holo.Light.Dialog">
-        <item name="android:windowFullscreen">true</item>
-        <item name="android:windowContentOverlay">@null</item>
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:windowBackground">@android:color/transparent</item>
-    </style>
+
 
 </resources>

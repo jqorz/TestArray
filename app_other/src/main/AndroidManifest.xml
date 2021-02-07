@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".contentprovider.ContentProviderClientActivity" />
+        <activity android:name=".music.MusicPlayActivity" />
 
         <service
             android:name=".aidl.AIDLServer"

@@ -4,13 +4,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.PixelFormat;
 import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 
+import com.jqorz.common.AudioPlayManager;
+import com.jqorz.common.base.BaseActivity;
 import com.jqorz.test.R;
-import com.jqorz.test.base.BaseActivity;
 import com.jqorz.test.util.ToolUtil;
 
 
@@ -24,8 +24,6 @@ public class ControlActivity extends BaseActivity implements View.OnClickListene
 
     private WindowManager.LayoutParams wmParams;
     private WindowManager mWindowManager;
-    private View tv_left;
-    private View tv_switcher;
     private LinearLayout mFloatLayout;
     private boolean mHasShown;
 
@@ -36,8 +34,8 @@ public class ControlActivity extends BaseActivity implements View.OnClickListene
 
     @Override
     protected void init() {
+        findViewById(R.id.btn_show).setOnClickListener(this);
         createFloatView();
-        show();
     }
 
     @Override
@@ -72,19 +70,17 @@ public class ControlActivity extends BaseActivity implements View.OnClickListene
         wmParams.width = WindowManager.LayoutParams.WRAP_CONTENT;
         wmParams.height = WindowManager.LayoutParams.WRAP_CONTENT;
         wmParams.windowAnimations = R.anim.fade_in;
-        LayoutInflater inflater = LayoutInflater.from(getApplication());
         // 获取浮动窗口视图所在布局
-        mFloatLayout = (LinearLayout) inflater.inflate(R.layout.layout_float_view, null);
+        mFloatLayout = new ControlFloatView(mContext, null);
 
         // 浮动窗口按钮
 
-        tv_switcher = mFloatLayout.findViewById(R.id.tv_switcher);
 
         mFloatLayout.measure(View.MeasureSpec.makeMeasureSpec(0,
                 View.MeasureSpec.UNSPECIFIED), View.MeasureSpec
                 .makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
 
-
+        View tv_switcher = mFloatLayout.findViewById(R.id.tv_switcher);
         tv_switcher.setOnClickListener(this);
     }
 
@@ -98,10 +94,56 @@ public class ControlActivity extends BaseActivity implements View.OnClickListene
 //            popupWindow.showAsDropDown(view);
 //            new TestPopup(this).showPopupWindow(tv_switcher);
 
-            new TestDialog().show(getSupportFragmentManager(), "123");
+//            new TestDialog().show(getSupportFragmentManager(), "123");
+            playMusic();
+        } else if (view.getId() == R.id.btn_show) {
+            show();
         }
     }
 
+    private void playMusic() {
+        String path = "android.resource://" + getPackageName() + "/" + R.raw.test;
+        AudioPlayManager.getInstance(mContext).playSound(mContext, path, new AudioPlayManager.OnAudioPlayListener() {
+            @Override
+            public void onStart() {
+
+            }
+
+            @Override
+            public void onDownLoadSuccess(String path) {
+
+            }
+
+            @Override
+            public void onAudioFocusChange(int focusChange) {
+            }
+
+            @Override
+            public void onCompletion() {
+
+            }
+
+            @Override
+            public void onError() {
+
+            }
+
+            @Override
+            public void onPrepared(int duration) {
+
+            }
+
+            @Override
+            public void onReStart() {
+
+            }
+
+            @Override
+            public void onRelease() {
+
+            }
+        });
+    }
 
     public void show() {
         if (!mHasShown && mFloatLayout != null && mWindowManager != null) {

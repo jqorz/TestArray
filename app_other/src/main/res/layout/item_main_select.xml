@@ -4,8 +4,11 @@
     android:layout_height="wrap_content"
     android:gravity="center">
 
-    <Button
+    <TextView
         android:id="@+id/btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:textColor="@android:color/black"
+        android:layout_width="100dp"
+        android:gravity="center"
+        android:background="#D5D5D5"
+        android:layout_height="50dp" />
 </LinearLayout>
