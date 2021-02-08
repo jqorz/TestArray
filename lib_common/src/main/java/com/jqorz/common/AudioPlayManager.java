@@ -7,7 +7,6 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Build;
-import android.os.Looper;
 import android.text.TextUtils;
 
 import java.io.File;
@@ -58,16 +57,19 @@ public class AudioPlayManager {
      * 初始化音频管理器
      */
     private void initAudioManager(Context context) {
-        new Thread(){
-            @Override
-            public void run() {
-                Looper.prepare();
-                mAudioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
-                mAudioManager.setMode(AudioManager.MODE_IN_CALL);
-                mAudioManager.setSpeakerphoneOn(true);//默认为扬声器播放
-            }
-        }.start();
-
+        //在线程中初始化会导致回调也会走在线程中
+//        new Thread(){
+//            @Override
+//            public void run() {
+//                Looper.prepare();
+//                mAudioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
+//                mAudioManager.setMode(AudioManager.MODE_IN_CALL);
+//                mAudioManager.setSpeakerphoneOn(true);//默认为扬声器播放
+//            }
+//        }.start();
+        mAudioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
+        mAudioManager.setMode(AudioManager.MODE_IN_CALL);
+        mAudioManager.setSpeakerphoneOn(true);//默认为扬声器播放
 
     }
 
