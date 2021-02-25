@@ -1,7 +1,10 @@
 package com.jqorz.test.coil
 
 import android.content.Context
+import android.util.Log
+import coil.EventListener
 import coil.ImageLoader
+import coil.request.ImageRequest
 import com.androidnetworking.internal.ResponseProgressBody
 import com.bumptech.glide.load.model.GlideUrl
 import com.bumptech.glide.util.Util
@@ -19,7 +22,7 @@ import java.security.MessageDigest
  */
 object CustomManager {
 
-    fun getCoilCacheKey(url: String) = url.encodeUtf8().md5().hex()
+    fun getCoilCacheKey(url: String) = url.encodeUtf8().md5().hex() + ".1"
 
     fun getGlideSafeKey(url: String): String {
         try {
@@ -37,6 +40,7 @@ object CustomManager {
     }
 
     fun getGlideFilePath(onlineUrl: String) = getCachePath().path + File.separator + getGlideSafeKey(onlineUrl)
+
     fun getCoilFilePath(onlineUrl: String) = getCachePath().path + File.separator + getCoilCacheKey(onlineUrl)
 
     fun convertGlide2Coil() {
@@ -64,6 +68,12 @@ object CustomManager {
                             }
                             .build()
                 }
+                .eventListener(object : EventListener {
+                    override fun onError(request: ImageRequest, throwable: Throwable) {
+                        Log.e("jqjq", "error $throwable")
+                        super.onError(request, throwable)
+                    }
+                })
                 .build()
     }
 

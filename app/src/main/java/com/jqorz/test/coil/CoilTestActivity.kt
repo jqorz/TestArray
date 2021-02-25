@@ -14,6 +14,7 @@ import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.jqorz.common.FileUtil
 import com.jqorz.common.base.BaseActivity
 import com.jqorz.test.R
+import java.io.File
 
 /**
  * @author  jqorz
@@ -59,10 +60,19 @@ class CoilTestActivity : BaseActivity() {
 
             val localPath = CustomManager.getCoilFilePath(item)
             val serial = (holder.adapterPosition + 1).toString()
-            val request = ImageRequest.Builder(context)
-                    .data(item)
-                    .target(ProgressTarget(text, iv, item, serial))
-                    .build()
+
+            val request = if (FileUtil.isFileExists(localPath)) {
+                ImageRequest.Builder(context)
+                        .data(File(localPath))
+                        .target(ProgressTarget(text, iv, localPath, serial))
+                        .build()
+            } else {
+                ImageRequest.Builder(context)
+                        .data(item)
+                        .target(ProgressTarget(text, iv, item, serial))
+                        .build()
+            }
+
             context.imageLoader.enqueue(request)
 
             holder.setText(R.id.tv_serial, serial)
