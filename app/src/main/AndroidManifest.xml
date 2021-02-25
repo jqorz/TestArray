@@ -86,7 +86,7 @@
         <activity android:name=".webview.WebView3Activity" />
         <activity android:name=".content_provider.ContentProviderActivity" />
         <activity android:name=".file_concat.FileConcatActivity" />
-        <activity android:name="com.jqorz.test2.music.MusicPlayActivity" />
+        <activity android:name=".coil.CoilTestActivity" />
 
         <provider
             android:name=".content_provider.UserInfoProvider"

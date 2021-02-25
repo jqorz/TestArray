@@ -8,10 +8,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
+import com.jqorz.common.base.BaseActivity;
 import com.jqorz.test.R;
 import com.jqorz.test.aidl.AIDLActivity;
-import com.jqorz.common.base.BaseActivity;
 import com.jqorz.test.click.ClickActivity;
+import com.jqorz.test.coil.CoilTestActivity;
 import com.jqorz.test.content_provider.ContentProviderActivity;
 import com.jqorz.test.dashboard.DashActivity;
 import com.jqorz.test.file_concat.FileConcatActivity;
@@ -64,6 +65,7 @@ public class MainActivity extends BaseActivity {
         mAdapter.addData(new ItemBean("测试AIDL", () -> AIDLActivity.start(mContext)));
         mAdapter.addData(new ItemBean("测试CP", () -> ContentProviderActivity.start(mContext)));
         mAdapter.addData(new ItemBean("文件合并", () -> FileConcatActivity.start(mContext)));
+        mAdapter.addData(new ItemBean("Coil测试", () -> CoilTestActivity.start(mContext)));
     }
 
     @Override

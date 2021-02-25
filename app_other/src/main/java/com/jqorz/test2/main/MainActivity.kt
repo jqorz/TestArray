@@ -1,7 +1,5 @@
 package com.jqorz.test2.main
 
-import android.media.AudioManager
-import android.util.Log
 import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
@@ -31,9 +29,6 @@ class MainActivity : BaseActivity() {
 
     override fun init() {
         initRecyclerView()
-
-        val service = getSystemService(AUDIO_SERVICE) as AudioManager
-        Log.i("jqjq", service.toString())
     }
 
     override fun getLayoutResId(): Int {

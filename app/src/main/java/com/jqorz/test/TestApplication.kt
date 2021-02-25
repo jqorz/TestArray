@@ -1,11 +1,14 @@
-package com.jqorz.test;
+package com.jqorz.test
 
-import android.app.Application;
-import android.util.Log;
-
-import com.jqorz.test.mac.DeviceUtils;
-import com.jqorz.test.util.AppConfig;
-import com.jqorz.test.util.ToolUtil;
+import android.app.Application
+import android.util.Log
+import coil.ImageLoader
+import coil.ImageLoaderFactory
+import com.didichuxing.doraemonkit.DoraemonKit
+import com.jqorz.test.coil.CustomManager
+import com.jqorz.test.mac.DeviceUtils
+import com.jqorz.test.util.AppConfig
+import com.jqorz.test.util.ToolUtil
 
 /**
  * copyright datedu
@@ -13,14 +16,19 @@ import com.jqorz.test.util.ToolUtil;
  * @author j1997
  * @since 2019/9/29
  */
-public class TestApplication extends Application {
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        AppConfig.init(this);
-        ToolUtil.init(this);
+class TestApplication : Application(), ImageLoaderFactory {
 
-        String mac = DeviceUtils.getMacAddress();
-        Log.e("mac1 ", mac);
+    override fun onCreate() {
+        super.onCreate()
+        DoraemonKit.install(this)
+        AppConfig.init(this)
+        ToolUtil.init(this)
+        val mac = DeviceUtils.getMacAddress()
+        Log.e("mac1 ", mac)
     }
+
+    override fun newImageLoader(): ImageLoader {
+        return CustomManager.createProgressLoader(this)
+    }
+
 }
