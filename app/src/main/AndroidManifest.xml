@@ -32,7 +32,7 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".sign.SignPadActivity" />
 
-        <activity android:name=".main.MainActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -87,6 +87,7 @@
         <activity android:name=".content_provider.ContentProviderActivity" />
         <activity android:name=".file_concat.FileConcatActivity" />
         <activity android:name=".coil.CoilTestActivity" />
+        <activity android:name=".crash.CrashActivity" />
 
         <provider
             android:name=".content_provider.UserInfoProvider"
