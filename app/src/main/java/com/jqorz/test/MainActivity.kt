@@ -46,7 +46,7 @@ class MainActivity : BaseActivity() {
         mAdapter.addData(ItemBean("Jni测试") { JniActivity.start(mContext) })
         mAdapter.addData(ItemBean("WebView拦截") { WebView2Activity.start(mContext, "https://datedu.oss-cn-hangzhou.aliyuncs.com/Android/test/test_jq.html") })
         mAdapter.addData(ItemBean("wifi连接") { WifiConnectActivity.start(mContext) })
-        mAdapter.addData(ItemBean("Gson测试") { GsonTestActivity.start(mContext) })
+        mAdapter.addData(ItemBean("Gson测试") { GsonTestActivity.start(mContext!!) })
         mAdapter.addData(ItemBean("仪表盘动画") { DashActivity.start(mContext) })
         mAdapter.addData(ItemBean("view属性") { ClickActivity.start(mContext) })
         mAdapter.addData(ItemBean("屏幕旋转") { RotateActivity1.start(mContext) })
