@@ -9,6 +9,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.jqorz.common.base.BaseActivity
 import com.jqorz.test.aidl.AIDLActivity
+import com.jqorz.test.broadcast.SendBroadActivity
 import com.jqorz.test.click.ClickActivity
 import com.jqorz.test.coil.CoilTestActivity
 import com.jqorz.test.content_provider.ContentProviderActivity
@@ -19,6 +20,7 @@ import com.jqorz.test.floatView.ControlActivity
 import com.jqorz.test.gson.GsonTestActivity
 import com.jqorz.test.jni.JniActivity
 import com.jqorz.test.mac.MacActivity
+import com.jqorz.test.networkstate.NetworkStateActivity
 import com.jqorz.test.popup.PopupActivity
 import com.jqorz.test.rotate.RotateActivity1
 import com.jqorz.test.themeAttr.ThemeActivity
@@ -35,7 +37,7 @@ class MainActivity : BaseActivity() {
     private fun initRecyclerView() {
         val mRecyclerView = findViewById<RecyclerView>(R.id.mRecyclerView)
         mRecyclerView.layoutManager = GridLayoutManager(mContext, 3)
-        val mAdapter: BaseQuickAdapter<ItemBean, BaseViewHolder> = object : BaseQuickAdapter<ItemBean, BaseViewHolder >(R.layout.item_main_select) {
+        val mAdapter: BaseQuickAdapter<ItemBean, BaseViewHolder> = object : BaseQuickAdapter<ItemBean, BaseViewHolder>(R.layout.item_main_select) {
             protected override fun convert(helper: BaseViewHolder, item: ItemBean) {
                 val btn = helper.getView<Button>(R.id.btn)
                 btn.text = item.text
@@ -44,7 +46,7 @@ class MainActivity : BaseActivity() {
         }
         mRecyclerView.adapter = mAdapter
         mAdapter.addData(ItemBean("Jni测试") { JniActivity.start(mContext) })
-        mAdapter.addData(ItemBean("WebView拦截") { WebView2Activity.start(mContext, "https://datedu.oss-cn-hangzhou.aliyuncs.com/Android/test/test_jq.html") })
+        mAdapter.addData(ItemBean("WebView拦截") { WebView2Activity.start(mContext, "https://fs.iclass30.com/aliba/resources/2021/03/08/1854ba91666140518d2af552c200b7f8/2b7ef17465014f2ca7198116c7b52bf3/3d9bb7d727ec52449e286f12bc617b98f2b9/f.txt") })
         mAdapter.addData(ItemBean("wifi连接") { WifiConnectActivity.start(mContext) })
         mAdapter.addData(ItemBean("Gson测试") { GsonTestActivity.start(mContext!!) })
         mAdapter.addData(ItemBean("仪表盘动画") { DashActivity.start(mContext) })
@@ -60,6 +62,8 @@ class MainActivity : BaseActivity() {
         mAdapter.addData(ItemBean("文件合并") { FileConcatActivity.start(mContext!!) })
         mAdapter.addData(ItemBean("Coil测试") { CoilTestActivity.start(mContext!!) })
         mAdapter.addData(ItemBean("Crash测试") { CrashActivity.start(mContext!!) })
+        mAdapter.addData(ItemBean("发送广播测试") { SendBroadActivity.start(mContext!!) })
+        mAdapter.addData(ItemBean("网络状态监听") { NetworkStateActivity.start(mContext!!) })
     }
 
     override fun getLayoutResId(): Int {
