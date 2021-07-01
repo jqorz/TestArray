@@ -3,9 +3,12 @@ package com.jqorz.test.content_provider
 import android.content.Context
 import android.content.Intent
 import android.os.Handler
-import com.jqorz.common.contentprovider.ProviderConstant
-import com.jqorz.test.R
+import android.view.View
 import com.jqorz.common.base.BaseActivity
+import com.jqorz.common.contentprovider.ProviderConstant
+import com.jqorz.common.contentprovider.ProviderManger
+import com.jqorz.test.R
+import com.jqorz.test.util.AppConfig
 
 /**
  * @author  jqorz
@@ -19,6 +22,10 @@ class ContentProviderActivity : BaseActivity() {
         observer = DataObserver(Handler())
         observer?.let {
             contentResolver.registerContentObserver(ProviderConstant.CONTENT_URI, true, it)
+        }
+
+        findViewById<View>(R.id.btn_insert).setOnClickListener {
+            ProviderManger(AppConfig.getApp().contentResolver).testInsert()
         }
     }
 

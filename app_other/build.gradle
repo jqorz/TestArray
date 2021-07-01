@@ -7,6 +7,7 @@ android {
 
     defaultConfig {
         minSdkVersion 21
+        applicationId "com.jqorz.test2"
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"

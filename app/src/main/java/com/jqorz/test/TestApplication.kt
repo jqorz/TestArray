@@ -25,6 +25,7 @@ class TestApplication : Application(), ImageLoaderFactory {
         ToolUtil.init(this)
         val mac = DeviceUtils.getMacAddress()
         Log.e("mac1 ", mac)
+        Log.e("启动", "Application1")
     }
 
     override fun newImageLoader(): ImageLoader {
