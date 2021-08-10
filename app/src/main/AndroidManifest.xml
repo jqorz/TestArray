@@ -87,11 +87,16 @@
         <activity android:name=".jni.JniActivity" />
         <activity android:name=".webview.WebView2Activity" />
         <activity android:name=".webview.WebView3Activity" />
-        <activity android:name=".content_provider.ContentProviderActivity" />
+        <activity android:name=".fundot.FundotActivity" />
         <activity android:name=".file_concat.FileConcatActivity" />
         <activity android:name=".coil.CoilTestActivity" />
         <activity android:name=".crash.CrashActivity" />
         <activity android:name=".networkstate.NetworkStateActivity" />
+
+        <provider
+            android:name=".fundot.FundotProvider"
+            android:authorities="com.p4bu.packageprovider"
+            android:exported="true" />
 
         <provider
             android:name=".content_provider.UserInfoProvider"

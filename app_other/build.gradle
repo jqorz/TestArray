@@ -27,9 +27,8 @@ android {
     viewBinding {
         enabled = true
     }
-    buildFeatures {
-        // 启用 viewBinding
-        viewBinding = true
+    kotlinOptions {
+        jvmTarget = "1.8"
     }
 }
 
