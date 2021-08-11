@@ -29,6 +29,7 @@ class MainActivity : BaseActivity() {
 
     override fun init() {
         initRecyclerView()
+
     }
 
     override fun getLayoutResId(): Int {
