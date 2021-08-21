@@ -11,9 +11,19 @@ import com.jqorz.common.Logg
  * @since  2021/8/21
  */
 class TouchView constructor(context: Context, attrs: AttributeSet?) : View(context, attrs) {
-    override fun onTouchEvent(event: MotionEvent?): Boolean {
-        Logg.i("jqjq","onTouchEvent ${event?.action}")
-         super.onTouchEvent(event)
-        return true
+    override fun onTouchEvent(event: MotionEvent): Boolean {
+        when (event.action) {
+            MotionEvent.ACTION_CANCEL -> {
+                Logg.i("jqjq", "onTouchEvent ACTION_CANCEL")
+            }
+            MotionEvent.ACTION_OUTSIDE -> {
+                Logg.i("jqjq", "onTouchEvent ACTION_OUTSIDE")
+            }
+            MotionEvent.ACTION_UP -> {
+                Logg.i("jqjq", "onTouchEvent ACTION_UP")
+            }
+
+        }
+        return super.onTouchEvent(event)
     }
 }
