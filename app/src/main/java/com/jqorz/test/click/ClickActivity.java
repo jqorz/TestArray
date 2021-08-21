@@ -35,11 +35,14 @@ public class ClickActivity extends AppCompatActivity {
             Log.i(TAG, "click parent");
             ToastUtil.showToast(ClickActivity.this, "parent");
         });
-        final View child = findViewById(R.id.child);
+        final TouchView child = findViewById(R.id.child);
         child.setOnClickListener(v -> {
-            Log.i(TAG, "click child");
-            ToastUtil.showToast(ClickActivity.this, "child");
+            Log.i("jqjq", "click child");
         });
+//        child.setOnTouchListener((v,event) ->{
+//            Log.i("jqjq", "touchListener");
+//            return true;
+//        });
         findViewById(R.id.btn1).setOnClickListener(v -> {
             showText(child);
             child.setTranslationX(dp2px(20));

@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
+import com.jqorz.common.Logg
 
 /**
  * @author  jqorz
@@ -11,7 +12,8 @@ import android.view.View
  */
 class TouchView constructor(context: Context, attrs: AttributeSet?) : View(context, attrs) {
     override fun onTouchEvent(event: MotionEvent?): Boolean {
-        return super.onTouchEvent(event)
-//        return false
+        Logg.i("jqjq","onTouchEvent ${event?.action}")
+         super.onTouchEvent(event)
+        return true
     }
 }
