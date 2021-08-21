@@ -60,7 +60,7 @@ class KtWifiInfoActivity : AppCompatActivity(), View.OnClickListener {
             val netWorks = mConnectivityManager!!.allNetworks
 
             for (netWork in netWorks) {
-                val netWorkInfo = mConnectivityManager!!.getNetworkInfo(netWork)
+                val netWorkInfo = mConnectivityManager!!.getNetworkInfo(netWork)!!
                 if (netWorkInfo.isConnected) {
                     when (netWorkInfo.type) {
                         ConnectivityManager.TYPE_WIFI -> {

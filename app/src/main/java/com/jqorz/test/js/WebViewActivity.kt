@@ -42,7 +42,7 @@ class WebViewActivity : BaseActivity() {
      *
      * @return js函数
      */
-    fun readJS(fileName: String?): String? {
+    fun readJS(fileName: String): String? {
         try {
             val inStream = assets.open(fileName) //写入输入流
             val outStream = ByteArrayOutputStream()

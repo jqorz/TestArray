@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
+import android.widget.FrameLayout;
 
 import com.jqorz.test.R;
 import com.jqorz.test.util.ToastUtil;
@@ -30,28 +31,19 @@ public class ClickActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_click);
         findViewById(R.id.parent).setEnabled(false);
-        findViewById(R.id.parent).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.i(TAG, "click parent");
-                ToastUtil.showToast(ClickActivity.this, "parent");
-            }
+        findViewById(R.id.parent).setOnClickListener(v -> {
+            Log.i(TAG, "click parent");
+            ToastUtil.showToast(ClickActivity.this, "parent");
         });
         final View child = findViewById(R.id.child);
-        child.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.i(TAG, "click child");
-                ToastUtil.showToast(ClickActivity.this, "child");
-            }
+        child.setOnClickListener(v -> {
+            Log.i(TAG, "click child");
+            ToastUtil.showToast(ClickActivity.this, "child");
         });
-        findViewById(R.id.btn1).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showText(child);
-                child.setTranslationX(dp2px(20));
-                showText(child);
-            }
+        findViewById(R.id.btn1).setOnClickListener(v -> {
+            showText(child);
+            child.setTranslationX(dp2px(20));
+            showText(child);
         });
     }
 
