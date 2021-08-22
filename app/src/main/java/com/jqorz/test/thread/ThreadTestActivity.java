@@ -3,6 +3,7 @@ package com.jqorz.test.thread;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Looper;
+import android.widget.Button;
 
 import com.jqorz.common.Logg;
 import com.jqorz.common.base.BaseActivity;
@@ -18,19 +19,29 @@ public class ThreadTestActivity extends BaseActivity {
         Intent starter = new Intent(context, ThreadTestActivity.class);
         context.startActivity(starter);
     }
-
+private Button mButton;
     @Override
     protected void init() {
-        findViewById(R.id.button).setOnClickListener(v -> {
+        mButton = findViewById(R.id.button);
+        mButton.setOnClickListener(v -> {
             new Thread(() -> {
                 Logg.i("jqjq", "step 0 ");
                 Looper.prepare();
-                ToastUtil.showToast("run on Thread");
+                mButton.setText("run on Thread");
                 Logg.i("jqjq", "step 1 ");
                 Looper.loop();
                 Logg.i("jqjq", "step 2 ");
             }).start();
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        new Thread(() -> {
+            Looper.prepare();
+            mButton.setText("onResume on Thread");
+        }).start();
     }
 
     @Override
