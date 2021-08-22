@@ -1,6 +1,5 @@
 package com.jqorz.test
 
-import android.os.Looper
 import android.os.SystemClock
 import android.view.View
 import android.widget.Button
@@ -26,6 +25,7 @@ import com.jqorz.test.networkstate.NetworkStateActivity
 import com.jqorz.test.popup.PopupActivity
 import com.jqorz.test.rotate.RotateActivity1
 import com.jqorz.test.themeAttr.ThemeActivity
+import com.jqorz.test.thread.ThreadTestActivity
 import com.jqorz.test.webview.WebView2Activity
 import com.jqorz.test.wifi.WifiConnectActivity
 import java.util.*
@@ -73,6 +73,7 @@ class MainActivity : BaseActivity() {
         mAdapter.addData(ItemBean("发送广播测试") { SendBroadActivity.start(mContext!!) })
         mAdapter.addData(ItemBean("网络状态监听") { NetworkStateActivity.start(mContext!!) })
         mAdapter.addData(ItemBean("测试丰豆") { FundotActivity.start(mContext!!) })
+        mAdapter.addData(ItemBean("线程测试") { ThreadTestActivity.start(mContext!!) })
     }
 
     override fun getLayoutResId(): Int {

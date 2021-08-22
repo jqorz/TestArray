@@ -92,6 +92,7 @@
         <activity android:name=".coil.CoilTestActivity" />
         <activity android:name=".crash.CrashActivity" />
         <activity android:name=".networkstate.NetworkStateActivity" />
+        <activity android:name="com.jqorz.test.thread.ThreadTestActivity" />
 
         <provider
             android:name=".fundot.FundotProvider"
