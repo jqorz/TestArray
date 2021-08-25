@@ -27,7 +27,7 @@ private Button mButton;
             new Thread(() -> {
                 Logg.i("jqjq", "step 0 ");
                 Looper.prepare();
-                mButton.setText("run on Thread");
+                ToastUtil.showToast("run on Thread");
                 Logg.i("jqjq", "step 1 ");
                 Looper.loop();
                 Logg.i("jqjq", "step 2 ");
