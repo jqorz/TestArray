@@ -40,7 +40,7 @@ class KtWifiInfoActivity : AppCompatActivity(), View.OnClickListener {
 
 
     private fun initView() {
-        findViewById<View>(R.id.btn1).setOnClickListener(this)
+        findViewById<View>(R.id.btn_1).setOnClickListener(this)
         findViewById<View>(R.id.btn2).setOnClickListener(this)
         mWifiManager = this.applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
         mConnectivityManager = this.applicationContext.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
@@ -48,7 +48,7 @@ class KtWifiInfoActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View) {
         when (v.id) {
-            R.id.btn1 -> showBtn1()
+            R.id.btn_1 -> showBtn1()
             R.id.btn2 -> showBtn2()
         }
     }

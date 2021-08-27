@@ -43,7 +43,7 @@ public class ClickActivity extends AppCompatActivity {
 //            Log.i("jqjq", "touchListener");
 //            return true;
 //        });
-        findViewById(R.id.btn1).setOnClickListener(v -> {
+        findViewById(R.id.btn_1).setOnClickListener(v -> {
             showText(child);
             child.setTranslationX(dp2px(20));
             showText(child);

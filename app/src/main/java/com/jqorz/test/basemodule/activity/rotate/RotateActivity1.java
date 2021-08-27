@@ -26,7 +26,7 @@ public class RotateActivity1 extends BaseActivity {
         TextView text = findViewById(R.id.text);
         text.setText("1");
 
-        findViewById(R.id.btn1).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btn_1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 RotateActivity2.start(RotateActivity1.this);

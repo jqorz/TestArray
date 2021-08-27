@@ -15,7 +15,7 @@ import com.jqorz.test.R
  */
 class LifeTestActivity : BaseActivity() {
     override fun init() {
-        findViewById<View>(R.id.btn1).setOnClickListener {
+        findViewById<View>(R.id.btn_1).setOnClickListener {
             LifeTest2Activity.start(this)
         }
     }
