@@ -1,4 +1,4 @@
-package com.jqorz.test.basemodule.activity
+package com.jqorz.test.basemodule.activity.life
 
 import android.content.Context
 import android.content.Intent
@@ -13,10 +13,10 @@ import com.jqorz.test.R
  * @author  jqorz
  * @since  2021/8/27
  */
-class LifeTestActivity : BaseActivity() {
+class LifeTest2Activity : BaseActivity() {
     override fun init() {
         findViewById<View>(R.id.btn_1).setOnClickListener {
-            LifeTest2Activity.start(this)
+            LifeTestActivity.start2(this)
         }
     }
 
@@ -69,10 +69,12 @@ class LifeTestActivity : BaseActivity() {
         return R.layout.activity_common
     }
 
+
+
     companion object {
         @JvmStatic
         fun start(context: Context) {
-            val starter = Intent(context, LifeTestActivity::class.java)
+            val starter = Intent(context, LifeTest2Activity::class.java)
             context.startActivity(starter)
         }
     }

@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.jqorz.common.base.BaseActivity
-import com.jqorz.test.basemodule.activity.LifeTestActivity
+import com.jqorz.test.basemodule.activity.life.LifeTestActivity
 import com.jqorz.test.basemodule.activity.rotate.RotateActivity1
 import com.jqorz.test.basemodule.broadcast.SendBroadActivity
 import com.jqorz.test.basemodule.content_provider.ContentProviderActivity

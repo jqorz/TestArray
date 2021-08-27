@@ -1,8 +1,9 @@
-package com.jqorz.test.basemodule.activity
+package com.jqorz.test.basemodule.activity.life
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import com.jqorz.common.Logg
 import com.jqorz.common.base.BaseActivity
 import com.jqorz.test.R
@@ -12,9 +13,11 @@ import com.jqorz.test.R
  * @author  jqorz
  * @since  2021/8/27
  */
-class LifeTest2Activity : BaseActivity() {
+class LifeTestActivity : BaseActivity() {
     override fun init() {
-
+        findViewById<View>(R.id.btn_1).setOnClickListener {
+            LifeTest2Activity.start(this)
+        }
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -28,7 +31,7 @@ class LifeTest2Activity : BaseActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        Logg.i("onCreate")
+        Logg.i("jqjq2", "onCreate")
         super.onCreate(savedInstanceState)
     }
 
@@ -62,6 +65,11 @@ class LifeTest2Activity : BaseActivity() {
         super.onDestroy()
     }
 
+    override fun onNewIntent(intent: Intent?) {
+        Logg.i("jqjq2", "onNewIntent")
+        super.onNewIntent(intent)
+    }
+
     override fun getLayoutResId(): Int {
         return R.layout.activity_common
     }
@@ -69,7 +77,15 @@ class LifeTest2Activity : BaseActivity() {
     companion object {
         @JvmStatic
         fun start(context: Context) {
-            val starter = Intent(context, LifeTest2Activity::class.java)
+            val starter = Intent(context, LifeTestActivity::class.java)
+            context.startActivity(starter)
+        }
+
+        fun start2(context: Context) {
+            val starter = Intent(context, LifeTestActivity::class.java)
+            starter.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            starter.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+//            starter.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
             context.startActivity(starter)
         }
     }
