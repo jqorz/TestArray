@@ -96,8 +96,11 @@
         <activity android:name=".basemodule.service.ServiceTestActivity" />
         <activity
             android:name=".basemodule.activity.life.LifeTest2Activity"
+            android:label="LifeTest2Activity"
             android:taskAffinity=".a" />
-        <activity android:name=".basemodule.activity.life.LifeTestActivity" />
+        <activity
+            android:name=".basemodule.activity.life.LifeTestActivity"
+            android:label="LifeTestActivity" />
 
         <provider
             android:name="com.jqorz.test.fundot.FundotProvider"
