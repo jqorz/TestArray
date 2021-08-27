@@ -10,12 +10,12 @@ import com.jqorz.test.util.ToastUtil
 
 class SendBroadActivity : BaseActivity() {
     override fun init() {
-        val myReceiver = _root_ide_package_.com.jqorz.test.basemodule.broadcast.MyReceiver()
+        val myReceiver = MyReceiver()
         val intentFilter = IntentFilter()
-        intentFilter.addAction(_root_ide_package_.com.jqorz.test.basemodule.broadcast.SendBroadActivity.Companion.INTENT_ACTION)
+        intentFilter.addAction(INTENT_ACTION)
         registerReceiver(myReceiver, intentFilter)
         myReceiver.onReceiveBroadcastListener = object :
-            com.jqorz.test.basemodule.broadcast.MyReceiver.OnReceiveBroadcastListener {
+            MyReceiver.OnReceiveBroadcastListener {
             override fun onChanged(text: String?) {
                 ToastUtil.showToast(text)
             }
@@ -28,7 +28,7 @@ class SendBroadActivity : BaseActivity() {
 
     fun sendBroad(v: View?) {
         val intent = Intent()
-        intent.action = _root_ide_package_.com.jqorz.test.basemodule.broadcast.SendBroadActivity.Companion.INTENT_ACTION
+        intent.action = INTENT_ACTION
         intent.putExtra("data", "发送一个广播")
         sendBroadcast(intent)
     }
@@ -38,7 +38,7 @@ class SendBroadActivity : BaseActivity() {
 
         @JvmStatic
         fun start(context: Context) {
-            val starter = Intent(context, _root_ide_package_.com.jqorz.test.basemodule.broadcast.SendBroadActivity::class.java)
+            val starter = Intent(context, SendBroadActivity::class.java)
             context.startActivity(starter)
         }
     }

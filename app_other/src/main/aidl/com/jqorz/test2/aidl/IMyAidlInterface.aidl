@@ -1,5 +1,5 @@
 // IMyAidlInterface.aidl
-package com.jqorz.test.aidl;
+package com.jqorz.test2.aidl;
 
 // Declare any non-default types here with import statements
 
