@@ -94,7 +94,9 @@
         <activity android:name="com.jqorz.test.framework.networkstate.NetworkStateActivity" />
         <activity android:name=".framework.thread.ThreadTestActivity" />
         <activity android:name=".basemodule.service.ServiceTestActivity" />
-        <activity android:name=".basemodule.activity.life.LifeTest2Activity" />
+        <activity
+            android:name=".basemodule.activity.life.LifeTest2Activity"
+            android:taskAffinity=".a" />
         <activity android:name=".basemodule.activity.life.LifeTestActivity" />
 
         <provider
