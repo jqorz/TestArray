@@ -1,5 +1,6 @@
 package com.jqorz.test
 
+import android.os.Bundle
 import android.os.SystemClock
 import android.view.View
 import android.widget.Button
@@ -7,6 +8,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
+import com.jqorz.common.Logg
 import com.jqorz.common.base.BaseActivity
 import com.jqorz.test.basemodule.activity.rotate.RotateActivity1
 import com.jqorz.test.basemodule.broadcast.SendBroadActivity
@@ -96,6 +98,31 @@ class MainActivity : BaseActivity() {
             println("点了" + mHits.size)
             mHits.clear()
         }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        Logg.i("onSaveInstanceState")
+        super.onSaveInstanceState(outState)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        Logg.i("onRestoreInstanceState")
+        super.onRestoreInstanceState(savedInstanceState)
+    }
+
+    override fun onStop() {
+        Logg.i("onStop")
+        super.onStop()
+    }
+
+    override fun onPause() {
+        Logg.i("onPause")
+        super.onPause()
+    }
+
+    override fun onDestroy() {
+        Logg.i("onDestroy")
+        super.onDestroy()
     }
 
     class ItemBean(val text: String, val runnable: Runnable)
