@@ -45,14 +45,19 @@ class LifeTestActivity : BaseActivity() {
         super.onRestart()
     }
 
-    override fun onStop() {
-        Logg.i("onStop")
-        super.onStop()
+    override fun onResume() {
+        Logg.i("onResume")
+        super.onResume()
     }
 
     override fun onPause() {
         Logg.i("onPause")
         super.onPause()
+    }
+
+    override fun onStop() {
+        Logg.i("onStop")
+        super.onStop()
     }
 
     override fun onDestroy() {
