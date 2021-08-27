@@ -1,6 +1,5 @@
 package com.jqorz.test
 
-import android.os.Bundle
 import android.os.SystemClock
 import android.view.View
 import android.widget.Button
@@ -8,8 +7,8 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
-import com.jqorz.common.Logg
 import com.jqorz.common.base.BaseActivity
+import com.jqorz.test.basemodule.activity.LifeTestActivity
 import com.jqorz.test.basemodule.activity.rotate.RotateActivity1
 import com.jqorz.test.basemodule.broadcast.SendBroadActivity
 import com.jqorz.test.basemodule.content_provider.ContentProviderActivity
@@ -79,6 +78,7 @@ class MainActivity : BaseActivity() {
         mAdapter.addData(ItemBean("线程测试") { ThreadTestActivity.start(mContext!!) })
         mAdapter.addData(ItemBean("测试丰豆") { FundotActivity.start(mContext!!) })
         mAdapter.addData(ItemBean("service") { ServiceTestActivity.start(mContext!!) })
+        mAdapter.addData(ItemBean("生命周期") { LifeTestActivity.start(mContext!!) })
 
 
     }
@@ -100,30 +100,7 @@ class MainActivity : BaseActivity() {
         }
     }
 
-    override fun onSaveInstanceState(outState: Bundle) {
-        Logg.i("onSaveInstanceState")
-        super.onSaveInstanceState(outState)
-    }
 
-    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
-        Logg.i("onRestoreInstanceState")
-        super.onRestoreInstanceState(savedInstanceState)
-    }
-
-    override fun onStop() {
-        Logg.i("onStop")
-        super.onStop()
-    }
-
-    override fun onPause() {
-        Logg.i("onPause")
-        super.onPause()
-    }
-
-    override fun onDestroy() {
-        Logg.i("onDestroy")
-        super.onDestroy()
-    }
 
     class ItemBean(val text: String, val runnable: Runnable)
 }

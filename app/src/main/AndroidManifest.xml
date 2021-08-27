@@ -94,7 +94,8 @@
         <activity android:name="com.jqorz.test.framework.networkstate.NetworkStateActivity" />
         <activity android:name=".framework.thread.ThreadTestActivity" />
         <activity android:name=".basemodule.service.ServiceTestActivity" />
-        <activity android:name=".basemodule.service.ServiceTestActivity" />
+        <activity android:name=".basemodule.activity.LifeTest2Activity" />
+        <activity android:name=".basemodule.activity.LifeTestActivity" />
 
         <provider
             android:name="com.jqorz.test.fundot.FundotProvider"
