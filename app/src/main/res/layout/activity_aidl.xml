@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="8dp"
-    tools:context=".aidl.AIDLActivity">
+    tools:context="com.jqorz.test.basemodule.service.aidl.AIDLActivity">
 
     <Button
         android:id="@+id/bindBtn"

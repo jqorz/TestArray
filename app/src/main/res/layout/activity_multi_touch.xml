@@ -3,9 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.jqorz.test.multi_touch.MultiTouchActivity">
+    tools:context="com.jqorz.test.view.multi_touch.MultiTouchActivity">
 
-    <com.jqorz.test.multi_touch.LightView
+    <com.jqorz.test.view.multi_touch.LightView
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

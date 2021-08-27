@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".gson.GsonTestActivity">
+    tools:context="com.jqorz.test.library.gson.GsonTestActivity">
 
     <Button
         android:layout_width="wrap_content"

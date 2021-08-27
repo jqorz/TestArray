@@ -577,9 +577,9 @@ public class OkUtil2 {
         return sb.toString();
     }
 
-    private enum Encoding {
-        UTF_8, GBK;
-    }
+      enum Encoding {
+          UTF_8, GBK;
+      }
 
     public static abstract class ResultCallback<T> {
         Type mType;

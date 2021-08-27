@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".click.ClickActivity">
+    tools:context="com.jqorz.test.view.click.ClickActivity">
 
     <RelativeLayout
         android:id="@+id/parent"
@@ -29,7 +29,7 @@
         android:layout_margin="10dp"
         android:layout_alignParentBottom="true" />
 
-    <com.jqorz.test.click.TouchView
+    <com.jqorz.test.view.click.TouchView
         android:id="@+id/child"
         android:layout_width="100dp"
         android:layout_height="100dp"

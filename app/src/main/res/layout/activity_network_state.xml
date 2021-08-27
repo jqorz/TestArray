@@ -3,6 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".networkstate.NetworkStateActivity">
+    tools:context="com.jqorz.test.framework.networkstate.NetworkStateActivity">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

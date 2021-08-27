@@ -11,7 +11,7 @@ public class Logg {
 
     private static int logLevel = Log.VERBOSE;
     private volatile static Logg mInstance;
-    private static String tag = "Logg";
+    private static String tag = "jqjq";
     private static boolean isDebug = BuildConfig.DEBUG;
 
     private static String getFunctionName() {

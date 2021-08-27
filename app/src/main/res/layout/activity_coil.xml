@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".coil.CoilTestActivity">
+    tools:context="com.jqorz.test.library.coil.CoilTestActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

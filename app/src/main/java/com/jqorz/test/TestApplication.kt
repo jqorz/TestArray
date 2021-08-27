@@ -5,8 +5,7 @@ import android.util.Log
 import coil.ImageLoader
 import coil.ImageLoaderFactory
 import com.didichuxing.doraemonkit.DoraemonKit
-import com.jqorz.test.coil.CustomManager
-import com.jqorz.test.mac.DeviceUtils
+import com.jqorz.test.library.coil.CustomManager
 import com.jqorz.test.util.AppConfig
 import com.jqorz.test.util.ToolUtil
 
@@ -23,7 +22,7 @@ class TestApplication : Application(), ImageLoaderFactory {
         DoraemonKit.install(this)
         AppConfig.init(this)
         ToolUtil.init(this)
-        val mac = DeviceUtils.getMacAddress()
+        val mac = com.jqorz.test.framework.mac.DeviceUtils.getMacAddress()
         Log.e("mac1 ", mac)
         Log.e("启动", "Application1")
     }

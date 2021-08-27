@@ -8,26 +8,27 @@ import androidx.recyclerview.widget.RecyclerView
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.jqorz.common.base.BaseActivity
-import com.jqorz.test.aidl.AIDLActivity
-import com.jqorz.test.broadcast.SendBroadActivity
-import com.jqorz.test.click.ClickActivity
-import com.jqorz.test.coil.CoilTestActivity
-import com.jqorz.test.content_provider.ContentProviderActivity
-import com.jqorz.test.crash.CrashActivity
-import com.jqorz.test.dashboard.DashActivity
-import com.jqorz.test.file_concat.FileConcatActivity
-import com.jqorz.test.floatView.ControlActivity
+import com.jqorz.test.basemodule.activity.rotate.RotateActivity1
+import com.jqorz.test.basemodule.broadcast.SendBroadActivity
+import com.jqorz.test.basemodule.content_provider.ContentProviderActivity
+import com.jqorz.test.basemodule.service.ServiceTestActivity
+import com.jqorz.test.basemodule.service.aidl.AIDLActivity
+import com.jqorz.test.framework.mac.MacActivity
+import com.jqorz.test.framework.networkstate.NetworkStateActivity
+import com.jqorz.test.framework.themeAttr.ThemeActivity
+import com.jqorz.test.framework.thread.ThreadTestActivity
+import com.jqorz.test.framework.wifi.WifiConnectActivity
 import com.jqorz.test.fundot.FundotActivity
-import com.jqorz.test.gson.GsonTestActivity
+import com.jqorz.test.io.file_concat.FileConcatActivity
 import com.jqorz.test.jni.JniActivity
-import com.jqorz.test.mac.MacActivity
-import com.jqorz.test.networkstate.NetworkStateActivity
-import com.jqorz.test.popup.PopupActivity
-import com.jqorz.test.rotate.RotateActivity1
-import com.jqorz.test.themeAttr.ThemeActivity
-import com.jqorz.test.thread.ThreadTestActivity
-import com.jqorz.test.webview.WebView2Activity
-import com.jqorz.test.wifi.WifiConnectActivity
+import com.jqorz.test.library.coil.CoilTestActivity
+import com.jqorz.test.library.gson.GsonTestActivity
+import com.jqorz.test.thread.crash.CrashActivity
+import com.jqorz.test.view.click.ClickActivity
+import com.jqorz.test.view.dashboard.DashActivity
+import com.jqorz.test.view.webview.WebView2Activity
+import com.jqorz.test.windows.floatView.ControlActivity
+import com.jqorz.test.windows.popup.PopupActivity
 import java.util.*
 
 class MainActivity : BaseActivity() {
@@ -74,6 +75,10 @@ class MainActivity : BaseActivity() {
         mAdapter.addData(ItemBean("网络状态监听") { NetworkStateActivity.start(mContext!!) })
         mAdapter.addData(ItemBean("测试丰豆") { FundotActivity.start(mContext!!) })
         mAdapter.addData(ItemBean("线程测试") { ThreadTestActivity.start(mContext!!) })
+        mAdapter.addData(ItemBean("测试丰豆") { FundotActivity.start(mContext!!) })
+        mAdapter.addData(ItemBean("service") { ServiceTestActivity.start(mContext!!) })
+
+
     }
 
     override fun getLayoutResId(): Int {

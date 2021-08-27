@@ -7,6 +7,6 @@
 -->
 
 <resources>
-    <!-- Download service notification -->
+    <!-- Download com.jqorz.test.basemodule.service notification -->
     <item type="id" name="download_service_notification" />
 </resources>

@@ -33,7 +33,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".sign.SignPadActivity" />
+        <activity android:name="com.jqorz.test.view.sign.SignPadActivity" />
 
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -42,65 +42,65 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".js.WebViewActivity" />
+        <activity android:name="com.jqorz.test.js.WebViewActivity" />
 
-        <activity android:name=".multi_touch.MultiTouchActivity" />
-        <activity android:name=".write.WriteActivity" />
-        <activity android:name=".videoServer.VideoActivity" />
-        <activity android:name=".click.ClickActivity" />
-        <activity android:name=".servlet.ServletActivity" />
-        <activity android:name=".finger.FingerPointPaint" />
-        <activity android:name=".finger.FingerLinePaint" />
-        <activity android:name=".anim.AnimActivity" />
-        <activity android:name=".xwalk.AppTemplateActivity" />
-        <activity android:name=".xwalk.XWalkActivity" />
-        <activity android:name=".wifi.WifiConnectActivity" />
-        <activity android:name=".videoview.VideoViewActivity" />
-        <activity android:name=".videoview.SelectActivity" />
-        <activity android:name=".videoview.WebViewPlayActivity" />
-        <activity android:name=".webview.WebViewActivity" />
-        <activity android:name=".broadcast.SendBroadActivity" />
-        <activity android:name=".wifi.KtWifiInfoActivity" />
-        <activity android:name=".gson.GsonTestActivity" />
-        <activity android:name=".hfutwlan.HfutWlanMainActivity" />
-        <activity android:name=".dashboard.DashActivity" />
+        <activity android:name="com.jqorz.test.view.multi_touch.MultiTouchActivity" />
+        <activity android:name="com.jqorz.test.view.write.WriteActivity" />
+        <activity android:name="com.jqorz.test.videoServer.VideoActivity" />
+        <activity android:name="com.jqorz.test.view.click.ClickActivity" />
+        <activity android:name="com.jqorz.test.servlet.ServletActivity" />
+        <activity android:name="com.jqorz.test.view.finger.FingerPointPaint" />
+        <activity android:name="com.jqorz.test.view.finger.FingerLinePaint" />
+        <activity android:name="com.jqorz.test.view.anim.AnimActivity" />
+        <activity android:name="com.jqorz.test.library.xwalk.AppTemplateActivity" />
+        <activity android:name="com.jqorz.test.library.xwalk.XWalkActivity" />
+        <activity android:name="com.jqorz.test.framework.wifi.WifiConnectActivity" />
+        <activity android:name="com.jqorz.test.view.videoview.VideoViewActivity" />
+        <activity android:name="com.jqorz.test.view.videoview.SelectActivity" />
+        <activity android:name="com.jqorz.test.view.videoview.WebViewPlayActivity" />
+        <activity android:name="com.jqorz.test.view.webview.WebViewActivity" />
+        <activity android:name=".basemodule.broadcast.SendBroadActivity" />
+        <activity android:name="com.jqorz.test.framework.wifi.KtWifiInfoActivity" />
+        <activity android:name="com.jqorz.test.library.gson.GsonTestActivity" />
+        <activity android:name="com.jqorz.test.hfutwlan.HfutWlanMainActivity" />
+        <activity android:name="com.jqorz.test.view.dashboard.DashActivity" />
         <activity
-            android:name=".floatView.ControlActivity"
+            android:name="com.jqorz.test.windows.floatView.ControlActivity"
             android:theme="@style/NoAnim" />
 
         <receiver
-            android:name=".broadcast.MyReceiver"
+            android:name=".basemodule.broadcast.MyReceiver"
             android:enabled="true"
             android:exported="true" />
 
         <activity
-            android:name=".rotate.RotateActivity1"
+            android:name="com.jqorz.test.basemodule.activity.rotate.RotateActivity1"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".rotate.RotateActivity2"
+            android:name="com.jqorz.test.basemodule.activity.rotate.RotateActivity2"
             android:configChanges="orientation"
             android:screenOrientation="landscape" />
-        <activity android:name=".popup.PopupActivity" />
-        <activity android:name=".mac.MacActivity" />
-        <activity android:name=".themeAttr.ThemeActivity" />
-        <activity android:name=".aidl.AIDLActivity" />
-        <activity android:name=".jni.JniActivity" />
-        <activity android:name=".webview.WebView2Activity" />
-        <activity android:name=".webview.WebView3Activity" />
-        <activity android:name=".fundot.FundotActivity" />
-        <activity android:name=".file_concat.FileConcatActivity" />
-        <activity android:name=".coil.CoilTestActivity" />
-        <activity android:name=".crash.CrashActivity" />
-        <activity android:name=".networkstate.NetworkStateActivity" />
-        <activity android:name="com.jqorz.test.thread.ThreadTestActivity" />
+        <activity android:name="com.jqorz.test.windows.popup.PopupActivity" />
+        <activity android:name=".framework.mac.MacActivity" />
+        <activity android:name="com.jqorz.test.framework.themeAttr.ThemeActivity" />
+        <activity android:name="com.jqorz.test.basemodule.service.aidl.AIDLActivity" />
+        <activity android:name="com.jqorz.test.jni.JniActivity" />
+        <activity android:name="com.jqorz.test.view.webview.WebView2Activity" />
+        <activity android:name="com.jqorz.test.view.webview.WebView3Activity" />
+        <activity android:name="com.jqorz.test.fundot.FundotActivity" />
+        <activity android:name="com.jqorz.test.io.file_concat.FileConcatActivity" />
+        <activity android:name="com.jqorz.test.library.coil.CoilTestActivity" />
+        <activity android:name="com.jqorz.test.thread.crash.CrashActivity" />
+        <activity android:name="com.jqorz.test.framework.networkstate.NetworkStateActivity" />
+        <activity android:name=".framework.thread.ThreadTestActivity" />
 
         <provider
-            android:name=".fundot.FundotProvider"
+            android:name="com.jqorz.test.fundot.FundotProvider"
             android:authorities="com.p4bu.packageprovider"
             android:exported="true" />
 
         <provider
-            android:name=".content_provider.UserInfoProvider"
+            android:name="com.jqorz.test.basemodule.content_provider.UserInfoProvider"
             android:authorities="com.datedu.launcher.provider"
             android:exported="true"
             android:readPermission="com.datedu.launcher.provider.READ"

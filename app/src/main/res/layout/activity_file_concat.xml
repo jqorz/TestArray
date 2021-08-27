@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".file_concat.FileConcatActivity">
+    tools:context="com.jqorz.test.io.file_concat.FileConcatActivity">
 
     <Button
         android:id="@+id/btn_start"

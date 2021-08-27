@@ -8,9 +8,10 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import androidx.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
+
+import androidx.annotation.NonNull;
 
 import java.util.LinkedList;
 
