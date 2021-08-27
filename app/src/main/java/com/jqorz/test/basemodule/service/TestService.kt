@@ -4,7 +4,7 @@ import android.app.Service
 import android.content.Intent
 import android.os.Binder
 import android.os.IBinder
-import com.jqorz.test.util.ToastUtil
+import com.jqorz.common.Logg
 
 /**
  * @author jqorz
@@ -24,12 +24,28 @@ class TestService : Service() {
         return "hello"
     }
 
+    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        Logg.i("onStartCommand")
+        return START_STICKY
+    }
+
+    override fun onCreate() {
+        Logg.i("onCreate")
+        super.onCreate()
+    }
+
     override fun onBind(intent: Intent?): IBinder? {
+        Logg.i("onBind")
         return binder
     }
 
+    override fun onUnbind(intent: Intent?): Boolean {
+        Logg.i("onUnbind")
+        return super.onUnbind(intent)
+    }
+
     override fun onDestroy() {
-        ToastUtil.showToast("销毁了")
+        Logg.i("onDestroy")
         super.onDestroy()
     }
 

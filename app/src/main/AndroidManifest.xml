@@ -93,6 +93,8 @@
         <activity android:name="com.jqorz.test.thread.crash.CrashActivity" />
         <activity android:name="com.jqorz.test.framework.networkstate.NetworkStateActivity" />
         <activity android:name=".framework.thread.ThreadTestActivity" />
+        <activity android:name=".basemodule.service.ServiceTestActivity" />
+        <activity android:name=".basemodule.service.ServiceTestActivity" />
 
         <provider
             android:name="com.jqorz.test.fundot.FundotProvider"
@@ -105,6 +107,8 @@
             android:exported="true"
             android:readPermission="com.datedu.launcher.provider.READ"
             android:writePermission="com.datedu.launcher.provider.WRITE" />
+
+        <service android:name=".basemodule.service.TestService" />
     </application>
 
 
