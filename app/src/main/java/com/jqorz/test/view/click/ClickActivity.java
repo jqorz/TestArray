@@ -35,19 +35,19 @@ public class ClickActivity extends AppCompatActivity {
             Log.i(TAG, "click parent");
             ToastUtil.showToast(ClickActivity.this, "parent");
         });
-        final TouchView child = findViewById(R.id.child);
-        child.setOnClickListener(v -> {
-            Log.i("jqjq", "click child");
-        });
+//        final TouchView child = findViewById(R.id.child);
+//        child.setOnClickListener(v -> {
+//            Log.i("jqjq", "click child");
+//        });
 //        child.setOnTouchListener((v,event) ->{
 //            Log.i("jqjq", "touchListener");
 //            return true;
 //        });
-        findViewById(R.id.btn_1).setOnClickListener(v -> {
-            showText(child);
-            child.setTranslationX(dp2px(20));
-            showText(child);
-        });
+//        findViewById(R.id.btn_1).setOnClickListener(v -> {
+//            showText(child);
+//            child.setTranslationX(dp2px(20));
+//            showText(child);
+//        });
     }
 
     private void showText(View view) {

@@ -11,6 +11,11 @@ import com.jqorz.common.Logg
  * @since  2021/8/21
  */
 class TouchView constructor(context: Context, attrs: AttributeSet?) : View(context, attrs) {
+
+    init {
+        isEnabled = false
+    }
+
     override fun onTouchEvent(event: MotionEvent): Boolean {
         when (event.action) {
             MotionEvent.ACTION_CANCEL -> {

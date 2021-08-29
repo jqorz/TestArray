@@ -32,6 +32,7 @@
     <com.jqorz.test.view.click.TouchView
         android:id="@+id/child"
         android:layout_width="100dp"
+        android:clickable="true"
         android:layout_height="100dp"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="10dp"
