@@ -31,7 +31,6 @@ object CoroutineTest4 {
             println("66")
             b1.await()
             println("77")
-
         }
         Thread.sleep(500)
     }
