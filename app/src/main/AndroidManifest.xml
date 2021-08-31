@@ -19,8 +19,6 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
-    <uses-permission android:name="jqorz"/>
-
     <permission
         android:name="com.datedu.launcher.provider.READ"
         android:protectionLevel="normal" />
@@ -99,11 +97,13 @@
         <activity
             android:name=".basemodule.activity.life.LifeTest2Activity"
             android:label="LifeTest2Activity"
-            android:taskAffinity=".a" />
+            android:launchMode="singleInstance"
+            android:taskAffinity="com.jqorz.test" />
         <activity
             android:name=".basemodule.activity.life.LifeTestActivity"
-            android:label="LifeTestActivity" />
-        <activity android:name=".basemodule.service.messenger.MessengerClintActivity" />
+            android:label="LifeTestActivity"
+            android:launchMode="singleTask"
+            android:taskAffinity="com.jqorz.test" />
 
         <provider
             android:name="com.jqorz.test.fundot.FundotProvider"
@@ -118,9 +118,6 @@
             android:writePermission="com.datedu.launcher.provider.WRITE" />
 
         <service android:name=".basemodule.service.TestService" />
-        <service
-            android:name=".basemodule.service.messenger.Messenger1Service"
-            android:process=":test" />
     </application>
 
 
