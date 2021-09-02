@@ -1,4 +1,4 @@
-package com.jqorz.test2.main
+package com.jqorz.test2
 
 import android.view.View
 import android.widget.TextView
@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.jqorz.common.base.BaseActivity
-import com.jqorz.test2.R
 import com.jqorz.test2.contentprovider.ContentProviderClientActivity
 import com.jqorz.test2.music.MusicPlayActivity
 
@@ -35,4 +34,7 @@ class MainActivity : BaseActivity() {
     override fun getLayoutResId(): Int {
         return R.layout.activity_main
     }
+
+    class ItemBean(val text: String, val runnable: Runnable)
+
 }

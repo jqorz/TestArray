@@ -14,6 +14,7 @@ import com.jqorz.test.basemodule.broadcast.SendBroadActivity
 import com.jqorz.test.basemodule.content_provider.ContentProviderActivity
 import com.jqorz.test.basemodule.service.ServiceTestActivity
 import com.jqorz.test.basemodule.service.aidl.AIDLActivity
+import com.jqorz.test.basemodule.service.messenger.MessengerClintActivity
 import com.jqorz.test.framework.mac.MacActivity
 import com.jqorz.test.framework.networkstate.NetworkStateActivity
 import com.jqorz.test.framework.themeAttr.ThemeActivity
@@ -79,6 +80,7 @@ class MainActivity : BaseActivity() {
         mAdapter.addData(ItemBean("测试丰豆") { FundotActivity.start(mContext!!) })
         mAdapter.addData(ItemBean("service") { ServiceTestActivity.start(mContext!!) })
         mAdapter.addData(ItemBean("生命周期") { LifeTestActivity.start(mContext!!) })
+        mAdapter.addData(ItemBean("messenger") { MessengerClintActivity.start(mContext!!) })
 
 
     }
