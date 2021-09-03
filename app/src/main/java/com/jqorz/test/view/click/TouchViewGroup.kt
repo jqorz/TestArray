@@ -17,7 +17,7 @@ class TouchViewGroup constructor(context: Context, attrs: AttributeSet?) : Frame
     }
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
-        Logg.i("TouchViewGroup", "onTouchEvent ACTION_UP")
+        Logg.i("TouchViewGroup", event.action)
         when (event.action) {
             MotionEvent.ACTION_CANCEL -> {
                 Logg.i("TouchViewGroup", "onTouchEvent ACTION_CANCEL")

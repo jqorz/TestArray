@@ -17,19 +17,20 @@ class TouchView constructor(context: Context, attrs: AttributeSet?) : View(conte
     }
 
     override fun dispatchTouchEvent(event: MotionEvent?): Boolean {
-        return false
+        return true
     }
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
+        Logg.i("TouchView", event.action)
         when (event.action) {
             MotionEvent.ACTION_CANCEL -> {
-                Logg.i("jqjq", "onTouchEvent ACTION_CANCEL")
+                Logg.i("TouchView", "onTouchEvent ACTION_CANCEL")
             }
             MotionEvent.ACTION_OUTSIDE -> {
-                Logg.i("jqjq", "onTouchEvent ACTION_OUTSIDE")
+                Logg.i("TouchView", "onTouchEvent ACTION_OUTSIDE")
             }
             MotionEvent.ACTION_UP -> {
-                Logg.i("jqjq", "onTouchEvent ACTION_UP")
+                Logg.i("TouchView", "onTouchEvent ACTION_UP")
             }
 
         }
