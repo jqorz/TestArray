@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.hi.dhl.binding.viewbind
 import com.jqorz.test.R
 import com.jqorz.test.databinding.ActivityWifiBinding
 
@@ -22,7 +23,7 @@ class KtWifiInfoActivity : AppCompatActivity(), View.OnClickListener {
     private var mWifiManager: WifiManager? = null
     private var mConnectivityManager: ConnectivityManager? = null
     private val TAG = WifiConnectActivity::class.java.name
-    private lateinit var binding: ActivityWifiBinding
+    private val binding by viewbind<ActivityWifiBinding>()
 
     companion object {
         fun starter(context: Context) {
@@ -33,8 +34,6 @@ class KtWifiInfoActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityWifiBinding.inflate(layoutInflater)
-        setContentView(R.layout.activity_wifi)
         initView()
     }
 

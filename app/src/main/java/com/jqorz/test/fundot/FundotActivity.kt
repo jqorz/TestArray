@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.hi.dhl.binding.viewbind
 import com.jqorz.common.fundot.ProviderManger
 import com.jqorz.test.R
-import com.jqorz.test.databinding.ActivityFundotTestBinding
 
 
 /**
@@ -19,7 +18,7 @@ class FundotActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var providerManger: ProviderManger
 
-    private val binding by viewbind<ActivityFundotTestBinding>()
+    private val binding by viewbind<com.jqorz.test.databinding.ActivityFundotTestBinding>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
