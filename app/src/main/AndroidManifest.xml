@@ -98,12 +98,12 @@
             android:name=".basemodule.activity.life.LifeTest2Activity"
             android:label="LifeTest2Activity"
             android:launchMode="singleInstance"
-            android:taskAffinity="com.jqorz.test" />
+            android:taskAffinity=":a" />
         <activity
             android:name=".basemodule.activity.life.LifeTestActivity"
             android:label="LifeTestActivity"
-            android:launchMode="singleTask"
-            android:taskAffinity="com.jqorz.test" />
+            android:launchMode="singleInstance"
+            android:taskAffinity=":a" />
 
         <provider
             android:name="com.jqorz.test.fundot.FundotProvider"
