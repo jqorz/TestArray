@@ -33,7 +33,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name="com.jqorz.test.view.sign.SignPadActivity" />
 
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -43,7 +42,7 @@
         </activity>
 
         <activity android:name="com.jqorz.test.js.WebViewActivity" />
-
+        <activity android:name="com.jqorz.test.view.sign.SignPadActivity" />
         <activity android:name="com.jqorz.test.view.multi_touch.MultiTouchActivity" />
         <activity android:name="com.jqorz.test.view.write.WriteActivity" />
         <activity android:name="com.jqorz.test.videoServer.VideoActivity" />

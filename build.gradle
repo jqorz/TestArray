@@ -25,6 +25,11 @@ allprojects {
         mavenCentral()
         maven { url "https://jitpack.io" }
     }
+//    configurations.all{
+//        resolutionStrategy{
+//            force 'androidx.appcompat:appcompat:1.2.0'
+//        }
+//    }
 }
 
 task clean(type: Delete) {

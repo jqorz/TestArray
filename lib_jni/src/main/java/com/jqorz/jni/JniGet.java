@@ -14,4 +14,14 @@ public class JniGet {
     }
 
     public static native String getHello();
+
+//    public static native int getResult();
+
+    public int getNum1() {
+        return 2;
+    }
+
+    public int getNum2() {
+        return 2;
+    }
 }

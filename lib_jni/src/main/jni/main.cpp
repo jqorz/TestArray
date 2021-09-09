@@ -13,11 +13,36 @@ extern "C" {
  * Method:    getHello
  * Signature: ()Ljava/lang/String;
  */
+
+static const char *className = "com/jqorz/jni/JniGet";
+
 JNIEXPORT jstring JNICALL Java_com_jqorz_jni_JniGet_getHello
-  (JNIEnv *env, jclass){
-  std::string hello = "1112";
-  return (*env).NewStringUTF(hello.c_str());
-  }
+        (JNIEnv *env, jclass) {
+  //获取类
+  jclass clazz = (env)->FindClass(className);
+  //获取类构造方法
+  jmethodID jmethod1 = (env)->GetMethodID(clazz, "<init>", "()V");
+  //获取类实例
+  jobject jobject1 = (env)->NewObject(clazz, jmethod1);
+
+  //获取想调用的方法
+  jmethodID jmethod2 = (env)->GetMethodID(clazz, "getNum1", "()I");
+  //调用方法
+  jint num1 = (env)->CallIntMethod(jobject1, jmethod2);
+
+  //获取想调用的方法
+  jmethodID jmethod3 = (env)->GetMethodID(clazz, "getNum2", "()I");
+  //调用方法
+  jint num2 = (env)->CallIntMethod(jobject1, jmethod3);
+
+  char buf[64];
+  sprintf(buf, "%d", num1 + num2);
+
+  env->DeleteLocalRef(clazz);
+  env->DeleteLocalRef(jobject1);
+
+  return (*env).NewStringUTF(buf);
+}
 
 #ifdef __cplusplus
 }

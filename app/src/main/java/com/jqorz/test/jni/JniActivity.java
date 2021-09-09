@@ -4,9 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.TextView;
 
+import com.jqorz.common.base.BaseActivity;
 import com.jqorz.jni.JniGet;
 import com.jqorz.test.R;
-import com.jqorz.common.base.BaseActivity;
 
 /**
  * copyright datedu
