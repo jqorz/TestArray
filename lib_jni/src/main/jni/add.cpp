@@ -8,12 +8,12 @@ extern "C" {
 
 static const char *className = "com/jqorz/jni/JniGet";
 
-static int addNum(JNIEnv *env) {
+static jint addNum(JNIEnv *env) {
     return 1;
 }
 
 static JNINativeMethod gJni_Methods_table[] = {
-        {"getResult", "(V)I", (jint *) addNum}
+        {"getResult", "()I", (jint *) addNum}
 };
 
 static int jniRegisterNativeMethods(JNIEnv *env, const char *className,
@@ -23,8 +23,8 @@ static int jniRegisterNativeMethods(JNIEnv *env, const char *className,
         return -1;
     }
 
-    int result = 0;
-    if ((env)->RegisterNatives(clazz, gJni_Methods_table, numMethods) < 0) {
+    jint result = 0;
+    if ((env)->RegisterNatives(clazz, gMethod, numMethods) < 0) {
         return -1;
     }
     (env)->DeleteLocalRef(clazz);
@@ -33,9 +33,8 @@ static int jniRegisterNativeMethods(JNIEnv *env, const char *className,
 
 jint JNI_OnLoad(JavaVM *vm, void *reserved) {
     JNIEnv *env = nullptr;
-    jint result = -1;
     if (vm->GetEnv((void **) &env, JNI_VERSION_1_4) != JNI_OK) {
-        return result;
+        return JNI_ERR;
     }
 
     jniRegisterNativeMethods(env, className, gJni_Methods_table, sizeof gJni_Methods_table);
