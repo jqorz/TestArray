@@ -20,14 +20,14 @@ JNIEXPORT jstring JNICALL Java_com_jqorz_jni_JniGet_getHello
         (JNIEnv *env, jclass) {
   //获取类
   jclass clazz = (env)->FindClass(className);
-  //获取类构造方法
+  //获取类构造方法id
   jmethodID jmethod1 = (env)->GetMethodID(clazz, "<init>", "()V");
-  //获取类实例
+  //通过构造方法id获取类实例
   jobject jobject1 = (env)->NewObject(clazz, jmethod1);
 
-  //获取想调用的方法
+  //获取想调用的方法id
   jmethodID jmethod2 = (env)->GetMethodID(clazz, "getNum1", "()I");
-  //调用方法
+  //通过实例和方法id调用方法
   jint num1 = (env)->CallIntMethod(jobject1, jmethod2);
 
   //获取想调用的方法
