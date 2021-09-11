@@ -13,9 +13,9 @@ public class JniGet {
         System.loadLibrary("jni_test");
     }
 
-    public static native String getHello();
+//    public static native String getHello();
 
-//    public static native int getResult();
+    public static native int getResult();
 
     public int getNum1() {
         return 2;

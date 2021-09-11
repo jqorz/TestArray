@@ -23,7 +23,7 @@ public class JniActivity extends BaseActivity {
     @Override
     protected void init() {
         TextView tv_text = findViewById(R.id.tv_text);
-        tv_text.setText(JniGet.getHello());
+        tv_text.setText(JniGet.getResult());
     }
 
     @Override

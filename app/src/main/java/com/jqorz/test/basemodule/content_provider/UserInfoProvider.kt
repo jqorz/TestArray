@@ -31,7 +31,7 @@ class UserInfoProvider : ContentProvider() {
         return false
     }
 
-    private fun appendIdParamsIfNeed(uri: Uri, selection: String?): String? {
+    private fun appendIdParamsIfNeed(uri: Uri, selection: String?): String {
         val id = ContentUris.parseId(uri)
         var where = "${ProviderConstant.COLUMN_ID} = $id"
         if (selection?.isNotEmpty() == true) {
@@ -58,7 +58,7 @@ class UserInfoProvider : ContentProvider() {
     }
 
 
-    override fun insert(uri: Uri, values: ContentValues?): Uri? {
+    override fun insert(uri: Uri, values: ContentValues?): Uri {
         val db = dbOpenHelper.writableDatabase
         when (MATCHER.match(uri)) {
             CODE_USER_INFO_DIR -> {
