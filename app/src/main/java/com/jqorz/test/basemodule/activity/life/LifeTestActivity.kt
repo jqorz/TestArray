@@ -1,5 +1,6 @@
 package com.jqorz.test.basemodule.activity.life
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -21,53 +22,59 @@ class LifeTestActivity : BaseActivity() {
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
-        Logg.i("onSaveInstanceState")
+        Logg.i("jqjq1", "onSaveInstanceState")
         super.onSaveInstanceState(outState)
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
-        Logg.i("onRestoreInstanceState")
+        Logg.i("jqjq1", "onRestoreInstanceState")
         super.onRestoreInstanceState(savedInstanceState)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        Logg.i("jqjq2", "onCreate")
+        Logg.i("jqjq1", "onCreate")
         super.onCreate(savedInstanceState)
     }
 
     override fun onStart() {
-        Logg.i("onStart")
+        Logg.i("jqjq1", "onStart")
         super.onStart()
     }
 
     override fun onRestart() {
-        Logg.i("onRestart")
+        Logg.i("jqjq1", "onRestart")
         super.onRestart()
     }
 
     override fun onResume() {
-        Logg.i("onResume")
+        Logg.i("jqjq1", "onResume")
         super.onResume()
     }
 
     override fun onPause() {
-        Logg.i("onPause")
+        Logg.i("jqjq1", "onPause")
         super.onPause()
     }
 
     override fun onStop() {
-        Logg.i("onStop")
+        Logg.i("jqjq1", "onStop")
         super.onStop()
     }
 
     override fun onDestroy() {
-        Logg.i("onDestroy")
+        Logg.i("jqjq1", "onDestroy")
         super.onDestroy()
     }
 
     override fun onNewIntent(intent: Intent?) {
-        Logg.i("jqjq2", "onNewIntent")
+        Logg.i("jqjq1", "onNewIntent")
         super.onNewIntent(intent)
+    }
+
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        Logg.i("jqjq1", "onActivityResult resultCode=${resultCode}")
+        super.onActivityResult(requestCode, resultCode, data)
     }
 
     override fun getLayoutResId(): Int {

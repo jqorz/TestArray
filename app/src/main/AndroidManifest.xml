@@ -94,15 +94,11 @@
         <activity android:name=".framework.thread.ThreadTestActivity" />
         <activity android:name=".basemodule.service.ServiceTestActivity" />
         <activity
-            android:name=".basemodule.activity.life.LifeTest2Activity"
-            android:label="LifeTest2Activity"
-            android:launchMode="singleInstance"
-            android:taskAffinity=":a" />
-        <activity
             android:name=".basemodule.activity.life.LifeTestActivity"
-            android:label="LifeTestActivity"
-            android:launchMode="singleInstance"
-            android:taskAffinity=":a" />
+            android:label="LifeTestActivity" />
+        <activity
+            android:name=".basemodule.activity.life.LifeTest2Activity"
+            android:label="LifeTest2Activity" />
 
         <provider
             android:name="com.jqorz.test.fundot.FundotProvider"

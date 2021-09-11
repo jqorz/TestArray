@@ -1,6 +1,6 @@
 package com.jqorz.test.basemodule.activity.life
 
-import android.content.Context
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -73,10 +73,10 @@ class LifeTest2Activity : BaseActivity() {
 
     companion object {
         @JvmStatic
-        fun start(context: Context) {
+        fun start(context: Activity) {
             val starter = Intent(context, LifeTest2Activity::class.java)
             starter.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            context.startActivity(starter)
+            context.startActivityForResult(starter, 123)
         }
     }
 }
