@@ -73,8 +73,10 @@ class LifeTestActivity : BaseActivity() {
 
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        Logg.i("jqjq1", "onActivityResult resultCode=${resultCode}")
-        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == 123) {
+            Logg.i("jqjq1", "onActivityResult resultCode=${resultCode}")
+            super.onActivityResult(requestCode, resultCode, data)
+        }
     }
 
     override fun getLayoutResId(): Int {
