@@ -1,14 +1,14 @@
-package com.example.jqorz.test1;
+package com.example.jqorz.mvptest;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.jqorz.test1.mvp.MvpView;
-import com.example.jqorz.test1.mvp.delegate.activity.ActivityDelegate;
-import com.example.jqorz.test1.mvp.delegate.activity.ActivityDelegateImp;
-import com.example.jqorz.test1.mvp.delegate.activity.ActivityMvpDelegateCallback;
-import com.example.jqorz.test1.mvp.presenters.MvpPresenter;
+import com.example.jqorz.mvptest.lib.MvpView;
+import com.example.jqorz.mvptest.lib.delegate.activity.ActivityDelegate;
+import com.example.jqorz.mvptest.lib.delegate.activity.ActivityDelegateImp;
+import com.example.jqorz.mvptest.lib.delegate.activity.ActivityMvpDelegateCallback;
+import com.example.jqorz.mvptest.lib.presenters.MvpPresenter;
 
 
 /**
@@ -64,9 +64,7 @@ public abstract class BaseMvpActivity<P extends MvpPresenter<V>, V extends MvpVi
 
     @Override
     //这个方法由MvpInternalDelegate 调用 BaseDelegateCallback 来创建Presenter
-    public P createPresenter()
-
-    {
+    public P createPresenter() {
         mPresenter = CreatePresenter();
         return mPresenter;
     }

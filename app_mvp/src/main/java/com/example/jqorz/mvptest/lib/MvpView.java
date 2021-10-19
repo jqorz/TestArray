@@ -1,8 +1,7 @@
-package com.example.jqorz.test1.mvp;
+package com.example.jqorz.mvptest.lib;
 
 /**
  * View的基础类
- *
  */
 public interface MvpView {
 }

@@ -1,15 +1,12 @@
-package com.example.jqorz.test1.mvp.presenters;
+package com.example.jqorz.mvptest.lib.presenters;
 
 
-
-import com.example.jqorz.test1.mvp.MvpView;
+import com.example.jqorz.mvptest.lib.MvpView;
 
 import java.lang.ref.WeakReference;
 
 /**
  * 避免内存泄漏，使用弱引用，并在退出Activity时销毁持有的Activity
- *
- * @param <V>
  */
 public abstract class BasePresenter<V extends MvpView> implements MvpPresenter<V> {
     private WeakReference<V> reference;

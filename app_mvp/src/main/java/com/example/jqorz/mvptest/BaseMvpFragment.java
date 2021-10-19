@@ -1,4 +1,4 @@
-package com.example.jqorz.test1;
+package com.example.jqorz.mvptest;
 
 
 import android.os.Bundle;
@@ -8,11 +8,11 @@ import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.jqorz.test1.mvp.MvpView;
-import com.example.jqorz.test1.mvp.delegate.fragment.FragmentDelegate;
-import com.example.jqorz.test1.mvp.delegate.fragment.FragmentDelegateImp;
-import com.example.jqorz.test1.mvp.delegate.fragment.FragmentMvpDelegateCallback;
-import com.example.jqorz.test1.mvp.presenters.MvpPresenter;
+import com.example.jqorz.mvptest.lib.MvpView;
+import com.example.jqorz.mvptest.lib.delegate.fragment.FragmentDelegate;
+import com.example.jqorz.mvptest.lib.delegate.fragment.FragmentDelegateImp;
+import com.example.jqorz.mvptest.lib.delegate.fragment.FragmentMvpDelegateCallback;
+import com.example.jqorz.mvptest.lib.presenters.MvpPresenter;
 
 
 /**

@@ -1,7 +1,6 @@
-package com.example.jqorz.test1.main;
+package com.example.jqorz.mvptest.demo;
 
 /**
- * Created by jqorz on 2017/9/2.
  * 主界面的Model类，用于数据的获取
  */
 
@@ -16,7 +15,7 @@ public class MainModel {
         String response = "response";
         String error = "error";
         //执行数据获取的逻辑
-        listener.onSucc(response);
+        listener.onSuccess(response);
         listener.onFail(error);
     }
 }

@@ -1,13 +1,12 @@
-package com.example.jqorz.test1.mvp.delegate.activity;
+package com.example.jqorz.mvptest.lib.delegate.activity;
 
 
-import com.example.jqorz.test1.mvp.MvpView;
-import com.example.jqorz.test1.mvp.delegate.BaseDelegateCallback;
-import com.example.jqorz.test1.mvp.delegate.MvpInternalDelegate;
-import com.example.jqorz.test1.mvp.presenters.MvpPresenter;
+import com.example.jqorz.mvptest.lib.MvpView;
+import com.example.jqorz.mvptest.lib.delegate.BaseDelegateCallback;
+import com.example.jqorz.mvptest.lib.delegate.MvpInternalDelegate;
+import com.example.jqorz.mvptest.lib.presenters.MvpPresenter;
 
 /**
- * Created by jqorz on 2017/8/28.
  * 实现了ActivityDelegate，在生命周期里控制Presenter与MvpView：
  * 当Activity执行到各个生命周期时，这里会执行对应的生命周期
  */

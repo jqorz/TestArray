@@ -1,7 +1,7 @@
-package com.example.jqorz.test1.main;
+package com.example.jqorz.mvptest.demo;
 
-import com.example.jqorz.test1.BaseMvpActivity;
-import com.example.jqorz.test1.R;
+import com.example.jqorz.mvptest.BaseMvpActivity;
+import com.example.jqorz.mvptest.R;
 
 /**
  * 主界面的activity

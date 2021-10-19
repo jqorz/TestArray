@@ -1,11 +1,8 @@
-package com.example.jqorz.test1.main;
+package com.example.jqorz.mvptest.demo;
 
-import com.example.jqorz.test1.mvp.MvpView;
-import com.example.jqorz.test1.mvp.presenters.MvpPresenter;
+import com.example.jqorz.mvptest.lib.MvpView;
+import com.example.jqorz.mvptest.lib.presenters.MvpPresenter;
 
-/**
- * Created by jqorz on 2017/9/1.
- */
 
 public class MainContract {
     public interface IMainView extends MvpView {
@@ -27,7 +24,7 @@ public class MainContract {
 
     //这是Model的数据获取接口
     public interface onGetData {
-        void onSucc(String data);
+        void onSuccess(String data);
 
         void onFail(String error);
     }

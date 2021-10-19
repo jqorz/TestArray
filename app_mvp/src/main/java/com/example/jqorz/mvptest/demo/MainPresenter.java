@@ -1,14 +1,10 @@
-package com.example.jqorz.test1.main;
+package com.example.jqorz.mvptest.demo;
 
-import com.example.jqorz.test1.mvp.presenters.BasePresenter;
-
-/**
- * Created by jqorz on 2017/9/1.
- */
+import com.example.jqorz.mvptest.lib.presenters.BasePresenter;
 
 public class MainPresenter extends BasePresenter<MainContract.IMainView> implements MainContract.IMainPresenter, MainContract.onGetData {
     private MainContract.IMainView view;
-    private MainModel model=new MainModel();
+    private final MainModel model = new MainModel();
 
     @Override
     public void init() {
@@ -27,7 +23,7 @@ public class MainPresenter extends BasePresenter<MainContract.IMainView> impleme
     }
 
     @Override
-    public void onSucc(String data) {
+    public void onSuccess(String data) {
         //执行对界面的操作
         view.method1();
     }

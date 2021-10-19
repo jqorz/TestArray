@@ -1,7 +1,7 @@
-package com.example.jqorz.test1.mvp.presenters;
+package com.example.jqorz.mvptest.lib.presenters;
 
 
-import com.example.jqorz.test1.mvp.MvpView;
+import com.example.jqorz.mvptest.lib.MvpView;
 
 /**
  * Presenter的基础类，控制的MvpView的子类
