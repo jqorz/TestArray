@@ -1,5 +1,6 @@
 include ':app'
 include ':app_other'
+include ':app_mvp'
 include ':lib_xwalk'
 include ':lib_jni'
 include ':lib_common'
