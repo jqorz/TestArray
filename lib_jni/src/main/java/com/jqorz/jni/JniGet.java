@@ -1,5 +1,8 @@
 package com.jqorz.jni;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * copyright datedu
  *
@@ -13,14 +16,26 @@ public class JniGet {
         System.loadLibrary("jni_test");
     }
 
-//    public static native String getHello();
+    public static native String getHello();
 
-    public static native int getResult();
+    public static native void getListFromJava();
 
+//    public static native int getResult();
+
+    public static List<JniBean> getDataList() {
+        ArrayList<JniBean> list = new ArrayList<>();
+        list.add(new JniBean("jqjq1"));
+        list.add(new JniBean("jqjq2"));
+        list.add(new JniBean("jqjq3"));
+        return list;
+    }
+
+    //call from native
     public int getNum1() {
         return 2;
     }
 
+    //call from native
     public int getNum2() {
         return 2;
     }

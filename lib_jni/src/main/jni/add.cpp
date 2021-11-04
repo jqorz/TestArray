@@ -6,41 +6,41 @@
 extern "C" {
 #endif
 
-static const char *className = "com/jqorz/jni/JniGet";
-
-static jint addNum(JNIEnv *env) {
-    return 1;
-}
-
-static JNINativeMethod gJni_Methods_table[] = {
-        {"getResult", "()I", (jint *) addNum}
-};
-
-static int jniRegisterNativeMethods(JNIEnv *env, const char *className,
-                                    const JNINativeMethod *gMethod, int numMethods) {
-    jclass clazz = (env)->FindClass(className);
-    if (clazz == nullptr) {
-        return -1;
-    }
-
-    jint result = 0;
-    if ((env)->RegisterNatives(clazz, gMethod, numMethods) < 0) {
-        return -1;
-    }
-    (env)->DeleteLocalRef(clazz);
-    return result;
-}
-
-jint JNI_OnLoad(JavaVM *vm, void *reserved) {
-    JNIEnv *env = nullptr;
-    if (vm->GetEnv((void **) &env, JNI_VERSION_1_4) != JNI_OK) {
-        return JNI_ERR;
-    }
-
-    jniRegisterNativeMethods(env, className, gJni_Methods_table, sizeof gJni_Methods_table);
-
-    return JNI_VERSION_1_4;
-}
+//static const char *className = "com/jqorz/jni/JniGet";
+//
+//static jint addNum(JNIEnv *env) {
+//    return 1;
+//}
+//
+//static JNINativeMethod gJni_Methods_table[] = {
+//        {"getResult", "()I", (jint *) addNum}
+//};
+//
+//static int jniRegisterNativeMethods(JNIEnv *env, const char *className,
+//                                    const JNINativeMethod *gMethod, int numMethods) {
+//    jclass clazz = (env)->FindClass(className);
+//    if (clazz == nullptr) {
+//        return -1;
+//    }
+//
+//    jint result = 0;
+//    if ((env)->RegisterNatives(clazz, gMethod, numMethods) < 0) {
+//        return -1;
+//    }
+//    (env)->DeleteLocalRef(clazz);
+//    return result;
+//}
+//
+//jint JNI_OnLoad(JavaVM *vm, void *reserved) {
+//    JNIEnv *env = nullptr;
+//    if (vm->GetEnv((void **) &env, JNI_VERSION_1_4) != JNI_OK) {
+//        return JNI_ERR;
+//    }
+//
+//    jniRegisterNativeMethods(env, className, gJni_Methods_table, sizeof gJni_Methods_table);
+//
+//    return JNI_VERSION_1_4;
+//}
 
 
 #ifdef __cplusplus
