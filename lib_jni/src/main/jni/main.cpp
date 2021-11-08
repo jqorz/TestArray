@@ -59,9 +59,11 @@ Java_com_jqorz_jni_JniGet_getListFromJava(JNIEnv *env, jclass) {
     //获取类
     jclass aClass = (env)->FindClass(className);
     //获取想调用的方法id
-    jmethodID _midGetDataList = (env)->GetStaticMethodID(aClass, "getDataList","()Ljava/util/List;");
+    jmethodID _midGetDataList = (env)->GetStaticMethodID(aClass, "getDataList",
+                                                         "(Z)Ljava/util/List;");
+    int sb =1;
     //通过实例和方法id调用方法
-    jobject _obejctList = (env)->CallStaticObjectMethod(aClass, _midGetDataList);
+    jobject _obejctList = (env)->CallStaticObjectMethod(aClass, _midGetDataList,sb);
 
     int i;
     //class ArrayList
@@ -76,10 +78,12 @@ Java_com_jqorz_jni_JniGet_getListFromJava(JNIEnv *env, jclass) {
         jobject obj_user = env->CallObjectMethod(_obejctList, arraylist_get, i);
         jclass cls_user = env->GetObjectClass(obj_user);
         jmethodID user_getUserName = env->GetMethodID(cls_user, "getStuName","()Ljava/lang/String;");
+        jmethodID user_getAge = env->GetMethodID(cls_user, "getAge","()I");
         auto name = (jstring) env->CallObjectMethod(obj_user, user_getUserName);
+        jint age =env->CallIntMethod(obj_user,user_getAge);
         jboolean b = true;
         const char *namePtr = env->GetStringUTFChars(name, &b);
-        LOGI("Name:%s; ", namePtr);
+        LOGI("Name:name =%s, age = %d ", namePtr,age);
     }
 
 

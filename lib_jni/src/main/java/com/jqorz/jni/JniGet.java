@@ -22,11 +22,11 @@ public class JniGet {
 
 //    public static native int getResult();
 
-    public static List<JniBean> getDataList() {
+    private static List<JniBean> getDataList(boolean sb) {
         ArrayList<JniBean> list = new ArrayList<>();
-        list.add(new JniBean("jqjq1"));
-        list.add(new JniBean("jqjq2"));
-        list.add(new JniBean("jqjq3"));
+        list.add(new JniBean("jqjq1 " + sb, 21));
+        list.add(new JniBean("jqjq2", 22));
+        list.add(new JniBean("jqjq3", 23));
         return list;
     }
 

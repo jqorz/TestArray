@@ -6,12 +6,18 @@ package com.jqorz.jni;
  */
 class JniBean {
     String stuName;
+    int age;
 
-    public JniBean(String stuName) {
+    public JniBean(String stuName, int age) {
         this.stuName = stuName;
+        this.age = age;
     }
 
     public String getStuName() {
         return stuName;
+    }
+
+    public int getAge() {
+        return age;
     }
 }
